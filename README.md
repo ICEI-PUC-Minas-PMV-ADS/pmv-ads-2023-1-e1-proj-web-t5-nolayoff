@@ -1,23 +1,25 @@
-# TÍTULO DO PROJETO
+# NOLAYOFF
 
-`CURSO`
+`Tecnologia em Análise e Desenv. de Sistemas`
 
-`DISCIPLINA`
+`Desenvolvimento de Aplicação Web Front-End`
 
-`SEMESTRE`
+`Primeiro semestre - Etapa 1`
 
 Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Henrique Nogueira do Prado
+* Joao Henrique Ourives De Oliveira Assumpcao
+* Juliane Rodrigues Ferreira
+* Rafael Cassiano Januário de Souza
+* Ricardo Pinto Chagas Costa
+* Tuerê Pinto
 
 ## Orientador
 
-* Nome completo do professor 1
+* Simone Alves Nogueira
 
 ## Instruções de utilização
 
