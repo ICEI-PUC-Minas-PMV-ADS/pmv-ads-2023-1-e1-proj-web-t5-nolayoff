@@ -6,7 +6,7 @@
 
 `Primeiro semestre - Etapa 1`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+Diante do cenário econômico atual muitas empresas justificam a prática do Layoff evidenciando a crise, queda nas operações, reestruturação dentre e outros fatores. Diante essa situação, esse projeto visa criar um sistema de apoio às pessoas que passaram pela perda de seus empregos e querem voltar ao mercado.
 
 ## Integrantes
 
@@ -20,10 +20,6 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 ## Orientador
 
 * Simone Alves Nogueira
-
-## Instruções de utilização
-
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
 
 # Documentação
 
