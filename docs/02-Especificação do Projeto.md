@@ -108,7 +108,7 @@ A tabela a seguir apresenta os requisitos do projeto, identificando a prioridade
 
 ## Restrições
 
-O projeto está restrito pelos itens apresentados na tabela a seguir.
+As questões que limitam a execução desse projeto e que se configuram como obrigações claras para o desenvolvimento do projeto em questão são apresentadas na tabela a seguir.
 
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
