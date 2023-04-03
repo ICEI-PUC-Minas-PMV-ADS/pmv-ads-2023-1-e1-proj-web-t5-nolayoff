@@ -11,7 +11,7 @@ Diante do cenário econômico atual muitas empresas justificam a prática do Lay
 ## Integrantes
 
 * Henrique Nogueira do Prado
-* Joao Henrique Ourives De Oliveira Assumpcao
+* João Henrique Ourives De Oliveira Assumpcao
 * Juliane Rodrigues Ferreira
 * Rafael Cassiano Januário de Souza
 * Ricardo Pinto Chagas Costa
