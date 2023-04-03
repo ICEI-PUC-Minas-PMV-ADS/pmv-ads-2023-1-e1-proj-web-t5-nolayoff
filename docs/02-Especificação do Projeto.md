@@ -1,91 +1,117 @@
 # Especificações do Projeto
 
-<span style="color:red">Pré-requisitos: <a href="1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
-
-Definição do problema e ideia de solução a partir da perspectiva do usuário. É composta pela definição do  diagrama de personas, histórias de usuários, requisitos funcionais e não funcionais além das restrições do projeto.
-
-Apresente uma visão geral do que será abordado nesta parte do documento, enumerando as técnicas e/ou ferramentas utilizadas para realizar a especificações do projeto
-
 ## Personas
 
-Pedro Paulo tem 26 anos, é arquiteto recém-formado e autônomo. Pensa em se desenvolver profissionalmente através de um mestrado fora do país, pois adora viajar, é solteiro e sempre quis fazer um intercâmbio. Está buscando uma agência que o ajude a encontrar universidades na Europa que aceitem alunos estrangeiros.
+As personas levantadas durante o processo de entendimento do problema são apresentadas abaixo que se seguem por nível e última atuação. Pessoas essas que são profissionais que têm cargo com uma nomenclatura divergente com a de mercado, suas qualificações se adequam às novas jornadas e seu tempo de experiência e variado.
 
-Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
+Primeiro caso é do Renato Machado, profissional que tem cargo com a nomenclatura divergente com a de mercado, suas qualificações demonstram ter boa bagagem de atuação com uma senioridade para cargos de gestão condizente.  
 
-> **Links Úteis**:
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Hotmart](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [Mapa de Empatia](https://resultadosdigitais.com.br/blog/mapa-da-empatia/)
-> - [Mapa de Stalkeholders](https://www.racecomunicacao.com.br/blog/como-fazer-o-mapeamento-de-stakeholders/)
->
-Lembre-se que você deve ser enumerar e descrever precisamente e personalizada todos os clientes ideais que sua solução almeja.
+|                                        | Renato Machado              |              
+|----------------------------------------|-----------------------------|
+| Idade: 49                              | Aplicativos:                |              
+| Gênero: Masculino                      | * Linkedin                  |
+| Estado civil: Solteiro                 | * Facebook                  |
+| Última Ocupação: Manager UX Sênior     |                             |
+
+Segundo caso é da Cecília Fernandez, profissional que tem cargo com a nomenclatura divergente com a de mercado, suas qualificações demonstram ter boa bagagem de atuação com uma senioridade para cargos de sênior. 
+
+|                                        | Cecília Fernandez           |              
+|----------------------------------------|-----------------------------|
+| Idade: 37                              | Aplicativos:                |              
+| Gênero: Feminino                       | * Linkedin                  |
+| Estado civil: Solteiro                 | * Instragram                |
+| Última Ocupação: Sênior Experience Desingner | * GitHub              |
+
+Terceiro caso é do Givanildo de Souza, profissional que tem cargo com a nomenclatura coerente com a de mercado, suas qualificações demonstram ter tido boa atuação para cargos de pleno, pois seu tempo de experiência e vivência são baixos para o cargo de senior. 
+
+|                                        | Givanildo de Souza          |              
+|----------------------------------------|-----------------------------|
+| Idade: 40                              | Aplicativos:                |              
+| Gênero: Marculino                      | * Linkedin                  |
+| Estado civil: Casado                   | * Instragram                |
+| Última Ocupação: Design Gráfico        |                             |
+
+Quarto caso é da Sara Bianchi, profissional que tem cargo com a nomenclatura coerente com a de mercado, suas qualificações demonstram ter pouca atuação diante ao mercado, pois seu tempo de experiência e vivência são baixos e busca por mais qualificações para atuar como júnior.  
+
+|                                        | Sara Bianchi                |              
+|----------------------------------------|-----------------------------|
+| Idade: 28                              | Aplicativos:                |              
+| Gênero: Feminino                       | * Linkedin                  |
+| Estado civil: Solteira                 | * Instragram                |
+| Última Ocupação: Analista de Sistemas  | * GitHub                    |
+
+Quinto caso é do Pedro Moraes, estudante, demonstram ter interesse de atuar como trainer, pois seu tempo de experiência e vivência são baixos ou quase zero e busca por mais qualificações para atuar como trainer.  
+
+|                                        | Pedro Moraes                |              
+|----------------------------------------|-----------------------------|
+| Idade: 20                              | Aplicativos:                |              
+| Gênero: Masculino                      | * Facebook                  |
+| Estado civil: Solteira                 | * Instragram                |
+| Última Ocupação: Cursando Gestão de Tecnologia da Informação - 4º período  | * GitHub                    |
 
 ## Histórias de Usuários
 
-Com base na análise das personas forma identificadas as seguintes histórias de usuários:
-
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
-
-Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
-
-> **Links Úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-> - [User Stories: requisitos que humanos entendem](https://www.luiztools.com.br/post/user-stories-descricao-de-requisitos-que-humanos-entendem/)
-> - [Histórias de Usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
-> - [9 Common User Story Mistakes](https://airfocus.com/blog/user-story-mistakes/)
+|Usuário -  Renato Machado | Poder realizar pesquisa de vagas. | Localizar com mais agilidade e objetividade vagas específicas. |
+|Usuário -  Renato Machado | Será dito quais empresas teriam interesse em contratar meu cargo. | Procurar informações da empresa antes de aceitar o trabalho. |
+|Usuário -  Renato Machado | Ter um resumo do histórico de uma empresa em relação a demissões e layoffs. | Reduzir as chances de aceitar empregos em empresas que poderiam demiti-lo facilmente. |
+|Usuário -  Cecília Fernandez | Ser consultada sobre os prazos determinados até a entrega do produto final. | Isso poderia trazer mais assertividade e melhores resultados. |
+|Usuário -  Cecília Fernandez | Mapear e entender o propósito do cliente, identificação os pontos mais importantes. | Gerar melhoria em suas acessibilidades e experiências dos usuários.  |
+|Usuário -  Givanildo de Souza | Poder realizar análise de perfis de usuários | Para poder realizar comparações e trocar experiências  |
+|Usuário -  Givanildo de Souza | Receber orientações ou sugestões de como posso chegar no cargo almejado. | Ter melhor visão e conhecimento das atualidades do mercado. |
+|Usuário -  Sara Bianchi | Networking | Ampliar o círculo de comunicação com pessoas  que já atuam diretamente no mercado de tecnologia. |
+|Usuário -  Sara Bianchi | Segurança nos meus dados profissionais/ pessoais compartilhados na plataforma. | Para evitar fraudes com meus dados. |
+|Usuário -  Sara Bianchi | Ferramenta para destacar os currículos com mais certificações, conhecimento e experiências. | Para ser os primeiros a serem visualizados por gestores ou analistas de recursos humanos que estão buscando por profissionais. |
+|Usuário -  Pedro Moraes | Cadastrar dados profissionais, pessoais e meios para contato. | Tornar mais ágil a comunicação no caso de empresas interessadas no perfil do candidato.|
+|Usuário -  Pedro Moraes | Receber feedback dos dados cadastrados em formato de notificações. | Facilitar a elaboração de um perfil no formato adequado para ter êxito em vagas ofertadas. |
+|Usuário -  Pedro Moraes | Indicações de qualificações extras (pagas ou gratuitas) - cursos rápidos na área desejada. | Agregar e complementar o perfil do usuário, tornando-o mais atrativo. |
+|Usuário -  Pedro Moraes | Poder realizar pesquisa de vagas. | Localizar com mais agilidade e objetividade vagas específicas. |
 
 ## Requisitos
 
-As tabelas que se seguem apresentam os requisitos funcionais e não funcionais que detalham o escopo do projeto.
+A tabela a seguir apresenta os requisitos do projeto, identificando a prioridade em que os mesmos devem ser entregues.
 
 ### Requisitos Funcionais
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+|RF-001| O sistema deve permitir a realização de cadastros, atualização, leitura e deleção "CRUD” para todos os usuários por meio do CPF, vinculado às informações pessoais e profissionais necessárias. | ALTA | 
+|RF-002| O sistema deve oferecer um menu adicional que permita ao usuário buscar por instituições parceiras que oferecem cursos na área de tecnologia. | MÉDIA |
+|RF-003| O sistema deve permitir que o usuário revise e possa alterar seus dados cadastrados, formações e disponibilidades.  | ALTA |
+|RF-004| O sistema não deve permitir cadastros duplicados | ALTA |
+|RF-005| O sistema deve aceitar cadastro de fotos de perfil. | BAIXA |
+|RF-006| O sistema contará com uma forma de análise de perfil e aderência às oportunidades, sugerindo melhorias ou adequações.  | MÉDIA |
+|RF-007| O sistema deverá contar com uma base de cadastros de parceiros, empresas de formação e empresas com oportunidades disponíveis. | BAIXA |
+|RF-008| O sistema deverá ter um portal de notícias de mercado. | BAIXA |
+|RF-009| O sistema deve permitir anexar arquivo caso o usuário deseje e informar os modelos permitidos. | MÉDIA |
+|RF-010| O sistema deve avisar o utilizador de qualquer novidade que eventualmente seja cadastrada como interesse. | ALTA |
+|RF-011| O Sistema deve permitir apenas a troca de senha no cadastro de acesso. | AOLTA |
+|RF-012| O sistema deve apresentar um histórico de visualização de perfil. | MÉDIA |
+|RF-013| O sistema deve apresentar na oportunidade de mercado conforme cadastro de interesse. | ALTA |
+|RF-014| O sistema deve permitir que o usuário cadastre o seu interesse de vaga, híbrido, home office ou presencial.  | ALTA |
 
 
 ### Requisitos não Funcionais
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
-
-Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
-
-- [Requisitos Funcionais
- (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
- correspondem a uma funcionalidade que deve estar presente na
-  plataforma (ex: cadastro de usuário).
-- [Requisitos Não Funcionais
-  (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade,
-  desempenho, confiabilidade, segurança ou outro (ex: suporte a
-  dispositivos iOS e Android).
-Lembre-se que cada requisito deve corresponder à uma e somente uma
-característica alvo da sua solução. Além disso, certifique-se de que
-todos os aspectos capturados nas Histórias de Usuário foram cobertos.
+|RNF-001| O sistema deverá ser responsivo permitindo a visualização do perfil do usuário após 30 segundos do login efetuado.  | MÉDIA | 
+|RNF-002| O sistema deve conter termos de uso transparentes, garantido que e informando que a oportunidade será igual a todos, que o sistema é uma ferramenta de apoio, não garante que a vaga será dada ao candidato por forma de prioridade.  |  ALTA | 
+|RNF-003| O sistema deve seguir e garantir a implementação da lei de segurança de dados LGPD. |  ALTA |
+|RNF-004| O sistema deverá manter e assegurar que os dados cadastrados são verdadeiros conforme cadastro do usuário. |  BAIXA |
+|RNF-005| O sistema terá um bom nível de usabilidade, garantindo que seja de fácil compreensão para o usuário.|  ALTA |
+|RNF-006| O sistema deve garantir uma boa navegabilidade e clareza nas informações. |  MÉDIA |
+|RNF-007| O sistema deve suportar melhorias e evolutivas |  MÉDIA |
+|RNF-008| O sistema deve ser acessível através de ferramentas WEB. |  ALTA |
+|RNF-009| O sistema deve conter recursos que possam possibilitar acessibilidade nas informações.  |  ALTA |
 
 ## Restrições
 
-O projeto está restrito pelos itens apresentados na tabela a seguir.
+As questões que limitam a execução desse projeto e que se configuram como obrigações claras para o desenvolvimento do projeto em questão são apresentadas na tabela a seguir.
 
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
-|01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
-
-
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
-
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
+|01| O projeto deverá ser entregue no final do semestre letivo, não podendo extrapolar a data de 25/06/2023. |
+|02| O aplicativo deve se restringir às tecnologias básicas da Web no Frontend        |
+|03| A equipe não pode subcontratar o desenvolvimento do trabalho. |
