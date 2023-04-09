@@ -1,7 +1,9 @@
 # Apresentação da Solução
 
-<a href="../docs/10-Apresentação do Projeto.md"> Orientações sobre os artefatos de apresentação do projeto</a>
+## Nolayoff  versão 1.0
 
-Faça uma apresentação resumida de todo o projeto, desde a contextualização até a solução final desenvolvida, usando um pequeno vídeo.
+Este conteúdo é relacioado a primera versão, ressalva que o mesmo pode sofre ajustes e melhorias ao decorrer do tempo.
 
-Faça o upload do arquivo de vídeo e dos slides usados na apresentação no formato PDF (caso tenha feito uso de slides).
+### Apresentação
+
+<a href="/pdf/Nolayoff.pdf" download="Slide Nolayoff">Download slide Nolayoff in PDF</a>
