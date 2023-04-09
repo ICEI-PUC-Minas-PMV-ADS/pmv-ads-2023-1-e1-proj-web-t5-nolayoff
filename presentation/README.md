@@ -6,4 +6,4 @@ Este conteúdo é relacioado a primera versão, ressalva que o mesmo pode sofre 
 
 ### Apresentação
 
-[nolayoff_slide.pdf](_pdf/Nolayoff.pdf)
+<a href="/pdf/Nolayoff.pdf" download="Slide Nolayoff">Download slide Nolayoff in PDF</a>
