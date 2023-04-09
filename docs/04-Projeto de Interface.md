@@ -1,11 +1,7 @@
 
 # Projeto de Interface
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
-
-Visão geral da interação do usuário pelas telas do sistema e protótipo interativo das telas com as funcionalidades que fazem parte do sistema (wireframes).
-
- Apresente as principais interfaces da plataforma. Discuta como ela foi elaborada de forma a atender os requisitos funcionais, não funcionais e histórias de usuário abordados nas <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a>.
+Uma das muitas responsabilidades do projeto é a modelagem da interface do sistema, focando na flexibilidade, usabilidade e agilidade, não deixando de lado a acessibilidade durante a navegação. Mantendo assim uma identidade visual padronizada durante toda a jornada do usuário, dividindo as entregas responsividade para uso web desktop e web mobile "acessível em navegadores pelo computador ou celulares".
 
 ## User Flow
 
@@ -21,15 +17,14 @@ Fluxo de usuário (User Flow) é uma técnica que permite ao desenvolvedor mapea
 
 ## Wireframes
 
+Como demonstrado no tópico de fluxo de usuário (User Flow), as telas seguem um padrão trocando apenas seu conteúdo central, destaques e notícias conforme interesse cadastrado. O sistema web se divide em um dentro de um esquema básico comum apresentado na figura abaixo. Demonstrando assim os elementos que são:
+
+* **Cabeçalho -** local onde são dispostos elementos fixos da identidade do sistema (Logo).
+* **Menu de sessão -** local que contém o menu de sessão responsavel pela troca do conteúdo central e tópicos de navegação.
+* **Interesses -** local que contém link's para parceiros de cursos, treinamentos. 
+* **Conteúdo -** local que contém a parte dinamica de informação e formularios do sistema.
+* **Destaque -** local que contém iténs de alta relevancia.
+* **Notícias -** local que contém notícias importantes sobre o mercado de trabalho.
+
 ![Wireframe](img/wireframe-Estrutura.drawio.png)
 
-São protótipos usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante do layout de elementos fundamentais na interface.
- 
-> **Links Úteis**:
-> - [Protótipos vs Wireframes](https://www.nngroup.com/videos/prototypes-vs-wireframes-ux-projects/)
-> - [Ferramentas de Wireframes](https://rockcontent.com/blog/wireframes/)
-> - [MarvelApp](https://marvelapp.com/developers/documentation/tutorials/)
-> - [Figma](https://www.figma.com/)
-> - [Adobe XD](https://www.adobe.com/br/products/xd.html#scroll)
-> - [Axure](https://www.axure.com/edu) (Licença Educacional)
-> - [InvisionApp](https://www.invisionapp.com/) (Licença Educacional)
