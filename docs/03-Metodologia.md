@@ -32,7 +32,7 @@ A equipe utiliza metodologias Ágeis, escolhido o método Scrum neste processo d
 
 A equipe está distribuída da seguinte forma: 
 - Scrum Master : Juliane Rodrigues Ferreira
-- Product Owner : Tuerê Pinto
+- Product Owner : Tuerê Pintoss
 - Equipe de Desenvolvimento	
     * João Henrique Ourives De Oliveira Assumpcao
     * Henrique Nogueira do Prado
@@ -58,12 +58,12 @@ To do: Esta lista representa o Sprint Backlog. Este é o sprint atual que se enc
 O quadro Kanban utilizado pela equipe, foi criado utilizando a plataforma Trello, onde  pode ser acompanhado [clique aqui](https://trello.com/b/ZzYoE33b/projeto-ads-layoff).
 
 ### Ferramentas
-
-As ferramentas empregadas no projeto são:
+s
+As ferramentas empregadas no projeto são:s
 
 - **IDE** Visual Studio Code.
 - Encontros on-line via Teams.
-- Ferramentas de desenho de tela (_wireframing_)
+- Ferramentas de desenho de tela (marvel)
 
 O editor de código foi escolhido porque ele possui uma integração com o
 sistema de versão. As ferramentas de comunicação utilizadas possuem
