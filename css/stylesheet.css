@@ -1,13 +1,51 @@
+/* Tag's style */
+h3 {
+  font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  width: auto;
+  margin: 0;
+  padding: 2px;
+}
+
+li {
+  padding: 2px;
+  overflow: auto;
+  margin: 0;
+  width: auto;
+}
+
+li:hover {
+  background: #eee;
+  cursor: pointer;
+}
+
+li img {
+  float: left;
+  margin: 0 15px 0 0;
+  max-width: 130px;
+  max-height: 80px;
+  width: auto;
+  height: auto;
+}
+
+li p {
+  font: 200 12px/1.5 Georgia, Times New Roman, serif;
+}
+
+/* Class style */
 .header {
   background-color: #f1f1f1;
   padding: 20px;
   text-align: center;
+  border-bottom: 5px solid white;
 }
 
 .navigation {
   overflow: hidden;
   background-color: #f1f1f1;
-  border-top: 5px solid white;
   border-bottom: 5px solid white;
 }
 
@@ -34,6 +72,7 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  border-bottom: 5px solid white;
 }
 
 .padded-boxes {
@@ -57,7 +96,8 @@
 }
 
 .padded-boxes .padded {
-  padding: 1rem 1rem;
+  margin: 0;
+  padding: 5px;
 }
 
 @media (min-width:768px) {
