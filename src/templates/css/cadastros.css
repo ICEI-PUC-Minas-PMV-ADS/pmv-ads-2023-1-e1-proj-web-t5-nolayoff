@@ -1,0 +1,165 @@
+
+.header {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+  }
+
+textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #b648c7;
+    border-radius: 4px;
+    outline: none;
+}
+
+
+input[type=text] {
+    width: 100%;
+    padding: 8px 20px;
+    margin: 1px 0;
+    box-sizing: border-box;
+    border: 2px solid #b648c7;
+    border-radius: 4px;
+    outline: none;
+}
+
+input[type=button],
+input[type=submit],
+input[type=reset] {
+    border-radius: 8px;
+    background-color: #b648c7;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: auto;
+    float: right;
+}
+
+select {
+    width: 100%;
+    padding: 10px 20px;
+    border: 2px solid #b648c7;
+    border-radius: 4px;
+    background-color: white;
+    /*margin: 8px 0;*/
+    outline: none;
+}
+
+select :focus {
+    border: 3px solid #b648c7;
+}
+
+.form-title {
+    font-size: 21px;
+    margin: 0 0 20px 0px;
+    color: #4E4E4E;
+    border-bottom: 1px solid #ed81ee;
+    padding-bottom: 10px;
+    font-weight: 200;
+    padding: 15px 0 5px;
+    clear: both;
+}
+label {
+    font-weight: bolder;
+}
+i{
+    padding-right: 9px;
+}
+
+
+/*Tabelas*/
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  table, th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+ 
+
+  #grid-cursos tbody {
+    cursor: pointer;
+ }
+
+
+ /* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.selector-for-some-widget {
+    box-sizing: content-box;
+  }
+
+  
+/*Bootstrap*/
+body {    
+    padding-top: 60px;
+}
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+    color: #b648c7;
+}
+#navbarText .navbar-nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.card {   
+    border: none;
+    border-radius:none;
+}
+ /* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.selector-for-some-widget {
+    box-sizing: content-box;
+  }
+
+.badge-lay {
+    color: #fff;
+    background-color: #f5a6f0;
+}
+
+.footer > .container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+

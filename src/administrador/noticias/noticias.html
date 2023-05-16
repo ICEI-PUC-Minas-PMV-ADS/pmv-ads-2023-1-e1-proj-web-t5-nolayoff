@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/style_noticias.css">
+    <link rel="stylesheet" href="../../templates/css/stylesheet.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!-- Bootstrap Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- icones -->
+    <script src="https://kit.fontawesome.com/29a7b29429.js" crossorigin="anonymous"></script>
+
+    <!-- https://icons.getbootstrap.com/?q=person user icones -->
+
+    <title>Notícias</title>
+</head>
+
+<body onload="init()">
+    <div class="navigation">
+        <div class="row">
+            <div class="col-md-1">
+                <div>
+                    <img src="../../../images/logo.png" class="img" alt="logo" />
+                </div>
+            </div>
+            <div class="col-md-11">
+                <a href="#">
+                    <i class="bi bi-person-fill-add"></i>
+                    <span>Cadastro</span>
+                </a>
+                <a href="#">
+                    <i class="bi bi-person-fill"></i>
+                    <span>Login</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="../index_administrador.html">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="src/administrador/vagas/vagas.html">Vagas<span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="noticias.html">Notícias<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="src/administrador/cursos/cursos.html">Cursos<span
+                            class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="persquisar" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="navegacao">
+            <button id="btnNovoRegistro">Nova Notícia</button>
+            <button onclick="javascript:Salvar()">Salvar</button>
+        </div>
+        <div class="formulario">
+            <div class="row">
+                <div id="msg" class="col-sm-12">
+                </div>
+            </div>
+            <form id="form-noticias">
+                <input type="text" id="id" name="id" hidden>
+                <div class="Publicacao">
+                    <label for="inputPublicacao">Data de publicação (*)</label>
+                    <input type="text" class="formulario" id="inputPublicacao" required
+                        placeholder="Informe a data de publicação da notícia">
+                </div>
+                <div class="titulo">
+                    <label for="inputTitulo">Titulo da notícia (*)</label>
+                    <input type="text" class="formulario" id="inputTitulo" required
+                        placeholder="Informe o titulo da notícia">
+                </div>
+                <div class="Sintese">
+                    <label for="inputSintese"> Sintese (*)</label>
+                    <input type="text" class="formulario" id="inputSintese" required
+                        placeholder="Informe a sintese da notícia">
+                </div>
+                <div class="link">
+                    <label for="inputSite">Link (*)</label>
+                    <input type="text" class="formulario" id="inputLink" required
+                        placeholder="Informe o link da noticía">
+                </div>
+        </div>
+        </form>
+        <table id="grid-noticias" class="table-noticias">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Título</th>
+                    <th scope="col">Sintese</th>
+                    <th scope="col">Link</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody id="table-noticias">
+                <tr>
+                    <td scope="row">1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+
+    <script src="javascript/crud_noticias.js"></script>
+    <script>
+
+        function init() {
+            // Oculta a mensagem de aviso após alguns segundos
+            $('#msg').bind("DOMSubtreeModified", function () {
+                window.setTimeout(function () {
+                    $(".alert").fadeTo(500, 0).slideUp(500, function () {
+                        $(this).remove();
+                    });
+                }, 5000);
+            });
+            // Intercepta o click do botão Listar Contatos
+            $("#btnNovoRegistro").click(function () {
+                $("#form-noticias")[0].reset();
+            });
+            exibeNoticias();
+        }
+
+        function exibeNoticias() {
+            // Remove todas as linhas do corpo da tabela
+            $("#table-noticias").html("");
+
+            // Popula a tabela com os registros do banco de dados
+            for (i = 0; i < db.data.length; i++) {
+                let noticia = db.data[i];
+                $("#table-noticias").append(`<tr><td scope="row">${noticia.id}</td>
+                                        <td>${noticia.publicacao}</td>
+                                        <td>${noticia.titulo}</td>
+                                        <td>${noticia.sintese}</td>
+                                        <td>${noticia.link}</td>
+                                        <td><a href="#" type="button" onclick = "javascript:Editar(${noticia.id})" title="Editar"><i class="fa-solid fa-pen"></i></a></td>
+                                        <td><a href="#" type="button" onclick = "javascript:Excluir(${noticia.id})" title="Excluir"><i class="fa-solid fa-xmark"></i></a></td>
+                                    </tr>`);
+            }
+        }
+        // Preenche o formulário quando o usuario clicar no botão editar
+        function Editar(id) {
+
+
+            let position = db.data.map(obj => obj.id).indexOf(id);
+            let noticia = db.data[position];
+
+            $("#id").val(noticia.id)
+            $("#inputPublicacao").val(noticia.publicacao);
+            $("#inputTitulo").val(noticia.titulo);
+            $("#inputSintese").val(noticia.sintese);
+            $("#inputLink").val(noticia.link);
+
+            // Reexibe as noticias
+            exibeNoticias();
+        }
+
+
+        function Salvar() {
+
+
+            // Verfica se o formulário está preenchido corretamente
+            if (!$('#form-noticias')[0].checkValidity()) {
+                displayMessage("Preencha o formulário corretamente.");
+                return;
+            }
+
+            // Obtem os valores dos campos do formulário
+            let campoId = $("#id").val();
+            let campoPublicacao = $("#inputPublicacao").val();
+            let campoTitulo = $("#inputTitulo").val();
+            let campoSintese = $("#inputSintese").val();
+            let campolink = $("#inputLink").val();
+            let NoticiasForm = {
+                publicacao: campoPublicacao,
+                titulo: campoTitulo,
+                sintese: campoSintese,
+                link: campolink,
+            };
+
+            if (campoId != "") {
+                updateNoticia(parseInt(campoId), NoticiasForm);
+            }
+            else {
+                insertNoticia(NoticiasForm);
+            }
+
+            // Reexibe os contatos
+            exibeNoticias();
+
+            // Limpa o formulario
+            $("#form-noticias")[0].reset();
+        }
+
+        function Excluir(id) {
+
+            let position = db.data.map(obj => obj.id).indexOf(id);
+            let noticia = db.data[position];
+
+            let campoId = noticia.id;
+            if (campoId == "") {
+                displayMessage("Esta noticia não pode ser excluída.");
+                return;
+            }
+            deleteNoticia(parseInt(campoId));
+            // Reexibe os noticias
+            exibeNoticias();
+            // Limpa o formulario
+            $("#form-noticias")[0].reset();
+
+        }
+    </script>
+</body>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <h5><i class="bi bi-people-fill"></i> NOLAYOFF INC.</h5>
+                <div class="row">
+                    <div class="col-6">
+                        <ul class="list-unstyled">
+                            <li><a href="../../docs/01-Documentação de Contexto.md">Documentation</a></li>
+                            <li><a href="">Support</a></li>
+                            <li><a href="">Legal Terms</a></li>
+                            <li><a href="../../README.md">About</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <ul class="nav">
+                    <li class="nav-item"><a href="" class="nav-link pl-0"><i class="fa fa-facebook fa-lg"></i></a></li>
+                    <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-twitter fa-lg"></i></a></li>
+                    <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-github fa-lg"></i></a></li>
+                    <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-instagram fa-lg"></i></a></li>
+                </ul>
+                <br>
+            </div>
+            <div class="col-md-2">
+                <h5 class="text-md-right">Contate-nos</h5>
+            </div>
+            <div class="col-md-5">
+                <form>
+                    <fieldset class="form-group">
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <textarea class="form-control" id="exampleMessage" placeholder="Message"></textarea>
+                    </fieldset>
+                    <fieldset class="form-group text-xs-right">
+                        <button type="button" class="btn">Enviar</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</html>
