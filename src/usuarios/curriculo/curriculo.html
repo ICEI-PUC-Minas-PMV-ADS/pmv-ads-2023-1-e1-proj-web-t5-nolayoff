@@ -52,7 +52,7 @@
     </div>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="../../index.html">Home</a>
+        <a class="navbar-brand" href="">Atualização curricular</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -60,7 +60,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Vagas<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="../../index.html">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Vagas</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Notícias</a>
@@ -86,8 +89,6 @@
     </nav>
 
     <div class="container-fluid">
-        <h3 class="form-title">Atualização curricular</h3>
-
         <h3 class="form-title">Dados pessoais</h3>
         <div class="row">
             <div id="msg" class="col-sm-12">
@@ -95,12 +96,6 @@
         </div>
 
         <h3 class="form-title">Atribuições</h3>
-        <div class="form-group row">
-            <div class="col-sm-12">
-                <input type="button" id="btnSalvarAtributos" onclick="javascript:salvarAtribuicao()" value="Inserir">
-            </div>
-        </div>
-
         <form id="form-atribuicao">
             <div class="form-group row">
                 <div class="col-sm-6">
@@ -120,6 +115,13 @@
                 <div class="col-sm-12">
                     <label for="cargoDescricao">Descrição do cargo(*)</label>
                     <textarea type="text" id="cargoDescricao" name="cargoDescricao" rows="3" required></textarea>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <input type="button" id="btnSalvarAtributos" onclick="javascript:salvarAtribuicao()" value="Salvar">
+                    <input type="button" id="btnInserirAtributos" onclick="javascript:inserirAtribuicao()"
+                        value="Inserir">
                 </div>
             </div>
             <div class="table-responsive-sm">
@@ -149,12 +151,6 @@
             </div>
         </form>
         <h3 class="form-title">Formação</h3>
-        <div class="form-group row">
-            <div class="col-sm-12">
-                <input type="button" id="btnSalvarFormacao" onclick="javascript:Salvar()" value="Inserir">
-            </div>
-        </div>
-
         <form id="form-escolaridade">
             <div class="form-group row">
                 <div class="col-sm-4">
@@ -176,7 +172,12 @@
                     <textarea type="text" id="cursoDescricao" name="cursoDescricao" rows="3" required></textarea>
                 </div>
             </div>
-
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <input type="button" id="btnSalvarFormacao" onclick="javascript:salvaFormacao()" value="Salvar">
+                    <input type="button" id="btnInserirFormacao" onclick="javascript:inserirFormacao()" value="Inserir">
+                </div>
+            </div>
             <div class="table-responsive-sm">
                 <table id="grid-escolaridade" class="table-hover">
                     <thead class="thead-light">
@@ -221,7 +222,15 @@
                 $("#form-atribuicao")[0].reset();
             });
 
+            $("#btnInserirAtributos").click(function () {
+                $("#form-atribuicao")[0].reset();
+            });
+
             $("#btnSalvarFormacao").click(function () {
+                $("#form-escolaridade")[0].reset();
+            });
+
+            $("#btnInserirFormacao").click(function () {
                 $("#form-escolaridade")[0].reset();
             });
 
@@ -311,15 +320,6 @@
                 return;
             }
 
-            // let textcompetencia = $("#competenciadavaga").val();
-            // var formatcompetenciadavaga = "";
-            // for (var i = 0; i <= textcompetencia.length; i++) {
-            //     var result = TipoEscolaridade.data.find(competencia => competencia.id === textcompetencia[i]);
-            //     if (result) {
-            //         formatcompetenciadavaga += result.descricao + ";"
-            //     }
-            // }
-
             let campoId = $("#id").val();
             let campoEmpresa = $("#empresa").val();
             let campoCargo = $("#cargo").val();
@@ -336,13 +336,107 @@
             if (campoId != "") {
                 updateAtributo(parseInt(campoId), form);
             }
-            else {
-                insertAtributos(form);
-            }
 
             exibeAtribuicao();
 
             $("#form-atribuicao")[0].reset();
+        }
+
+        function salvaFormacao() {
+            if (!$('#form-escolaridade')[0].checkValidity()) {
+                displayMessage("Preencha o formulário corretamente.");
+                return;
+            }
+
+            let text = $("#escolaridade").val();
+            var value = "";
+            for (var i = 0; i <= text.length; i++) {
+                var result = TipoEscolaridade.data.find(formado => formado.id === text[i]);
+                if (result) {
+                    value += result.descricao + ";"
+                }
+            }
+
+            let campoId = $("#id").val();
+            let campoEscolaridade = $(value).val();
+            let campoCurso = $("#curso").val();
+            let campoFormado = $("#formado").val();
+            let campoCursoDescricao = $("#cursoDescricao").val();
+
+            let form = {
+                escolaridade: campoEscolaridade,
+                curso: campoCurso,
+                formado: campoFormado,
+                descricao: campoCursoDescricao
+            };
+
+            if (campoId != "") {
+                updateFormacao(parseInt(campoId), form);
+            }
+
+            exibeFormacao();
+
+            $("#form-escolaridade")[0].reset();
+        }
+
+        function inserirAtribuicao() {
+            if (!$('#form-atribuicao')[0].checkValidity()) {
+                displayMessage("Preencha o formulário corretamente.");
+                return;
+            }
+            let campoId = $("#id").val();
+            let campoEmpresa = $("#empresa").val();
+            let campoCargo = $("#cargo").val();
+            let campoPeriodo = $("#cargoPeriodo").val();
+            let campoDescricao = $("#cargoDescricao").val();
+
+            let form = {
+                empresa: campoEmpresa,
+                cargo: campoCargo,
+                perido: campoPeriodo,
+                descricao: campoDescricao
+            };
+
+            insertAtributos(form);
+
+            exibeAtribuicao();
+
+            $("#form-atribuicao")[0].reset();
+        }
+
+        function inserirFormacao() {
+            if (!$('#form-escolaridade')[0].checkValidity()) {
+                displayMessage("Preencha o formulário corretamente.");
+                return;
+            }
+
+            let text = $("#escolaridade").val();
+            var value = "";
+            for (var i = 0; i <= text.length; i++) {
+                var result = TipoEscolaridade.data.find(formado => formado.id === text[i]);
+                if (result) {
+                    value += result.descricao + ";"
+                }
+            }
+
+            let campoId = $("#id").val();
+            let campoEscolaridade = $(value).val();
+            let campoCurso = $("#curso").val();
+            let campoFormado = $("#formado").val();
+            let campoCursoDescricao = $("#cursoDescricao").val();
+
+            let form = {
+                escolaridade: campoEscolaridade,
+                curso: campoCurso,
+                formado: campoFormado,
+                descricao: campoCursoDescricao
+            };
+
+            insertFormacao(form);
+
+            exibeFormacao();
+
+            $("#form-escolaridade")[0].reset();
         }
 
         function excluirAtribuicao(id) {
