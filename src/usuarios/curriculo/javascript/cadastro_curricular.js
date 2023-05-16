@@ -14,7 +14,7 @@ var data_formacao = {
     "data": [
         {
             "id": 1,
-            "escolaridade": "Lorem Ipsum",
+            "escolaridade": "Cusando Superior",
             "curso": "Teste de Lorem",
             "formado": "2016",
             "descricao": "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a "
@@ -29,41 +29,41 @@ if (!db_atribuicao) {
 
 function insertAtributo(dados) {
     let id = 1;
-    if (db.data.length != 0)
+    if (db_atribuicao.data.length != 0)
         novoId = db.data[db.data.length - 1].id + 1;
     let novaAtribuicao = {
-        "id": id,
+        "id": novoId,
         "empresa": dados.empresa,
         "cargo": dados.cargo,
         "periodo": dados.periodo,
         "descricao": dados.descricao
     };
 
-    db.data.push(novaAtribuicao);
+    db_atribuicao.data.push(novaAtribuicao);
     displayMessage("Inserida com sucesso");
 
-    localStorage.setItem('db_curriculo_atribuicao', JSON.stringify(db));
+    localStorage.setItem('db_curriculo_atribuicao', JSON.stringify(db_atribuicao));
 }
 
 function updateAtributo(id, data) {
-    let index = db.data.map(obj => obj.id).indexOf(id);
+    let index = db_atribuicao.data.map(obj => obj.id).indexOf(id);
 
-    db.data[index].empresa = data.empresa,
-        db.data[index].cargo = data.cargo,
-        db.data[index].periodo = data.periodo,
-        db.data[index].descricao = data.descricao
+    db_atribuicao.data[index].empresa = data.empresa,
+    db_atribuicao.data[index].cargo = data.cargo,
+    db_atribuicao.data[index].periodo = data.periodo,
+    db_atribuicao.data[index].descricao = data.descricao
 
     displayMessage("Alterada com sucesso");
 
-    localStorage.setItem('db_curriculo_atribuicao', JSON.stringify(db));
+    localStorage.setItem('db_curriculo_atribuicao', JSON.stringify(db_atribuicao));
 }
 
 function deleteAtributo(id) {
-    db.data = db.data.filter(function (element) { return element.id != id });
+    db_atribuicao.data = db_atribuicao.data.filter(function (element) { return element.id != id });
 
     displayMessage("Deletado com sucesso");
 
-    localStorage.setItem('db_curriculo_atribuicao', JSON.stringify(db));
+    localStorage.setItem('db_curriculo_atribuicao', JSON.stringify(db_atribuicao));
 }
 
 var db_formacao = JSON.parse(localStorage.getItem('db_curriculo_formacao'));
@@ -73,44 +73,38 @@ if (!db_formacao) {
 
 function insertFormacao(dados) {
     let id = 1;
-    if (db.data.length != 0)
-        novoId = db.data[db.data.length - 1].id + 1;
-    let novaAtribuicao = {
-        "id": id,
+    if (db_formacao.data.length != 0)
+        novoId = db_formacao.data[db_formacao.data.length - 1].id + 1;
+    let formacao = {
+        "id": novoId,
         "escolaridade": dados.Escolaridade,
         "curso": dados.curso,
         "formado": dados.formado,
         "descricao": dados.descricao
     };
 
-    db.data.push(novaAtribuicao);
+    db_formacao.data.push(formacao);
     displayMessage("Inserida com sucesso");
 
-    localStorage.setItem('db_curriculo_formacao', JSON.stringify(db));
+    localStorage.setItem('db_curriculo_formacao', JSON.stringify(db_formacao));
 }
 
 function updateFormacao(id, data) {
-    let index = db.data.map(obj => obj.id).indexOf(id);
+    let index = db_formacao.data.map(obj => obj.id).indexOf(id);
 
-    db.data[index].escolaridade = data.escolaridade,
-        db.data[index].curso = data.curso,
-        db.data[index].formado = data.formado,
-        db.data[index].descricao = data.descricao
+    db_formacao.data[index].escolaridade = data.escolaridade,
+    db_formacao.data[index].curso = data.curso,
+    db_formacao.data[index].formado = data.formado,
+    db_formacao.data[index].descricao = data.descricao
 
     displayMessage("Alterada com sucesso");
-
-    // Atualiza os dados no Local Storage
-    localStorage.setItem('db_curriculo_formacao', JSON.stringify(db));
+    localStorage.setItem('db_curriculo_formacao', JSON.stringify(db_formacao));
 }
 
 function deleteFormacao(id) {
-    // Filtra o array removendo o elemento com o id passado
-    db.data = db.data.filter(function (element) { return element.id != id });
-
+    db_formacao.data = db_formacao.data.filter(function (element) { return element.id != id });
     displayMessage("Deletado com sucesso");
-
-    // Atualiza os dados no Local Storage
-    localStorage.setItem('db_curriculo_formacao', JSON.stringify(db));
+    localStorage.setItem('db_curriculo_formacao', JSON.stringify(db_formacao));
 }
 
 function displayMessage(msg) {
