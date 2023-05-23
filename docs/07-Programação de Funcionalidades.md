@@ -1,23 +1,60 @@
 # Programação de Funcionalidades
 
-## Requisto X 
+## Requisto CRUD de Banner - Administrator
 
-## Nome da tela
+### Tela administrativa dos banners
 
-## Link para o código
+> **Links do código**:
+> - [src/administrador/banner](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/tree/dev/src/administrador/banner)
 
-## Desenvolvedor 
+### Henrique Nogueira do Prado 
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>, <a href="4-Metodologia.md"> Metodologia</a>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>, <a href="5-Arquitetura da Solução.md"> Arquitetura da Solução</a>
+## Requisto CRUD de Notícias - Administrator
 
-Implementação do sistema descritas por meio dos requisitos funcionais e/ou não funcionais. Deve relacionar os requisitos atendidos os artefatos criados (código fonte) além das estruturas de dados utilizadas e as instruções para acesso e verificação da implementação que deve estar funcional no ambiente de hospedagem.
+### Tela administrativa das notícias
+![Tela de noticias](img/tela_noticias.png)
 
-Para cada requisito funcional, pode ser entregue um artefato desse tipo
+> **Links do código**:
+> - [src/administrador/noticias](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/tree/dev/src/administrador/noticias)
 
-> **Links Úteis**:
->
-> - [Trabalhando com HTML5 Local Storage e JSON](https://www.devmedia.com.br/trabalhando-com-html5-local-storage-e-json/29045)
-> - [JSON Tutorial](https://www.w3resource.com/JSON)
-> - [JSON Data Set Sample](https://opensource.adobe.com/Spry/samples/data_region/JSONDataSetSample.html)
-> - [JSON - Introduction (W3Schools)](https://www.w3schools.com/js/js_json_intro.asp)
-> - [JSON Tutorial (TutorialsPoint)](https://www.tutorialspoint.com/json/index.htm)
+### Juliane Rodrigues Ferreira
+
+## Requisto CRUD de Cursos - Administrator
+
+### Tela administrativa das notícias
+![Tela de noticias](img/tela_noticias.png)
+
+> **Links do código**:
+> - [src/administrador/noticias](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/tree/dev/src/administrador/noticias)
+
+### Juliane Rodrigues Ferreira
+
+## Requisto CRUD de Vagas - Administrator
+
+### Tela administrativa das vagas
+![Tela de vagas](img/tela_vagas.png)
+
+> **Links do código**:
+> - [src/administrador/vagas](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/tree/dev/src/administrador/vagas)
+
+### Rafael Cassiano Januário de Souza
+
+## Requisto CRUD de Cursos - Administrator
+
+### Tela administrativa dos cursos
+![Tela de noticias](img/tela_cursos.png)
+
+> **Links do código**:
+> - [src/administrador/cursos](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/tree/dev/src/administrador/cursos)
+
+### Rafael Cassiano Januário de Souza
+
+## Requisto CRUD de Curriculum - Usuário
+
+### Tela de atualizacão curricular
+![Tela de curriculo](img/tela_curriculo.png)
+
+> **Links do código**:
+> - [src/usuarios/curriculo](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/tree/dev/src/usuarios/curriculo)
+
+### Tuerê Pinto
