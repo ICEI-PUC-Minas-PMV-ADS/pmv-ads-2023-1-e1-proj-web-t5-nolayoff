@@ -19,16 +19,6 @@
 
 ### Juliane Rodrigues Ferreira
 
-## Requisto CRUD de Cursos - Administrator
-
-### Tela administrativa das notícias
-![Tela de noticias](img/tela_noticias.png)
-
-> **Links do código**:
-> - [src/administrador/noticias](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/tree/dev/src/administrador/noticias)
-
-### Juliane Rodrigues Ferreira
-
 ## Requisto CRUD de Vagas - Administrator
 
 ### Tela administrativa das vagas
