@@ -3,6 +3,7 @@
 ## Requisto CRUD de Banner - Administrator
 
 ### Tela administrativa dos banners
+![Tela de banner](img/tela_banner.png)
 
 > **Links do código**:
 > - [src/administrador/banner](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/tree/dev/src/administrador/banner)
@@ -32,7 +33,7 @@
 ## Requisto CRUD de Cursos - Administrator
 
 ### Tela administrativa dos cursos
-![Tela de noticias](img/tela_cursos.png)
+![Tela de cursos](img/tela_cursos.png)
 
 > **Links do código**:
 > - [src/administrador/cursos](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/tree/dev/src/administrador/cursos)
