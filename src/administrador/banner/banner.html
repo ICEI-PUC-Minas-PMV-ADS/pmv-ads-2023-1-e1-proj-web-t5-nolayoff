@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" style="height:100%;">
 
 <head>
     <meta charset="utf-8">
     <title>NOLAYOFF - BANNER</title>
-    <link rel="stylesheet" href="css/style_global.css">
+    <link rel="stylesheet" href="css\stylesheet.css">
 </head>
+
+<body style="height:100%;">
+
+    <script src="javascript\crudbanner.js" defer></script>
+
+    <div class="bigbox">
+        <span class="titlebanner"> BANNER </span>
+        <hr size="1" width="50%" color="black">
+        <p class="bodytext"> Este é o painel admnistrativo do Banner na página inicial. <br> É possível se adicionar ou
+            remover banners. Para isso, aperte os seguintes <br> botões: </p>
+        <hr size="1" width="50%" color="black">
+        <span class="titlebanner" style="font-size:2em; margin-top:3em;"> INSERIR IMAGEM </span>
+        <div class="insertimage"> <input type="file" id="newImage" name="newImage" accept="image/png, image/jpeg"> <br>
+            <br>
+            <button class="criarImagem" onclick="getuploadedImg()">Confirmar</button>
+        </div>
+        <br>
+        <hr size="1" width="50%" color="black">
+        <span class="titlebanner" style="font-size:2em; margin-top:3em;"> REMOVER IMAGEM </span>
+        <br><br>
+        <p class="bodytext"> Quero remover a <input type="number" id="removefield" min="2" max="20" style="width:30px;"></input>° imagem. </p>
+        <br>
+        <button class="removeimage" style="left:18%; position:absolute" onclick="filterTest()"> Confirmar </button>
+        <div id="imagepreview"> <img src="" alt="Preview" class="preview" style="font-family:Arial, Helvetica, sans-serif; color: gray;"></div>
+    </div>
+</body>
 
 </html>
