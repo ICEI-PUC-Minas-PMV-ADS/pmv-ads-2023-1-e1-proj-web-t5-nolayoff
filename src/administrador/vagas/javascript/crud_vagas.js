@@ -1,5 +1,5 @@
 var db_vagas_inicial = {
-    "data": [
+    "vagas": [
         {
             "id": 1,
             "descricao": "Analista de TI - DB APOIO INTEGRAL.",
@@ -290,9 +290,9 @@ var AuxCompetencias = {
 ]};
 
 // Caso os dados já estejam no Local Storage, caso contrário, carrega os dados iniciais
-var db = JSON.parse(localStorage.getItem('db_vagas'));
-if (!db) {
-    db = db_vagas_inicial
+var dbvagas = JSON.parse(localStorage.getItem('db_vagas'));
+if (!dbvagas) {
+    dbvagas = db_vagas_inicial
 };
 
 // Exibe mensagem em um elemento de ID msg
@@ -303,8 +303,8 @@ function displayMessage(msg) {
 function insertVaga(vaga) {
     // Calcula novo Id a partir do último código existente no array (PODE GERAR ERRO SE A BASE ESTIVER VAZIA)
     let novoId = 1;
-    if (db.data.length != 0) 
-      novoId = db.data[db.data.length - 1].id + 1;
+    if (dbvagas.vagas.length != 0) 
+      novoId = dbvagas.vagas[dbvagas.vagas.length - 1].id + 1;
     let novaVaga = {
         "id": novoId,
         "descricao": vaga.descricao,
@@ -321,42 +321,42 @@ function insertVaga(vaga) {
     };
 
     // Insere o novo objeto no array
-    db.data.push(novaVaga);
+    dbvagas.data.push(novaVaga);
     displayMessage("Vaga inserida com sucesso");
 
     // Atualiza os dados no Local Storage
-    localStorage.setItem('db_vagas', JSON.stringify(db));
+    localStorage.setItem('db_vagas', JSON.stringify(dbvagas));
 }
 
 function updateVaga(id, vaga) {
     // Localiza o indice do objeto a ser alterado no array a partir do seu ID
-    let index = db.data.map(obj => obj.id).indexOf(id);
+    let index = dbvagas.vagas.map(obj => obj.id).indexOf(id);
 
     // Altera os dados do objeto no array
-    db.data[index].descricao = vaga.descricao,
-    db.data[index].empresa = vaga.empresa,
-    db.data[index].sobreaempresa = vaga.sobreaempresa,
-    db.data[index].sobreavaga = vaga.sobreavaga,
-    db.data[index].tempo = vaga.tempo,
-    db.data[index].cargo = vaga.cargo,
-    db.data[index].competenciadavaga = vaga.competenciadavaga,
-    db.data[index].salario = vaga.salario,
-    db.data[index].email = vaga.email
-    db.data[index].telefone = vaga.telefone
-    db.data[index].website = vaga.website
+    dbvagas.vagas[index].descricao = vaga.descricao,
+    dbvagas.vagas[index].empresa = vaga.empresa,
+    dbvagas.vagas[index].sobreaempresa = vaga.sobreaempresa,
+    dbvagas.vagas[index].sobreavaga = vaga.sobreavaga,
+    dbvagas.vagas[index].tempo = vaga.tempo,
+    dbvagas.vagas[index].cargo = vaga.cargo,
+    dbvagas.vagas[index].competenciadavaga = vaga.competenciadavaga,
+    dbvagas.vagas[index].salario = vaga.salario,
+    dbvagas.vagas[index].email = vaga.email
+    dbvagas.vagas[index].telefone = vaga.telefone
+    dbvagas.vagas[index].website = vaga.website
 
     displayMessage("Vaga alterada com sucesso");
 
     // Atualiza os dados no Local Storage
-    localStorage.setItem('db_vagas', JSON.stringify(db));
+    localStorage.setItem('db_vagas', JSON.stringify(dbvagas));
 }
 
 function deleteVaga(id) {    
     // Filtra o array removendo o elemento com o id passado
-    db.data = db.data.filter(function (element) { return element.id != id });
+    dbvagas.vagas = dbvagas.vagas.filter(function (element) { return element.id != id });
 
     displayMessage("Vaga removida com sucesso");
 
     // Atualiza os dados no Local Storage
-    localStorage.setItem('db_vagas', JSON.stringify(db));
+    localStorage.setItem('db_vagas', JSON.stringify(ddbvagas));
 }
