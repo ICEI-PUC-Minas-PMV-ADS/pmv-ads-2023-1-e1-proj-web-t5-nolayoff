@@ -38,21 +38,17 @@
                     <img src="../../../images/logo.png" class="img" alt="logo" />
                 </div>
             </div>
-            <div class="col-md-11">
-                <a href="#">
-                    <i class="bi bi-person-fill-add"></i>
-                    <span>Cadastro</span>
-                </a>
-                <a href="#">
+            <div class="col-md-11">               
+                <a href="#" id="btn_logout">
                     <i class="bi bi-person-fill"></i>
-                    <span>Login</span>
+                    <span>Sair</span>
                 </a>
             </div>
         </div>
     </div>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="../../index.html">Home</a>
+        <a class="navbar-brand" href="../index_administrador.html">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -60,22 +56,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Vagas<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="vagas.html">Vagas<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Notícias</a>
+                    <a class="nav-link" href="../noticias/noticias.html">Notícias</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Cursos
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Tecnologia</a>
-                        <a class="dropdown-item" href="#">Gestão</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Outros</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="../cursos/cursos.html">Cursos</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -230,11 +217,15 @@
 
     <!-- CRUD -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="javascript/crud_vagas.js"></script>
+    <script src="javascript/crud_vagas.js"></script>    
+    <script src="../../home/javascript/login.js"></script>
     <script>
 
-        function init() {
-
+        function init() {           
+           
+             // Associa a função de logout ao botão
+             document.getElementById('btn_logout').addEventListener('click', logoutUser);
+             
             // preenche o select de competências
             AuxCompetencias.data.map(({
                 id,
@@ -267,8 +258,8 @@
             $("#tbody-vagas").html("");
 
             // Popula a tabela com os registros do banco de dados
-            for (i = 0; i < db.data.length; i++) {
-                let vaga = db.data[i];
+            for (i = 0; i < dbvagas.vagas.length; i++) {
+                let vaga = dbvagas.vagas[i];
                 $("#tbody-vagas").append(`<tr><td scope="row">${vaga.descricao}</td>
                                                 <td>${vaga.empresa}</td>
                                                 <td>${vaga.cargo}</td>
@@ -284,8 +275,8 @@
         // Preenche o formulário quando o usuario clicar no botão editar
         function Editar(id) {
 
-            let position = db.data.map(obj => obj.id).indexOf(id);
-            let vaga = db.data[position];
+            let position = dbvagas.vagas.map(obj => obj.id).indexOf(id);
+            let vaga = dbvagas.vagas[position];
 
             // para preencher o select multiple
             let textcompetencia = vaga.competenciadavaga;
@@ -382,8 +373,8 @@
 
         function Excluir(id) {
 
-            let position = db.data.map(obj => obj.id).indexOf(id);
-            let vaga = db.data[position];
+            let position = dbvagas.vagas.map(obj => obj.id).indexOf(id);
+            let vaga = dbvagas.vagas[position];
 
             let campoId = vaga.id;
             if (campoId == "") {
