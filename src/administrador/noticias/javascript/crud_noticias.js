@@ -1,5 +1,5 @@
 var db_noticias_inicial = {
-    "data": [
+    "noticias": [
         {
             "id": 1,
             "publicacao": "29 de abril de 2023",
@@ -45,9 +45,9 @@ var db_noticias_inicial = {
 }
 
 // Caso os data já estejam no Local Storage, caso contrário, carrega os dados iniciais
-var db = JSON.parse(localStorage.getItem('db_noticias'));
-if (!db) {
-    db = db_noticias_inicial
+var dbnoticias = JSON.parse(localStorage.getItem('db_noticias'));
+if (!dbnoticias) {
+    dbnoticias = db_noticias_inicial
 };
 
 // Exibe mensagem em um elemento de ID msg
@@ -58,8 +58,8 @@ function displayMessage(msg) {
 function insertNoticia(noticia) {
     // Calcula novo Id a partir do último código existente no array (PODE GERAR ERRO SE A BASE ESTIVER VAZIA)
     let novoId = 1;
-    if (db.data.length != 0) 
-      novoId = db.data[db.data.length - 1].id + 1;
+    if (dbnoticias.noticias.length != 0) 
+      novoId = dbnoticias.noticias[dbnoticias.noticias.length - 1].id + 1;
     let novaNoticia = {
         "id": novoId,
         "publicacao": noticia.publicacao,
@@ -69,35 +69,35 @@ function insertNoticia(noticia) {
     };
 
     // Insere o novo objeto no array
-    db.data.push(novaNoticia);
+    dbnoticias.noticias.push(novaNoticia);
     displayMessage("Notícia inserida com sucesso");
 
     // Atualiza os dados no Local Storage
-    localStorage.setItem('db_noticias', JSON.stringify(db));
+    localStorage.setItem('db_noticias', JSON.stringify(dbnoticias));
 }
 
 function updateNoticia(id, noticia) {
     // Localiza o indice do objeto a ser alterado no array a partir do seu ID
-    let index = db.data.map(obj => obj.id).indexOf(id);
+    let index = dbnoticias.noticias.map(obj => obj.id).indexOf(id);
 
     // Altera os dados do objeto no array
-    db.data[index].publicacao = noticia.publicacao,
-    db.data[index].titulo = noticia.titulo,
-    db.data[index].sintese = noticia.sintese,
-    db.data[index].link = noticia.link,
+    dbnoticias.noticias[index].publicacao = noticia.publicacao,
+    dbnoticias.noticias[index].titulo = noticia.titulo,
+    dbnoticias.noticias[index].sintese = noticia.sintese,
+    dbnoticias.noticias[index].link = noticia.link,
 
     displayMessage("Notícia alterada com sucesso");
 
     // Atualiza os dados no Local Storage
-    localStorage.setItem('db_noticias', JSON.stringify(db));
+    localStorage.setItem('db_noticias', JSON.stringify(dbnoticias));
 }
 
 function deleteNoticia(id) {    
     // Filtra o array removendo o elemento com o id passado
-    db.data = db.data.filter(function (element) { return element.id != id });
+    dbnoticias.noticias = dbnoticias.noticias.filter(function (element) { return element.id != id });
 
     displayMessage("Notícia removida com sucesso");
 
     // Atualiza os dados no Local Storage
-    localStorage.setItem('db_noticias', JSON.stringify(db));
+    localStorage.setItem('db_noticias', JSON.stringify(dbnoticias));
 }
