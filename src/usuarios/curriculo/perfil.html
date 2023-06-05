@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">   
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../templates/css/cadastros.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    
+    <!-- Bootstrap Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- icones -->
+    <script src="https://kit.fontawesome.com/29a7b29429.js" crossorigin="anonymous"></script>
+
+    <!-- https://icons.getbootstrap.com/?q=person user icones -->
+
+    <title>Currículo</title>
+</head>
+
+<body onload="init()">
+    <div class="navigation">
+        <div class="row">
+            <div class="col-md-1">
+                <div>
+                    <img src="../../../images/logo.png" class="img" alt="logo" />
+                </div>
+            </div>
+            <div class="col-md-11">               
+                <a href="#" id="btn_logout">
+                    <i class="bi bi-person-fill"></i>
+                    <span>Sair</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand " href="../index_usuario.html">Home<span class="sr-only">(current)</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active ">
+                    <a class="nav-link" href="curriculo.html">Curriculo</a>
+                </li> 
+                <li class="nav-item">
+                    <a class="nav-link" href="../vagas/vagas.html">Vagas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../noticias/noticias.html">Notícias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../cursos/cursos.html">Cursos</a>
+                </li>              
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="persquisar" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container">
+        <h3 class="form-title">Perfil</h3>
+        <div class="card text-center">
+            <div class="card-header">
+              Seus Dados
+            </div>
+            <div class="card-body">
+              <img src="imagensuser/user.jpg" class="rounded-circle" style="width: 90px;">
+              <blockquote class="blockquote mb-0">
+                <p>Rafael Cassiano J</p>
+                <footer class="blockquote-footer">Analista de Sistemas <cite title="Source Title">Senior</cite></footer>
+              </blockquote>
+            </div>
+          </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="javascript/cadastro_curricular.js"></script>
+
+    <script>
+        function init() {
+            TipoEscolaridade.data.map(({
+                id,
+                descricao
+            }) => {
+                $('#escolaridade').append(`<option value='${id}'>${descricao}</option>`);
+            });
+
+            $("#btnSalvarAtributos").click(function () {
+                $("#form-atribuicao")[0].reset();
+            });
+
+            $("#btnInserirAtributos").click(function () {
+                $("#form-atribuicao")[0].reset();
+            });
+
+            $("#btnSalvarFormacao").click(function () {
+                $("#form-escolaridade")[0].reset();
+            });
+
+            $("#btnInserirFormacao").click(function () {
+                $("#form-escolaridade")[0].reset();
+            });
+
+            $('#msg').bind("DOMSubtreeModified", function () {
+                window.setTimeout(function () {
+                    $(".alert").fadeTo(500, 0).slideUp(500, function () {
+                        $(this).remove();
+                    });
+                }, 5000);
+            });
+
+            exibeAtribuicao();
+            exibeFormacao();
+        }
+
+        function exibeAtribuicao() {
+            $("#tbody-atribuicao").html("");
+
+            for (i = 0; i < db_atribuicao.data.length; i++) {
+                let atribuicao = db_atribuicao.data[i];
+                $("#tbody-atribuicao").append(`<tr><td scope="row">${atribuicao.empresa}</td>
+                                                <td>${atribuicao.cargo}</td>
+                                                <td>${atribuicao.perido}</td>
+                                                <td>${atribuicao.descricao}</td>
+                                                <td><a href="#" type="button" onclick = "javascript:editarAtribuicao(${atribuicao.id})" title="Editar"><i class="fa-solid fa-pen"></i></a></td>
+                                                <td><a href="#" type="button" onclick = "javascript:excluirAtribuicao(${atribuicao.id})" title="Excluir"><i class="fa-solid fa-xmark"></i></a></td>
+                                            </tr>`);
+            }
+        }
+
+        function exibeFormacao() {
+            $("#tbody-escolaridade").html("");
+
+            for (i = 0; i < db_formacao.data.length; i++) {
+                let formacao = db_formacao.data[i];
+                $("#tbody-escolaridade").append(`<tr><td scope="row">${formacao.escolaridade}</td>
+                                                <td>${formacao.curso}</td>
+                                                <td>${formacao.formado}</td>
+                                                <td>${formacao.descricao}</td>
+                                                <td><a href="#" type="button" onclick = "javascript:editarFormacao(${formacao.id})" title="Editar"><i class="fa-solid fa-pen"></i></a></td>
+                                                <td><a href="#" type="button" onclick = "javascript:excluirFormacao(${formacao.id})" title="Excluir"><i class="fa-solid fa-xmark"></i></a></td>
+                                            </tr>`);
+            }
+        }
+
+        function editarAtribuicao(id) {
+            let position = db_atribuicao.data.map(obj => obj.id).indexOf(id);
+            let atribuicao = db_atribuicao.data[position];;
+
+            $("#id").val(atribuicao.id);
+            $("#empresa").val(atribuicao.empresa);
+            $("#cargo").val(atribuicao.cargo);
+            $("#cargoPeriodo").val(atribuicao.periodo);
+            $("#cargoDescricao").val(atribuicao.descricao);
+
+            exibeAtribuicao();
+        }
+
+        function editarFormacao(id) {
+            let position = db_formacao.data.map(obj => obj.id).indexOf(id);
+            let formacao = db_formacao.data[position];
+
+            let escolaridade = formacao.escolaridade;
+
+            var array = escolaridade.split(";");
+            var format = "";
+            for (var i = 0; i <= array.length; i++) {
+                var result = TipoEscolaridade.data.find(escolaridade => escolaridade.descricao === array[i]);
+                if (result) {
+                    format += result.id + ";"
+                }
+            }
+            format = format.split(';');
+
+            $("#id").val(formacao.id);
+            $("#escolaridade").val(format);
+            $("#curso").val(formacao.curso);
+            $("#formado").val(formacao.formado);
+            $("#cursoDescricao").val(formacao.descricao);
+
+            exibeFormacao();
+        }
+
+        function salvarAtribuicao() {
+            if (!$('#form-atribuicao')[0].checkValidity()) {
+                displayMessage("Preencha o formulário corretamente.");
+                return;
+            }
+
+            let campoId = $("#id").val();
+            let campoEmpresa = $("#empresa").val();
+            let campoCargo = $("#cargo").val();
+            let campoPeriodo = $("#cargoPeriodo").val();
+            let campoDescricao = $("#cargoDescricao").val();
+
+            let form = {
+                empresa: campoEmpresa,
+                cargo: campoCargo,
+                perido: campoPeriodo,
+                descricao: campoDescricao
+            };
+
+            if (campoId != "") {
+                updateAtributo(parseInt(campoId), form);
+            }
+
+            exibeAtribuicao();
+
+            $("#form-atribuicao")[0].reset();
+        }
+
+        function salvaFormacao() {
+            if (!$('#form-escolaridade')[0].checkValidity()) {
+                displayMessage("Preencha o formulário corretamente.");
+                return;
+            }
+
+            let text = $("#escolaridade").val();
+            var value = "";
+            for (var i = 0; i <= text.length; i++) {
+                var result = TipoEscolaridade.data.find(formado => formado.id === text[i]);
+                if (result) {
+                    value += result.descricao + ";"
+                }
+            }
+
+            let campoId = $("#id").val();
+            let campoEscolaridade = $(value).val();
+            let campoCurso = $("#curso").val();
+            let campoFormado = $("#formado").val();
+            let campoCursoDescricao = $("#cursoDescricao").val();
+
+            let form = {
+                escolaridade: campoEscolaridade,
+                curso: campoCurso,
+                formado: campoFormado,
+                descricao: campoCursoDescricao
+            };
+
+            if (campoId != "") {
+                updateFormacao(parseInt(campoId), form);
+            }
+
+            exibeFormacao();
+
+            $("#form-escolaridade")[0].reset();
+        }
+
+        function inserirAtribuicao() {
+            if (!$('#form-atribuicao')[0].checkValidity()) {
+                displayMessage("Preencha o formulário corretamente.");
+                return;
+            }
+            let campoId = $("#id").val();
+            let campoEmpresa = $("#empresa").val();
+            let campoCargo = $("#cargo").val();
+            let campoPeriodo = $("#cargoPeriodo").val();
+            let campoDescricao = $("#cargoDescricao").val();
+
+            let form = {
+                empresa: campoEmpresa,
+                cargo: campoCargo,
+                perido: campoPeriodo,
+                descricao: campoDescricao
+            };
+
+            insertAtributos(form);
+
+            exibeAtribuicao();
+
+            $("#form-atribuicao")[0].reset();
+        }
+
+        function inserirFormacao() {
+            if (!$('#form-escolaridade')[0].checkValidity()) {
+                displayMessage("Preencha o formulário corretamente.");
+                return;
+            }
+
+            let text = $("#escolaridade").val();
+            var value = "";
+            for (var i = 0; i <= text.length; i++) {
+                var result = TipoEscolaridade.data.find(formado => formado.id === text[i]);
+                if (result) {
+                    value += result.descricao + ";"
+                }
+            }
+
+            let campoId = $("#id").val();
+            let campoEscolaridade = $(value).val();
+            let campoCurso = $("#curso").val();
+            let campoFormado = $("#formado").val();
+            let campoCursoDescricao = $("#cursoDescricao").val();
+
+            let form = {
+                escolaridade: campoEscolaridade,
+                curso: campoCurso,
+                formado: campoFormado,
+                descricao: campoCursoDescricao
+            };
+
+            insertFormacao(form);
+
+            exibeFormacao();
+
+            $("#form-escolaridade")[0].reset();
+        }
+
+        function excluirAtribuicao(id) {
+            let position = db_atribuicao.data.map(obj => obj.id).indexOf(id);
+            let atribuicao = db_atribuicao.data[position];
+
+            var id = atribuicao.id;
+            if (id == "") {
+                displayMessage("Esta atribuição não pode ser excluída.");
+                return;
+            }
+
+            deleteAtributo(parseInt(id));
+            exibeAtribuicao();
+            $("#form-atribuicao")[0].reset();
+        }
+
+        function excluirFormacao(id) {
+            let position = db_formacao.data.map(obj => obj.id).indexOf(id);
+            let formacao = db_formacao.data[position];
+
+            var id = formacao.id;
+            if (id == "") {
+                displayMessage("Esta atribuição não pode ser excluída.");
+                return;
+            }
+
+            deleteFormacao(parseInt(id));
+            exibeFormacao();
+            $("#form-escolaridade")[0].reset();
+        }
+    </script>
+
+</body>
+
+
+</html>

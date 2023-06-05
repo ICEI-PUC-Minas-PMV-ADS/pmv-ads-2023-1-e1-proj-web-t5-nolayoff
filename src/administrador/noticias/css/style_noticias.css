@@ -1,0 +1,61 @@
+.header {
+    background-color: #f1f1f1;
+    padding: 25px;
+    text-align: center;
+  
+  }
+  
+  .navegacao {
+    overflow: hidden;
+    background-color: #f1f1f1;
+    border-top: 10px solid white;
+    border-bottom: 10px solid white;
+  }
+  
+  .navegacao button {
+    float: right;
+    display: block;
+    color: black;
+    padding: 16px 18px;
+    border: 1px solid white
+  }
+  
+  .navegacao button:hover {
+    background-color: #c085b1;
+    color: black;
+  }
+  
+  .formulario {
+    display: block;
+    float: right;
+    width: 100%;
+    padding: 0.1px 0.1px;
+    line-height: 30px;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+  }
+  
+  /*Tabelas*/
+  
+  table{
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table, th, td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+  th {
+    height: 40px;
+    text-align: left;
+  }
+  
+  #grid-cursos tbody {
+    cursor: pointer;
+  }
+  
+  .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+      color: #b648c7;
+  }
