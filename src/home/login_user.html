@@ -135,15 +135,16 @@
         function processaFormLogin(event) {
             // Cancela a submissão do formulário para tratar sem fazer refresh da tela
             event.preventDefault();
-
+ 
             // Obtem os dados de login e senha a partir do formulário de login
             var username = document.getElementById('username').value;
             var password = document.getElementById('password').value;
 
             // Valida login e se estiver ok, redireciona para tela inicial da aplicação
             resultadoLogin = loginUser(username, password);
-            if (resultadoLogin) {
-                if(username == "admin"){
+           
+            if (resultadoLogin) {                
+                if(usuarioCorrente.perfil == "admin"){
                     window.location.href = '../administrador/index_administrador.html';
                 }
                 else{

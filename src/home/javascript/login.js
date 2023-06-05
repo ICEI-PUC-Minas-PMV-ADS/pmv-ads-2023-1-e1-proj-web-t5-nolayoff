@@ -1,12 +1,16 @@
-
 // Disciplina: Trabalho Interdisciplinar - Aplicações Web
 // Professor: Rommel Vieira Carneiro (rommelcarneiro@gmail.com)
 //
 // Código LoginApp utilizado como exemplo para alunos de primeiro período 
 
 // Página inicial de Login
-const LOGIN_URL = "../../index.html";
+var url = window.location.pathname.split('/');
+var index ="../../index.html"
+if(url.length>=4){
+    index = "../../../index.html";
+}
 
+const LOGIN_URL = index;
 // Objeto para o banco de dados de usuários baseado em JSON
 var db_usuarios = {};
 
@@ -79,19 +83,17 @@ function loginUser (login, senha) {
     // Verifica todos os itens do banco de dados de usuarios 
     // para localizar o usuário informado no formulario de login
     for (var i = 0; i < db_usuarios.usuarios.length; i++) {
-        var usuario = db_usuarios.usuarios[i];
-        
+        var usuario = db_usuarios.usuarios[i];        
         // Se encontrou login, carrega usuário corrente e salva no Session Storage
         if (login == usuario.login && senha == usuario.senha) {
             usuarioCorrente.id = usuario.id;
             usuarioCorrente.login = usuario.login;
             usuarioCorrente.email = usuario.email;
             usuarioCorrente.nome = usuario.nome;
+            usuarioCorrente.perfil = usuario.perfil;
             
             // Salva os dados do usuário corrente no Session Storage, mas antes converte para string
-            sessionStorage.setItem ('usuarioCorrente', JSON.stringify (usuarioCorrente));
-            
-
+            sessionStorage.setItem ('usuarioCorrente', JSON.stringify (usuarioCorrente));            
             // Retorna true para usuário encontrado
             return true;
         }
@@ -104,7 +106,7 @@ function loginUser (login, senha) {
 // Apaga os dados do usuário corrente no sessionStorage
 function logoutUser () {
     usuarioCorrente = {};
-    sessionStorage.setItem ('usuarioCorrente', JSON.stringify (usuarioCorrente));
+    sessionStorage.setItem ('usuarioCorrente', JSON.stringify (usuarioCorrente));   
     window.location = LOGIN_URL;
 }
 

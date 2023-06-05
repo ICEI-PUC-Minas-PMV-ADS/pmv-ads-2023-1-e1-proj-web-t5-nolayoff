@@ -23,7 +23,7 @@
 </head>
 
 <body onload="init()">
-    <div class="navigation">
+    <header class="navigation">
         <div class="row">
             <div class="col-md-1">
                 <div>
@@ -37,7 +37,7 @@
                 </a>
             </div>
         </div>
-    </div>
+    </header>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index_administrador.html">Home</a>
@@ -56,6 +56,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="cursos/cursos.html">Cursos</a>
                 </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="../banner/banner.html">Banner</a>
+                </li> 
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="persquisar" aria-label="Search">
@@ -65,7 +68,7 @@
     </nav>
     <br>
 
-    <div class="container-fluid">
+    <main class="container-fluid">
         <br>
         <div id='cards-vagas'></div>
         <h1><span class="badge badge-secondary">Vagas</span> para você</h1>
@@ -81,7 +84,7 @@
         <h1><span class="badge badge-secondary">Cursos</span> de Aperfeiçoamento</h1>
         <div class="card-deck" id="cursos-cards"></div>
         <br>
-    </div>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -108,13 +111,11 @@
             }
 
             exibeCards();
-
              // Associa a função de logout ao botão
              document.getElementById('btn_logout').addEventListener('click', logoutUser);
              // Informa o nome do usuário logado
-             // document.getElementById('nomeUsuario').innerHTML = usuarioCorrente.nome;           
-
-            // Associa ao evento de carga da página a função para verificar se o usuário está logado
+             // document.getElementById('nomeUsuario').innerHTML = usuarioCorrente.nome;
+             // Associa ao evento de carga da página a função para verificar se o usuário está logado
             window.addEventListener('load', init);
 
         }
@@ -164,10 +165,6 @@
                     </div>`);
             }
         }
-
-
     </script>
 </body>
-
-
 </html>
