@@ -57,15 +57,18 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="../vagas/vagas.html">Vagas</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="noticias.html">Notícias<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="../cursos/cursos.html">Cursos</a>
                 </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="../banner/banner.html">Banner</a>
+                </li> 
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="persquisar" aria-label="Search">
@@ -77,38 +80,44 @@
     <div class="container-fluid">
         <h3 class="form-title">Manutenção no Cadastro de Notícias</h3>
 
-        <div class="form-group row">
-            <div class="col-sm-12">
-                <input type="button" id="btnNovoRegistro" value="Nova Notícia">
-            </div>
-        </div><br>
-
-
         <div class="row">
             <div id="msg" class="col-sm-12">
             </div>
-        </div>
+        </div><br>
+
         <form id="form-noticias">
-            <input type="text" id="id" name="id" hidden>
-            <div class="Publicacao">
-                <label for="inputPublicacao">Data de publicação (*)</label>
-                <input type="text" class="formulario" id="inputPublicacao" required
-                    placeholder="Informe a data de publicação da notícia">
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <input type="button" id="btnNovoRegistro" value="Nova Notícia">
+                </div>
+            </div><br>
+
+            <div class="form-group row">
+                <input type="text" id="id" name="id" hidden>
+                <div class="col-sm-10">
+                    <label for="inputTitulo">Titulo da notícia (*)</label>
+                    <input type="text" class="col" id="inputTitulo" required placeholder="Informe o titulo da notícia">
+                </div>
+                <div class="col-sm-2">
+                    <label for="inputPublicacao">Data de publicação (*)</label>
+                    <input type="text" class="col" id="inputPublicacao" required
+                        placeholder="Informe a data de publicação da notícia">
+                </div>
             </div>
-            <div class="titulo">
-                <label for="inputTitulo">Titulo da notícia (*)</label>
-                <input type="text" class="formulario" id="inputTitulo" required
-                    placeholder="Informe o titulo da notícia">
+
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <label for="inputSintese"> Sintese (*)</label>
+                    <input type="text" class="col" id="inputSintese" required
+                        placeholder="Informe a sintese da notícia">
+                </div>
+                <div class="col-sm-2">
+                    <label for="inputSite">Link (*)</label>
+                    <input type="text" class="col" id="inputLink" required placeholder="Informe o link da noticía">
+                </div>
             </div>
-            <div class="Sintese">
-                <label for="inputSintese"> Sintese (*)</label>
-                <input type="text" class="formulario" id="inputSintese" required
-                    placeholder="Informe a sintese da notícia">
-            </div>
-            <div class="link">
-                <label for="inputSite">Link (*)</label>
-                <input type="text" class="formulario" id="inputLink" required placeholder="Informe o link da noticía">
-            </div>
+
 
             <div class="form-group row">
                 <div class="col-sm-12">
@@ -148,7 +157,7 @@
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
 
-    <script src="javascript/crud_noticias.js"></script>       
+    <script src="javascript/crud_noticias.js"></script>
     <script src="../../home/javascript/login.js"></script>
     <script>
 
@@ -158,9 +167,9 @@
             if (!usuarioCorrente.login) {
                 window.location.href = LOGIN_URL;
             }
-             // Associa a função de logout ao botão
-             document.getElementById('btn_logout').addEventListener('click', logoutUser);
-             // Informa o nome do usuário logado
+            // Associa a função de logout ao botão
+            document.getElementById('btn_logout').addEventListener('click', logoutUser);
+            // Informa o nome do usuário logado
             // document.getElementById('nomeUsuario').innerHTML = usuarioCorrente.nome;           
 
             // Associa ao evento de carga da página a função para verificar se o usuário está logado
@@ -272,48 +281,5 @@
         }
     </script>
 </body>
-
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-5">
-                <h5><i class="bi bi-people-fill"></i> NOLAYOFF INC.</h5>
-                <div class="row">
-                    <div class="col-6">
-                        <ul class="list-unstyled">
-                            <li><a href="../../docs/01-Documentação de Contexto.md">Documentation</a></li>
-                            <li><a href="">Support</a></li>
-                            <li><a href="">Legal Terms</a></li>
-                            <li><a href="../../README.md">About</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <ul class="nav">
-                    <li class="nav-item"><a href="" class="nav-link pl-0"><i class="fa fa-facebook fa-lg"></i></a></li>
-                    <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-twitter fa-lg"></i></a></li>
-                    <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-github fa-lg"></i></a></li>
-                    <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-instagram fa-lg"></i></a></li>
-                </ul>
-                <br>
-            </div>
-            <div class="col-md-2">
-                <h5 class="text-md-right">Contate-nos</h5>
-            </div>
-            <div class="col-md-5">
-                <form>
-                    <fieldset class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <textarea class="form-control" id="exampleMessage" placeholder="Message"></textarea>
-                    </fieldset>
-                    <fieldset class="form-group text-xs-right">
-                        <button type="button" class="btn">Enviar</button>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
-    </div>
-</footer>
 
 </html>
