@@ -166,6 +166,11 @@ li p {
   height: 300px;
 }
 
+.text-user {
+  text-align: right!important;
+  margin-top: 34px;
+}
+
 footer {
   padding-top: 30px;
   background-image: linear-gradient(to right, #5b6967, #f1f1f1);
