@@ -37,4 +37,40 @@
 > **Links do código**:
 > - [src/usuarios/curriculo](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/tree/dev/src/usuarios/curriculo)
 
+---
+
 # Entrega 4
+## Requisto CRUD de IMAGEM DE PERFIL DO USUARIO - Usuário
+### Henrique Nogueira do Prado 
+### Tela de perfil do usuário
+![Tela de banner](img/)
+> **Links do código**:
+> - [src/administrador/banner]()
+
+## Requisto FUNÇÃO PESQUISAR - Site
+### Henrique Nogueira do Prado 
+### Tela com campo pesquisa
+![Tela de banner](img/)
+> **Links do código**:
+> - [src/administrador/banner]()
+
+## Requisto CRUD de Interesses - Usuário
+### Juliane Rodrigues Ferreira
+### Tela com interesses favoritados
+![Tela de noticias](img/)
+> **Links do código**:
+> - [src/administrador/noticias]()
+
+## Requisto Integração dos fluxos de telas - Site
+### Rafael Cassiano Januário de Souza
+### Tela administrativa das vagas
+![Tela de vagas](img/)
+> **Links do código**:
+> - [src/administrador/vagas]()
+
+## Requisto Cadastro de Perfil do Usuário
+### Tuerê Pinto
+### Tela de atualizacão curricular
+![Tela de curriculo]()
+> **Links do código**:
+> - [src/usuarios/curriculo]()
