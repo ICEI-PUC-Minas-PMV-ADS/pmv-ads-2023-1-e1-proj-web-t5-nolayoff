@@ -16,7 +16,9 @@
 
 **Mensagem de erro:** Usuário ou senha incorretos
 
-## Resultado dos teste - <TESTER>
+## Resultado dos teste
+
+**Teste:**
 
 **Descrição:**
 
