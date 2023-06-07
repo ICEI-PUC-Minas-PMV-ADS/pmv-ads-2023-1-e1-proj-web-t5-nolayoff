@@ -23,21 +23,31 @@
 </head>
 
 <body onload="init()">
-    <div class="navigation">
+    <header class="navigation">
+        
         <div class="row">
             <div class="col-md-1">
                 <div>
                     <img src="../../images/logo.png" class="img" alt="logo" />
                 </div>
             </div>
-            <div class="col-md-11">
+            <div class="col-md-10 text-user">
+                <div>
+                    <p>Olá, <span id="nomeUsuario">, seja bem-vindo!</span></p>
+                </div>
+            </div>
+            <div class="col-md-1">
                 <a href="#" id="btn_logout">
                     <i class="bi bi-person-fill"></i>
                     <span>Sair</span>
                 </a>
+                <a href="../home/cadastro_users.html" id="btn_perfil">
+                    <i class="bi bi-person-fill"></i>
+                    <span>Perfil</span>
+                </a>
             </div>
         </div>
-    </div>
+    </header>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand active" href="index_usuario.html">Home<span class="sr-only">(current)</span></a>
@@ -48,17 +58,26 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ">
-                    <a class="nav-link" href="curriculo/perfil.html">Curriculo</a>
+                    <a class="nav-link" href="curriculo/curriculo.html">Curriculo</a>
                 </li> 
-                <li class="nav-item">
-                    <a class="nav-link" href="vagas/vagas.html">Vagas</a>
-                </li>
+                
+                </li>                
+                   <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Vagas
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="vagas/vagas.html">Buscar vagas</a>
+                        <a class="dropdown-item" href="interesses/interesses.html">Meus Interesses</a>
+                    </div>
+                </li> 
                 <li class="nav-item">
                     <a class="nav-link" href="noticias/noticias.html">Notícias</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="cursos/cursos.html">Cursos</a>
-                </li>              
+                </li>        
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="persquisar" aria-label="Search">
@@ -68,7 +87,7 @@
     </nav>
     <br>
 
-    <div class="container-fluid">
+    <main class="container-fluid">
         <br>
         <div id='cards-vagas'></div>
         <h1><span class="badge badge-secondary">Vagas</span> para você</h1>
@@ -84,7 +103,7 @@
         <h1><span class="badge badge-secondary">Cursos</span> de Aperfeiçoamento</h1>
         <div class="card-deck" id="cursos-cards"></div>
         <br>
-    </div>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -96,9 +115,9 @@
         integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
         crossorigin="anonymous"></script>
 
-    <script src="/src/administrador/cursos/javascript/crud_cursos.js"></script>
-    <script src="/src/administrador/vagas/javascript/crud_vagas.js"></script>
-    <script src="/src/administrador/noticias/javascript/crud_noticias.js"></script>
+    <script src="../../src/administrador/cursos/javascript/crud_cursos.js"></script>
+    <script src="../../src/administrador/vagas/javascript/crud_vagas.js"></script>
+    <script src="../../src/administrador/noticias/javascript/crud_noticias.js"></script>
     <script src="../home/javascript/login.js"></script>
 
     <script>
@@ -113,9 +132,11 @@
             exibeCards();
 
              // Associa a função de logout ao botão
-             document.getElementById('btn_logout').addEventListener('click', logoutUser);
+             document.getElementById('btn_logout').addEventListener('click', function(){
+                logoutUser('../../index.html')
+            });
              // Informa o nome do usuário logado
-             // document.getElementById('nomeUsuario').innerHTML = usuarioCorrente.nome;           
+             document.getElementById('nomeUsuario').innerHTML = usuarioCorrente.nome;           
 
             // Associa ao evento de carga da página a função para verificar se o usuário está logado
             window.addEventListener('load', init);

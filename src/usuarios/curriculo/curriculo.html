@@ -31,41 +31,59 @@
 </head>
 
 <body onload="init()">
-    <div class="navigation">
+    <header class="navigation">
         <div class="row">
             <div class="col-md-1">
                 <div>
                     <img src="../../../images/logo.png" class="img" alt="logo" />
                 </div>
             </div>
-            <div class="col-md-11">               
+            <div class="col-md-10 text-user">
+                <div>
+                    <p>Olá, <span id="nomeUsuario">, seja bem-vindo!</span></p>
+                </div>
+            </div>
+            <div class="col-md-1">               
                 <a href="#" id="btn_logout">
                     <i class="bi bi-person-fill"></i>
                     <span>Sair</span>
                 </a>
+                <a href="../../home/cadastro_users.html" id="btn_perfil">
+                    <i class="bi bi-person-fill"></i>
+                    <span>Perfil</span>
+                </a>
             </div>
         </div>
-    </div>
+    </header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand " href="../index_usuario.html">Home<span class="sr-only">(current)</span></a>
+        <a class="navbar-brand active" href="../index_usuario.html">Home<span class="sr-only">(current)</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active ">
-                    <a class="nav-link" href="curriculo.html">Curriculo</a>
+                <li class="nav-item ">
+                    <a class="nav-link" href="perfil.html">Curriculo</a>
                 </li> 
-                <li class="nav-item">
-                    <a class="nav-link" href="../vagas/vagas.html">Vagas</a>
+                
+                </li>                
+                   <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Vagas
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="../vagas/vagas.html">Buscar vagas</a>
+                        <a class="dropdown-item" href="../interesses/interesses.html">Meus Interesses</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../noticias/noticias.html">Notícias</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../cursos/cursos.html">Cursos</a>
-                </li>              
+                </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="persquisar" aria-label="Search">
@@ -80,7 +98,7 @@
             </div>
         </div>
 
-        <h3 class="form-title">Atribuições</h3>
+        <h3 class="form-title">Ultimas atividades</h3>
         <form id="form-atribuicao">
             <div class="form-group row">
                 <div class="col-sm-6">

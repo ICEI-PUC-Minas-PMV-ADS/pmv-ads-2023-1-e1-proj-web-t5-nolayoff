@@ -19,56 +19,43 @@
     <!-- css customizado -->
     <link rel="stylesheet" href="../templates/css/login.css">
     <link rel="stylesheet" href="../templates/css/stylesheet.css">
-    
+
     <!-- icones -->
     <script src="https://kit.fontawesome.com/29a7b29429.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
-    <div class="navigation">
-        <div class="row">
-            <div class="col-md-1">
-                <div>
-                    <img src="../../images/logo.png" class="img" alt="logo" />
-                </div>
-            </div>
-            <div class="col-md-11">
-
-            </div>
-        </div>
-    </div>
+<body onload="init()">
     <div class="container-fluid">
-
         <div class="row">
             <div class="col-sm-6 px-0 d-none d-sm-block">
                 <!--img src="../../images/logo.png" alt="logo" -->
-                <img src="../../images/login.jpg" alt="login image" class="login-img">
+                <a href="../../index.html">
+                    <img src="../../images/logo.png" alt="login image" class="login-img">
+                </a>
             </div>
-            <div class="col-sm-6 login-section-wrapper">                
+            <div class="col-sm-6 login-section-wrapper">
                 <div class="login-wrapper my-auto">
-                    <h1 class="login-title">Log in</h1>
+                    <h1 class="login-title">Olá, faça seu login</h1>
                     <form id="login-form" class="form" method="post" onsubmit="loginUser (this)">
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input   name="username" id="username" class="form-control"
-                                placeholder="email@example.com">
+                            <label for="email">E-mail</label>
+                            <input name="user-email" id="user-email" class="form-control" placeholder="email@example.com"
+                                type="email" required>
                         </div>
                         <div class="form-group mb-4">
-                            <label for="password">Password</label>
+                            <label for="password">Senha</label>
                             <input type="password" name="password" id="password" class="form-control"
                                 placeholder="informe sua senha">
                         </div>
-                        <input type="submit" name="submit" value="submit"  class="btn btn-block login-btn" >
+                        <input type="submit" name="submit" value="entrar" class="btn btn-block login-btn">
                     </form>
-                    <a href="#!" class="forgot-password-link">Forgot password?</a>
-                    <p class="login-wrapper-footer-text">Não tem uma conta? <a href="#loginModal" class="text-reset" data-toggle="modal" data-target="#loginModal">Registre
-                            aqui</a></p>
+                    <a href="#!" class="forgot-password-link">Esqueceu sua senha?</a>
+                    <p class="login-wrapper-footer-text">Não tem uma conta?</p>
+                    <a href="#loginModal" class="forgot-password-link" data-toggle="modal"
+                        data-target="#loginModal">Registre aqui</a>
                 </div>
             </div>
-           
         </div>
-
-
     </div>
 
     <!-- Modal -->
@@ -77,7 +64,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalLabel">Login App</h5>
+                    <h5 class="modal-title" id="loginModalLabel">Novo usuário</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -85,26 +72,26 @@
                 <div class="modal-body">
                     <div id="login-box" class="col-md-12">
                         <form id="login-form" class="form" method="post" onsubmit="loginUser (this)">
-                            <h3 class="text-center text-info">Novo usuário</h3>
-                            <div class="form-group">
+                            <!-- <h3 class="text-center text-info">Novo usuário</h3> -->
+                            <!-- <div class="form-group">
                                 <label for="login" class="text-info">Usuário</label><br>
                                 <input type="text" name="txt_login" id="txt_login" class="form-control">
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label for="nome" class="text-info">Nome completo</label><br>
                                 <input type="text" name="txt_nome" id="txt_nome" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="email" class="text-info">email</label><br>
-                                <input type="text" name="txt_email" id="txt_email" class="form-control">
+                                <input type="email" name="txt_email" id="txt_email" class="form-control" size="30">
                             </div>
                             <div class="form-group">
                                 <label for="senha" class="text-info">Senha</label><br>
-                                <input type="password" name="txt_senha" id="txt_senha" class="form-control">
+                                <input type="password" name="txt_senha" id="txt_senha" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="senha2" class="text-info">Confirmação de Senha</label><br>
-                                <input type="password" name="txt_senha2" id="txt_senha2" class="form-control">
+                                <input type="password" name="txt_senha2" id="txt_senha2" class="form-control" required>
                             </div>
                         </form>
                     </div>
@@ -116,7 +103,6 @@
             </div>
         </div>
     </div>
-
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -135,22 +121,22 @@
         function processaFormLogin(event) {
             // Cancela a submissão do formulário para tratar sem fazer refresh da tela
             event.preventDefault();
- 
+
             // Obtem os dados de login e senha a partir do formulário de login
-            var username = document.getElementById('username').value;
+            var email = document.getElementById('user-email').value;
             var password = document.getElementById('password').value;
 
             // Valida login e se estiver ok, redireciona para tela inicial da aplicação
-            resultadoLogin = loginUser(username, password);
-           
-            if (resultadoLogin) {                
-                if(usuarioCorrente.perfil == "admin"){
+            resultadoLogin = loginUser(email, password);
+
+            if (resultadoLogin) {
+                if (usuarioCorrente.perfil == "admin") {
                     window.location.href = '../administrador/index_administrador.html';
                 }
-                else{
+                else {
                     window.location.href = '../usuarios/index_usuario.html';
                 }
-                
+
             }
             else { // Se login falhou, avisa ao usuário
                 alert('Usuário ou senha incorretos');
@@ -183,7 +169,6 @@
 
         // Associa a funçao processaFormLogin  formulário adicionado um manipulador do evento submit
         document.getElementById('login-form').addEventListener('submit', processaFormLogin);
-
 
         // Associar salvamento ao botao
         document.getElementById('btn_salvar').addEventListener('click', salvaLogin);        
