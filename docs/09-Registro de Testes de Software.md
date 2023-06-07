@@ -16,6 +16,14 @@
 
 **Mensagem de erro:** Usuário ou senha incorretos
 
+## Resultado dos teste - <TESTER>
+
+**Descrição:**
+
+**Evidência:**
+
+**Correção:**
+
 ---
 
 ## Caso de Testes 2
@@ -35,6 +43,12 @@
 **Comportamento do sistema no caso de erro:** Não deixar entrar na página de inico destinada ao tipo de usuário.
 
 **Mensagem de erro:** Usuário ou senha incorretos
+
+## Resultado dos teste
+
+**Descrição:**
+
+**Evidência:**
 
 ---
 
@@ -56,6 +70,14 @@
 
 **Mensagem de sucesso:** 
 
+## Resultado dos teste
+
+**Descrição:**
+
+**Evidência:**
+
+**Correção:**
+
 ---
 
 ## Caso de Testes 4
@@ -76,6 +98,14 @@
 
 **Mensagem de sucesso:** 
 
+## Resultado dos teste
+
+**Descrição:**
+
+**Evidência:**
+
+**Correção:**
+
 ---
 
 ## Caso de Testes 5
@@ -95,6 +125,12 @@
 **Comportamento do sistema no caso de sucesso:** Deve deixar deletar uma ou mais de uma vagas cadastrada.
 
 **Mensagem de sucesso:** 
+
+## Resultado dos teste
+
+**Descrição:**
+
+**Evidência:**
 
 ---
 
@@ -118,6 +154,7 @@
 
 ## Resultado dos teste
 **Descrição:**
+
 **Evidência:**
 
 ---
