@@ -96,9 +96,9 @@
         integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
         crossorigin="anonymous"></script>
 
-    <script src="/src/administrador/cursos/javascript/crud_cursos.js"></script>
-    <script src="/src/administrador/vagas/javascript/crud_vagas.js"></script>
-    <script src="/src/administrador/noticias/javascript/crud_noticias.js"></script>
+    <script src="../../src/administrador/cursos/javascript/crud_cursos.js"></script>
+    <script src="../../src/administrador/vagas/javascript/crud_vagas.js"></script>
+    <script src="../../src/administrador/noticias/javascript/crud_noticias.js"></script>
     <script src="../home/javascript/login.js"></script>
 
     <script>
@@ -113,7 +113,9 @@
             exibeCards();
 
              // Associa a função de logout ao botão
-             document.getElementById('btn_logout').addEventListener('click', logoutUser);
+             document.getElementById('btn_logout').addEventListener('click', function(){
+                logoutUser('../../index.html')
+            });
              // Informa o nome do usuário logado
              // document.getElementById('nomeUsuario').innerHTML = usuarioCorrente.nome;           
 

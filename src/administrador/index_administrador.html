@@ -58,7 +58,7 @@
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="../banner/banner.html">Banner</a>
-                </li> 
+                </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="persquisar" aria-label="Search">
@@ -96,9 +96,9 @@
         integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
         crossorigin="anonymous"></script>
 
-    <script src="/src/administrador/cursos/javascript/crud_cursos.js"></script>
-    <script src="/src/administrador/vagas/javascript/crud_vagas.js"></script>
-    <script src="/src/administrador/noticias/javascript/crud_noticias.js"></script>
+    <script src="../../src/administrador/cursos/javascript/crud_cursos.js"></script>
+    <script src="../../src/administrador/vagas/javascript/crud_vagas.js"></script>
+    <script src="../../src/administrador/noticias/javascript/crud_noticias.js"></script>
     <script src="../home/javascript/login.js"></script>
 
     <script>
@@ -111,11 +111,13 @@
             }
 
             exibeCards();
-             // Associa a função de logout ao botão
-             document.getElementById('btn_logout').addEventListener('click', logoutUser);
-             // Informa o nome do usuário logado
-             // document.getElementById('nomeUsuario').innerHTML = usuarioCorrente.nome;
-             // Associa ao evento de carga da página a função para verificar se o usuário está logado
+            // Associa a função de logout ao botão
+            document.getElementById('btn_logout').addEventListener('click', function(){
+                logoutUser('../../index.html')
+            });
+            // Informa o nome do usuário logado
+            // document.getElementById('nomeUsuario').innerHTML = usuarioCorrente.nome;
+            // Associa ao evento de carga da página a função para verificar se o usuário está logado
             window.addEventListener('load', init);
 
         }
@@ -167,4 +169,5 @@
         }
     </script>
 </body>
+
 </html>
