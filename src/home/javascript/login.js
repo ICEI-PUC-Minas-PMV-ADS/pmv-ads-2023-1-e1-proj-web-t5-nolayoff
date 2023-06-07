@@ -10,6 +10,8 @@ if (url.length >= 4) {
     index = "../../../index.html";
 }
 
+var userLogin;
+
 const LOGIN_URL = index;
 // Objeto para o banco de dados de usuários baseado em JSON
 var db_usuarios = {};
@@ -39,7 +41,7 @@ function generateUUID() { // Public Domain/MIT
 const dadosIniciais = {
     usuarios: [
         { "id": generateUUID(), "login": "admin", "senha": "123", "nome": "Administrador do Sistema", "email": "admin@abc.com", "perfil": "admin" },
-        { "id": generateUUID(), "login": "user", "senha": "123", "nome": "Usuario Comum", "email": "user@abc.com", "perfil": "comum" },
+        { "id": generateUUID(), "login": "user", "senha": "123", "nome": "Jonh", "email": "user@abc.com", "perfil": "comum" },
     ]
 };
 
@@ -125,6 +127,14 @@ function setUserPass() {
 
 }
 
+function getNameUserCurrent(){
+    return usuarioCorrente.nome;
+}
+
+function getPerfilUserCurrent(){
+    return usuarioCorrente.perfil;
+}
 
 // Inicializa as estruturas utilizadas pelo LoginApp
 initLoginApp();
+
