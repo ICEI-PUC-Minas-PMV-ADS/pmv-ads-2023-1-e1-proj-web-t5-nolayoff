@@ -44,11 +44,13 @@
 
 **Mensagem de erro:** Usuário ou senha incorretos
 
-## Resultado dos teste
+## Resultado dos teste - <TESTER>
 
 **Descrição:**
 
 **Evidência:**
+
+**Correção:**
 
 ---
 
@@ -70,7 +72,7 @@
 
 **Mensagem de sucesso:** 
 
-## Resultado dos teste
+## Resultado dos teste - <TESTER>
 
 **Descrição:**
 
@@ -98,7 +100,7 @@
 
 **Mensagem de sucesso:** 
 
-## Resultado dos teste
+## Resultado dos teste - <TESTER>
 
 **Descrição:**
 
@@ -126,11 +128,13 @@
 
 **Mensagem de sucesso:** 
 
-## Resultado dos teste
+## Resultado dos teste - <TESTER>
 
 **Descrição:**
 
 **Evidência:**
+
+**Correção:**
 
 ---
 
@@ -152,10 +156,13 @@
 
 **Mensagem de sucesso:** 
 
-## Resultado dos teste
+## Resultado dos teste - <TESTER>
+
 **Descrição:**
 
 **Evidência:**
+
+**Correção:**
 
 ---
 
@@ -177,6 +184,14 @@
 
 **Mensagem de erro:** 
 
+## Resultado dos teste - <TESTER>
+
+**Descrição:**
+
+**Evidência:**
+
+**Correção:**
+
 ---
 
 ## Caso de Testes 8
@@ -194,3 +209,11 @@
 **Comportamento do sistema no caso de sucesso:** Deve deixar deletar o curriculo cadastrado.
 
 **Mensagem de sucesso:** 
+
+## Resultado dos teste - <TESTER>
+
+**Descrição:**
+
+**Evidência:**
+
+**Correção:**
