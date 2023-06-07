@@ -23,7 +23,7 @@
 </head>
 
 <body onload="init()">
-    <div class="navigation">
+    <header class="navigation">
         
         <div class="row">
             <div class="col-md-1">
@@ -43,7 +43,7 @@
                 </a>
             </div>
         </div>
-    </div>
+    </header>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand active" href="index_usuario.html">Home<span class="sr-only">(current)</span></a>
@@ -56,15 +56,24 @@
                 <li class="nav-item ">
                     <a class="nav-link" href="curriculo/perfil.html">Curriculo</a>
                 </li> 
-                <li class="nav-item">
-                    <a class="nav-link" href="vagas/vagas.html">Vagas</a>
-                </li>
+                
+                </li>                
+                   <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Vagas
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="vagas/vagas.html">Buscar vagas</a>
+                        <a class="dropdown-item" href="interesses/interesses.html">Meus Interesses</a>
+                    </div>
+                </li> 
                 <li class="nav-item">
                     <a class="nav-link" href="noticias/noticias.html">Notícias</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="cursos/cursos.html">Cursos</a>
-                </li>              
+                
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="persquisar" aria-label="Search">
@@ -74,7 +83,7 @@
     </nav>
     <br>
 
-    <div class="container-fluid">
+    <main class="container-fluid">
         <br>
         <div id='cards-vagas'></div>
         <h1><span class="badge badge-secondary">Vagas</span> para você</h1>
@@ -90,7 +99,7 @@
         <h1><span class="badge badge-secondary">Cursos</span> de Aperfeiçoamento</h1>
         <div class="card-deck" id="cursos-cards"></div>
         <br>
-    </div>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
