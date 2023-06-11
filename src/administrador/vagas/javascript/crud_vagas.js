@@ -2,7 +2,7 @@ var db_vagas_inicial = {
     "vagas": [
         {
             "id": 1,
-            "descricao": "Analista de TI - DB APOIO INTEGRAL.",
+            "descricao": "Analista de TI - DB APOIO INTEGRAL. vaga 1",
             "empresa" : "wabtec" ,
             'sobreaempresa' :"With more than 27,000 employees in over 50 countries around the world, Wabtec provides innovative solutions to our freight rail, passenger transit and industrial customers. Our history of innovation dates back a century and a half to George Westinghouse's invention of the air brake.",
             'sobreavaga' :"Empresa localizada na cidade de contagem/ mg do ramo administrativo contrata analista de ti Requisitos: • desejável ensino superior completo em tecnologia da informação ou áreas afins.",
@@ -59,7 +59,7 @@ var db_vagas_inicial = {
         },
         {
             "id": 5,
-            "descricao": "Analista de TI - DB APOIO INTEGRAL.",
+            "descricao": "Analista de TI - DB APOIO INTEGRAL. vaga 5",
             "empresa" : "wabtec" ,
             'sobreaempresa' :"With more than 27,000 employees in over 50 countries around the world, Wabtec provides innovative solutions to our freight rail, passenger transit and industrial customers. Our history of innovation dates back a century and a half to George Westinghouse's invention of the air brake.",
             'sobreavaga' :"Empresa localizada na cidade de contagem/ mg do ramo administrativo contrata analista de ti Requisitos: • desejável ensino superior completo em tecnologia da informação ou áreas afins.",
@@ -115,7 +115,7 @@ var db_vagas_inicial = {
         },
         {
             "id": 9,
-            "descricao": "Analista de TI - DB APOIO INTEGRAL.",
+            "descricao": "Analista de TI - DB APOIO INTEGRAL. vaga 9",
             "empresa" : "wabtec" ,
             'sobreaempresa' :"With more than 27,000 employees in over 50 countries around the world, Wabtec provides innovative solutions to our freight rail, passenger transit and industrial customers. Our history of innovation dates back a century and a half to George Westinghouse's invention of the air brake.",
             'sobreavaga' :"Empresa localizada na cidade de contagem/ mg do ramo administrativo contrata analista de ti Requisitos: • desejável ensino superior completo em tecnologia da informação ou áreas afins.",
