@@ -50,7 +50,7 @@
 ## Requisto FUNÇÃO PESQUISAR - Site
 ### Henrique Nogueira do Prado 
 ### Tela com campo pesquisa
-![Tela de banner](img/)tela_user_pesquisar.png
+![Tela de banner](img/tela_user_pesquisar.png)
 > **Links do código**:
 > - [src/usuarios/pesquisa/javascript/pesquisa.js](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/blob/crud-imagensdeperfil/src/usuarios/pesquisa/javascript/pesquisa.js)
 
@@ -59,14 +59,16 @@
 ### Tela com interesses favoritados
 ![Tela de noticias](img/)
 > **Links do código**:
-> - [src/administrador/noticias]()
+> - [src/usuarios/interesses](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/tree/dev/src/usuarios/interesses)
 
 ## Requisto Integração exibição de VAGAS, INTERESSES, CURSOS, NOTÍCIAS nas telas de HOME tratando o perfil de usuário - Site
 ### Rafael Cassiano Januário de Souza
 ### Tela administrativa das vagas
-![Tela de vagas](img/)
+![Tela de home usuário](img/tela_user_read_1.png)
+![Tela de home usuário](img/tela_user_read_2.png)
 > **Links do código**:
-> - [src/administrador/vagas]()
+> - [src/usuarios/index_usuario.html](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/blob/dev/src/usuarios/index_usuario.html)
+> - [index.html](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/blob/dev/index.html)
 
 ## Requisto Cadastro de Perfil do Usuário - Site
 ### Tuerê Pinto
