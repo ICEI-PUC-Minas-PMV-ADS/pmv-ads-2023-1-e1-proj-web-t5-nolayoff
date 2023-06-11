@@ -2,17 +2,12 @@ var db_vagas_inicial = {
     "vagas": [
         {
             "id": 1,
-<<<<<<< HEAD
+
             "descricao": "Analista de Desenvolvimento BPM",
             "empresa" : "Sicoob Credicom" ,
             'sobreaempresa' :"O Sicoob Credicom é uma cooperativa financeira criada para os profissionais, estudantes e empresários da área de saúde. Com 31 anos de experiência no mercado, é uma instituição financeira sólida, autorizada pelo Banco Central e fiscalizada pelo Sicoob Central Cecremge – Central das Cooperativas de Economia e Crédito Mútuo do Estado de Minas Gerais.",
             'sobreavaga' :"Conectar Pessoas para promover Prosperidade com Justiça Financeira. Este é o PROPÓSITO do Sicoob Credicom, a maior cooperativa financeira da área de saúde do Brasil. Com 31 anos de experiência, somos uma instituição financeira sólida, regulada pelo Banco Central.",
-=======
-            "descricao": "Analista de TI - DB APOIO INTEGRAL. vaga 1",
-            "empresa" : "wabtec" ,
-            'sobreaempresa' :"With more than 27,000 employees in over 50 countries around the world, Wabtec provides innovative solutions to our freight rail, passenger transit and industrial customers. Our history of innovation dates back a century and a half to George Westinghouse's invention of the air brake.",
-            'sobreavaga' :"Empresa localizada na cidade de contagem/ mg do ramo administrativo contrata analista de ti Requisitos: • desejável ensino superior completo em tecnologia da informação ou áreas afins.",
->>>>>>> 49ccfa8172c34219bb2ad46f58cf7678ac024aec
+
             "tempo": "Integral",
             "cargo" : "Analista de Sistemas",
             "nivel" : "Pleno;sênior",
