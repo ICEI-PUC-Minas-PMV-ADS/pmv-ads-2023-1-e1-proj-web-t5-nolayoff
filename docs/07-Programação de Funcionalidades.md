@@ -50,9 +50,9 @@
 ## Requisto FUNÇÃO PESQUISAR - Site
 ### Henrique Nogueira do Prado 
 ### Tela com campo pesquisa
-![Tela de banner](img/)
+![Tela de banner](img/)tela_user_pesquisar.png
 > **Links do código**:
-> - [src/administrador/banner]()
+> - [src/usuarios/pesquisa/javascript/pesquisa.js](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/blob/crud-imagensdeperfil/src/usuarios/pesquisa/javascript/pesquisa.js)
 
 ## Requisto CRUD de Interesses - Usuário
 ### Juliane Rodrigues Ferreira
