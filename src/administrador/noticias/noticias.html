@@ -15,66 +15,48 @@
     <link rel="stylesheet" href="../../templates/css/cadastros.css">
     <link rel="stylesheet" href="../../templates/css/stylesheet.css">
 
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <!-- Bootstrap Icons-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">    
 
     <!-- icones -->
     <script src="https://kit.fontawesome.com/29a7b29429.js" crossorigin="anonymous"></script>
-
-    <!-- https://icons.getbootstrap.com/?q=person user icones -->
-
-    <title>Notícias</title>
+    <title>Vagas</title>
 </head>
 
 
 
 <body onload="init()">
-    <div class="navigation">
+    <header class="navigation">
         <div class="row">
             <div class="col-md-1">
                 <div>
                     <img src="../../../images/logo.png" class="img" alt="logo" />
                 </div>
             </div>
-            <div class="col-md-11">
+            <div class="col-md-9 text-user">
+                <div>
+                    <p>Olá, <span id="nomeUsuario">, seja bem-vindo!</span></p>
+                </div>
+            </div>            
+            <div class="col-md-1">                
+                <a href="../../home/cadastro_users.html" id="btn_perfil">
+                    <i class="bi bi-person-fill"></i>
+                    <span>Perfil</span>
+                </a>
+            </div>
+            <div class="col-md-1">
                 <a href="#" id="btn_logout">
                     <i class="bi bi-person-fill"></i>
                     <span>Sair</span>
                 </a>
-            </div>
+            </div>           
         </div>
-    </div>
+    </header>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="../index_administrador.html">Home</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="../vagas/vagas.html">Vagas</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="noticias.html">Notícias<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../cursos/cursos.html">Cursos</a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="../banner/banner.html">Banner</a>
-                </li> 
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="persquisar" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-            </form>
-        </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-menu">       
     </nav>
 
     <div class="container-fluid">
@@ -167,10 +149,12 @@
             if (!usuarioCorrente.login) {
                 window.location.href = LOGIN_URL;
             }
+            
             // Associa a função de logout ao botão
             document.getElementById('btn_logout').addEventListener('click', logoutUser);
+
             // Informa o nome do usuário logado
-            // document.getElementById('nomeUsuario').innerHTML = usuarioCorrente.nome;           
+            document.getElementById('nomeUsuario').innerHTML = usuarioCorrente.nome;           
 
             // Associa ao evento de carga da página a função para verificar se o usuário está logado
             window.addEventListener('load', init);
@@ -189,6 +173,8 @@
                 $("#form-noticias")[0].reset();
             });
             exibeNoticias();
+
+            CriaNav()
         }
 
         function exibeNoticias() {
@@ -279,6 +265,38 @@
             $("#form-noticias")[0].reset();
 
         }
+
+        function CriaNav() {
+
+        var navabarAdmin = `<a class="navbar-brand" href="../index_administrador.html">Home</a>                       
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="../vagas/vagas.html">Vagas<span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="noticias.html">Notícias</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../cursos/cursos.html">Cursos</a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="../banner/banner.html">Banner</a>
+                                </li>
+                            </ul>
+                            <form class="form-inline my-2 my-lg-0">
+                               <input class="form-control mr-sm-2" type="search" placeholder="persquisar" aria-label="Search">
+                               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+                            </form>
+                        </div>`;
+                    // Remove os elementos da div
+            $("#nav-menu").html("");
+            if (usuarioCorrente.perfil == 'admin') {
+                $("#nav-menu").append(`${navabarAdmin}`);
+            }
+        }
+
+       
     </script>
 </body>
 
