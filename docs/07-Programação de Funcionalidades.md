@@ -61,14 +61,14 @@
 > **Links do código**:
 > - [src/administrador/noticias]()
 
-## Requisto Integração dos fluxos de telas - Site
+## Requisto Integração exibição de VAGAS, INTERESSES, CURSOS, NOTÍCIAS nas telas de HOME tratando o perfil de usuário - Site
 ### Rafael Cassiano Januário de Souza
 ### Tela administrativa das vagas
 ![Tela de vagas](img/)
 > **Links do código**:
 > - [src/administrador/vagas]()
 
-## Requisto Cadastro de Perfil do Usuário
+## Requisto Cadastro de Perfil do Usuário - Site
 ### Tuerê Pinto
 ### Tela de atualizacão curricular
 ![Tela de curriculo]()
