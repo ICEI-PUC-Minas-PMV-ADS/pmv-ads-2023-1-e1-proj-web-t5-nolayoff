@@ -24,7 +24,7 @@ var db_banner_inicial = {
 
 // Caso os dados já estejam no Local Storage, caso contrário, carrega os dados iniciais
 var dbbanner = JSON.parse(localStorage.getItem('db_banner'));
-if (!dbcursos) {
+if (!dbbanner) {
     dbbanner = db_banner_inicial
 };
 

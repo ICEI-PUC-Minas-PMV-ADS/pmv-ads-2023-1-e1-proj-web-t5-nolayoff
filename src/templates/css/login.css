@@ -98,9 +98,9 @@ body {
 }
 
 .login-wrapper .login-btn:hover {
-  border: 1px solid #fdbb28;
+  border: 1px solid #b0adad;
   background-color: #fff;
-  color: #fdbb28;
+  color: #71777c;
 }
 
 .login-wrapper a.forgot-password-link {

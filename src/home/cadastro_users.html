@@ -33,34 +33,27 @@
                     <img src="../../images/logo.png" class="img" alt="logo" />
                 </div>
             </div>
-            <div class="col-md-11">
+            <div class="col-md-9 text-user">
+                <div>
+                    <p>Olá, <span id="nomeUsuario">, seja bem-vindo!</span></p>
+                </div>
+            </div>            
+            <div class="col-md-1">                
+                <a href="cadastro_users.html" id="btn_perfil">
+                    <i class="bi bi-person-fill"></i>
+                    <span>Perfil</span>
+                </a>
+            </div>
+            <div class="col-md-1">
                 <a href="#" id="btn_logout">
                     <i class="bi bi-person-fill"></i>
                     <span>Sair</span>
                 </a>
-            </div>
+            </div>           
         </div>
     </header>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-user">
-        <a class="navbar-brand" href="../usuarios/index_usuario.html">Home<span class="sr-only">(current)</span></a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active ">
-                    <a class="nav-link" href="curriculo.html">Curriculo</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../vagas/vagas.html">Vagas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../noticias/noticias.html">Notícias</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../cursos/cursos.html">Cursos</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-menu"></nav>
 
     <div class="container-fluid">
         <script src="javascript/login.js"></script>
@@ -173,6 +166,19 @@
         </div> -->
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+        integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+        crossorigin="anonymous"></script>
+
+    <script src="../home/javascript/login.js"></script>
+
+
     <script>
         function init() {
 
@@ -183,13 +189,80 @@
 
             // Associa a função de logout ao botão
             document.getElementById('btn_logout').addEventListener('click', function () {
-                logoutUser('../../index.html')
+                logoutUser()
             });
             // Informa o nome do usuário logado
-            // document.getElementById('nomeUsuario').innerHTML = usuarioCorrente.nome;
+            document.getElementById('nomeUsuario').innerHTML = usuarioCorrente.nome;
+
             // Associa ao evento de carga da página a função para verificar se o usuário está logado
             window.addEventListener('load', init);
 
+            //cria barra de navegação
+
+            CriaNav();
+
+        }
+        function CriaNav() {
+
+            // Remove os elementos da div
+            $("#nav-menu").html("");
+
+            if (usuarioCorrente.perfil == 'admin') {
+
+                $("#nav-menu").append(`
+                <a class="navbar-brand" href="../administrador/index_administrador.html">Home</a>                   
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                         <li class="nav-item active">
+                         <a class="nav-link" href="../administrador/vagas/vagas.html">Vagas<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                         <a class="nav-link" href="../administrador/noticias/noticias.html">Notícias</a>
+                        </li>
+                        <li class="nav-item">
+                         <a class="nav-link" href="../administrador/cursos/cursos.html">Cursos</a>
+                        </li>
+                        <li class="nav-item ">
+                         <a class="nav-link" href="../administrador/banner/banner.html">Banner</a>
+                        </li>
+                    </ul>
+                <form class="form-inline my-2 my-lg-0">
+                     <input class="form-control mr-sm-2" type="search" placeholder="persquisar" aria-label="Search">
+                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+                </form>
+                </div>`);
+            }
+            else{
+                $("#nav-menu").append(` <a class="navbar-brand active" href="../usuarios/index_usuario.html">Home<span class="sr-only">(current)</span></a>        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="../usuarios/curriculo/curriculo.html">Curriculo</a>
+                </li>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Vagas
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="../usuarios/vagas/vagas.html">Buscar vagas</a>
+                        <a class="dropdown-item" href="../usuarios/interesses/interesses.html">Meus Interesses</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../usuarios/noticias/noticias.html">Notícias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../usuarios/cursos/cursos.html">Cursos</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="persquisar" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+            </form>
+        </div>`)
+            }
         }
     </script>
 </body>

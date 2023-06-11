@@ -10,6 +10,8 @@ if (url.length >= 4) {
     index = "../../../index.html";
 }
 
+
+
 var userLogin;
 
 const LOGIN_URL = index;
@@ -78,25 +80,39 @@ function initLoginApp() {
 
 
 // Verifica se o login do usuário está ok e, se positivo, direciona para a página inicial
-function loginUser(email, senha) {
+function loginUser(loginOuEmail, senha) {
 
     // Verifica todos os itens do banco de dados de usuarios 
     // para localizar o usuário informado no formulario de login
     for (var i = 0; i < db_usuarios.usuarios.length; i++) {
         var usuario = db_usuarios.usuarios[i];
-        // Se encontrou login, carrega usuário corrente e salva no Session Storage
-        if (email == usuario.email && senha == usuario.senha) {
-            usuarioCorrente.id = usuario.id;
-            usuarioCorrente.login = usuario.login;
-            usuarioCorrente.email = usuario.email;
-            usuarioCorrente.nome = usuario.nome;
-            usuarioCorrente.perfil = usuario.perfil;
-
-            // Salva os dados do usuário corrente no Session Storage, mas antes converte para string
-            sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuarioCorrente));
-            // Retorna true para usuário encontrado
-            return true;
+        if(loginOuEmail == usuario.email){
+            if(senha == usuario.senha){
+                usuarioCorrente.id = usuario.id;
+                usuarioCorrente.login = usuario.login;
+                usuarioCorrente.email = usuario.email;
+                usuarioCorrente.nome = usuario.nome;
+                usuarioCorrente.perfil = usuario.perfil;    
+                // Salva os dados do usuário corrente no Session Storage, mas antes converte para string
+                sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuarioCorrente));
+                // Retorna true para usuário encontrado
+                return true;
+            }
         }
+        else if(loginOuEmail == usuario.login){
+            if(senha == usuario.senha){
+                usuarioCorrente.id = usuario.id;
+                usuarioCorrente.login = usuario.login;
+                usuarioCorrente.email = usuario.email;
+                usuarioCorrente.nome = usuario.nome;
+                usuarioCorrente.perfil = usuario.perfil;    
+                // Salva os dados do usuário corrente no Session Storage, mas antes converte para string
+                sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuarioCorrente));
+                // Retorna true para usuário encontrado
+                return true;
+            }
+        }
+        
     }
 
     // Se chegou até aqui é por que não encontrou o usuário e retorna falso
@@ -107,7 +123,7 @@ function loginUser(email, senha) {
 function logoutUser(uriIndex) {
     usuarioCorrente = {};
     sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuarioCorrente));
-    window.location = uriIndex;
+    window.location = index;
 }
 
 function addUser(nome, login, senha, email) {
