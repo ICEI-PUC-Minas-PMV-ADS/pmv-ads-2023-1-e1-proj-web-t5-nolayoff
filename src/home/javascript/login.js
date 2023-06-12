@@ -42,8 +42,32 @@ function generateUUID() { // Public Domain/MIT
 // Dados de usuários para serem utilizados como carga inicial
 const dadosIniciais = {
     usuarios: [
-        { "id": generateUUID(), "login": "admin", "senha": "123", "nome": "Administrador do Sistema", "email": "admin@abc.com", "perfil": "admin" },
-        { "id": generateUUID(), "login": "user", "senha": "123", "nome": "Jonh", "email": "user@abc.com", "perfil": "comum" },
+        {
+            "id": generateUUID(),
+            "login": "admin",
+            "senha": "123",
+            "nome": "Administrador do Sistema",
+            "telefone" : "",
+            "email": "admin@abc.com",
+            "rua":"",
+            "bairro":"",
+            "cidade":"",
+            "dep":"",
+            "perfil": "admin"
+        },
+        {
+            "id": generateUUID(),
+            "login": "user",
+            "senha": "123",
+            "nome": "Jonh",
+            "telefone" : "",
+            "email": "user@abc.com",
+            "rua":"",
+            "bairro":"",
+            "cidade":"",
+            "dep":"",
+            "perfil": "comum"
+        },
     ]
 };
 
@@ -86,33 +110,33 @@ function loginUser(loginOuEmail, senha) {
     // para localizar o usuário informado no formulario de login
     for (var i = 0; i < db_usuarios.usuarios.length; i++) {
         var usuario = db_usuarios.usuarios[i];
-        if(loginOuEmail == usuario.email){
-            if(senha == usuario.senha){
+        if (loginOuEmail == usuario.email) {
+            if (senha == usuario.senha) {
                 usuarioCorrente.id = usuario.id;
                 usuarioCorrente.login = usuario.login;
                 usuarioCorrente.email = usuario.email;
                 usuarioCorrente.nome = usuario.nome;
-                usuarioCorrente.perfil = usuario.perfil;    
+                usuarioCorrente.perfil = usuario.perfil;
                 // Salva os dados do usuário corrente no Session Storage, mas antes converte para string
                 sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuarioCorrente));
                 // Retorna true para usuário encontrado
                 return true;
             }
         }
-        else if(loginOuEmail == usuario.login){
-            if(senha == usuario.senha){
+        else if (loginOuEmail == usuario.login) {
+            if (senha == usuario.senha) {
                 usuarioCorrente.id = usuario.id;
                 usuarioCorrente.login = usuario.login;
                 usuarioCorrente.email = usuario.email;
                 usuarioCorrente.nome = usuario.nome;
-                usuarioCorrente.perfil = usuario.perfil;    
+                usuarioCorrente.perfil = usuario.perfil;
                 // Salva os dados do usuário corrente no Session Storage, mas antes converte para string
                 sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuarioCorrente));
                 // Retorna true para usuário encontrado
                 return true;
             }
         }
-        
+
     }
 
     // Se chegou até aqui é por que não encontrou o usuário e retorna falso
@@ -143,12 +167,16 @@ function setUserPass() {
 
 }
 
-function getNameUserCurrent(){
+function getNameUserCurrent() {
     return usuarioCorrente.nome;
 }
 
-function getPerfilUserCurrent(){
+function getPerfilUserCurrent() {
     return usuarioCorrente.perfil;
+}
+
+function getUserEmailCurrent() {
+    return usuarioCorrente.email;
 }
 
 // Inicializa as estruturas utilizadas pelo LoginApp

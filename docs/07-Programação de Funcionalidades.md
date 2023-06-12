@@ -57,7 +57,7 @@
 ## Requisto CRUD de Interesses - Usuário
 ### Juliane Rodrigues Ferreira
 ### Tela com interesses favoritados
-![Tela de noticias](img/)
+![Tela de interesses](img/)
 > **Links do código**:
 > - [src/usuarios/interesses](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/tree/dev/src/usuarios/interesses)
 
@@ -70,9 +70,10 @@
 > - [src/usuarios/index_usuario.html](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/blob/dev/src/usuarios/index_usuario.html)
 > - [index.html](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/blob/dev/index.html)
 
-## Requisto Cadastro de Perfil do Usuário - Site
+## Requisto Cadastro de Perfil do Usuário Admim e Comum - Site
 ### Tuerê Pinto
 ### Tela de atualizacão curricular
-![Tela de curriculo]()
+![Tela de home perfil usuário](img/tela_perfil_user.png)
+![Tela de home perfil administrador](img/tela_perfil_admin.png)
 > **Links do código**:
-> - [src/usuarios/curriculo]()
+> - [src/home](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/tree/dev/src/home)
