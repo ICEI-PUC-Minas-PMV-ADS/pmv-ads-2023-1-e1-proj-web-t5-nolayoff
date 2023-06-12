@@ -57,7 +57,7 @@
 ## Requisto CRUD de Interesses - Usuário
 ### Juliane Rodrigues Ferreira
 ### Tela com interesses favoritados
-![Tela de interesses](img/)
+![Tela de interesses](img/tela_interesses.jpeg)
 > **Links do código**:
 > - [src/usuarios/interesses](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/tree/dev/src/usuarios/interesses)
 
