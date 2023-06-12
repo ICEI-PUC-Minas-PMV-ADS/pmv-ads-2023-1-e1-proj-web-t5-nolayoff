@@ -43,9 +43,9 @@
 ## Requisto CRUD de IMAGEM DE PERFIL DO USUARIO - Usuário
 ### Henrique Nogueira do Prado 
 ### Tela de perfil do usuário
-![Tela de banner](img/)
+![Tela de imagem de perfil](img/tela_imagem_perfil.png)
 > **Links do código**:
-> - [src/administrador/banner]()
+> - [src/usuarios/imagem_de_perfil](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/tree/crud-imagensdeperfil/src/usuarios/imagem_de_perfil)
 
 ## Requisto FUNÇÃO PESQUISAR - Site
 ### Henrique Nogueira do Prado 
