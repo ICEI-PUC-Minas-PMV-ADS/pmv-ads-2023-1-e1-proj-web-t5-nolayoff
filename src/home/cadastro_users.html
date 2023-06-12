@@ -9,10 +9,6 @@
     <!-- Google Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
-
-    <!-- css -->
-    <link rel="stylesheet" href="../templates/css/stylesheet.css">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
@@ -20,24 +16,329 @@
     <!-- Bootstrap Icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
+    <!-- css -->
+    <link rel="stylesheet" href="../templates/css/cadastros.css">
+    <link rel="stylesheet" href="../templates/css/stylesheet.css">
+
     <!-- icones -->
     <script src="https://kit.fontawesome.com/29a7b29429.js" crossorigin="anonymous"></script>
-
-    <title>CADASTRO USUARIO</title>
+    <title>PERFIL DO USUARIO</title>
 </head>
 
-<body>
-    <div class="navigation">
-        <a href="#">
-            <i class="bi bi-person-fill-add"></i>
-            <span>Cadastro</span>
-        </a>
-        <a href="#">
-            <i class="bi bi-person-fill-lock"></i>
-            <span>Login</span>
-        </a>
+<body onload="init()">
+    <header class="navigation">
+        <div class="row">
+            <div class="col-md-1">
+                <div>
+                    <img src="../../images/logo.png" class="img" alt="logo" />
+                </div>
+            </div>
+            <div class="col-md-9 text-user">
+                <div>
+                    <p>Olá, <span id="nomeUsuario">, seja bem-vindo!</span></p>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <a href="cadastro_users.html" id="btn_perfil">
+                    <i class="bi bi-person-fill"></i>
+                    <span>Perfil</span>
+                </a>
+            </div>
+            <div class="col-md-1">
+                <a href="#" id="btn_logout">
+                    <i class="bi bi-person-fill"></i>
+                    <span>Sair</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-menu"></nav>
+
+    <div class="container-fluid">
+        <script src="javascript/login.js"></script>
+        <script>
+            function getNameUserLogin() {
+                var textPerfil = "Perfil ";
+                var result = textPerfil.concat(getNameUserCurrent());
+                document.write("<h3 class=\"form-title\">" + result + "</h3>");
+            }
+            getNameUserLogin();
+        </script>
+        <div class="row">
+            <div id="msg" class="col-sm-10 offset-sm-1 ">
+                <!--<div class="alert alert-warning">Contato não encontrado.</div>-->
+            </div>
+        </div>
+
+        <form id="form-contato">
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <label for="inputNome">Nome Completo(*)</label>
+                    <input type="text" class="form-control" id="inputNome" required
+                        placeholder="Informe o nome do contato">
+                </div>
+                <div class="col-sm-6">
+                    <label for="inputCategoria">Tipo do perfil</label>
+                    <input type="text" class="form-control" id="inputPerfil">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-5">
+                    <label for="inputTelefone">Telefone (*)</label>
+                    <input type="text" class="form-control" id="inputTelefone" required placeholder="Telefone">
+                </div>
+                <div class="col-sm-7">
+                    <label for="inputEmail">E-mail (*)</label>
+                    <input type="email" class="form-control" id="inputEmail" required placeholder="Informe o e-mail"
+                        disabled>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <label for="inputCidade">Logradouro/Nome</label>
+                    <input type="text" class="form-control" id="inputRua" name="rua" disabled>
+                </div>
+                <div class="col-sm-6">
+                    <label for="inputCidade">Bairro/Distrito</label>
+                    <input type="text" class="form-control" id="inputBairro" name="bairro" disabled>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <label for="inputCidade">Localidade</label>
+                    <input type="text" class="form-control" id="inputCidade" name="cidade" disabled>
+                </div>
+                <div class="col-sm-3">
+                    <label for="inputEstado">UF</label>
+                    <input type="text" class="form-control" id="inputEstado" name="estado" disabled>
+                </div>
+                <div class="col-sm-3">
+                    <label for="inputCEP">CEP</label>
+                    <input type="text" class="form-control" id="inputCEP" name="cep" placeholder="30591-000">
+                </div>
+            </div>
+            <!-- <div class="form-group row">
+                <div class="col-sm-12">
+                    <label for="inputSite">Web Site (*)</label>
+                    <input type="text" class="form-control" id="inputSite" required placeholder="Web Site">
+                </div>
+            </div> -->
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <small>(*) Campos obrigatórios</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <!-- <input type="button" class="btn btn-success" id="btnInsert" value="Inserir"> -->
+                    <input type="button" class="btn btn-warning" id="btnUpdate" value="Atualizar">
+                    <!-- <input type="button" class="btn btn-success" id="btnCurriculo" value="Curriculo"> -->
+                    <!-- <input type="button" class="btn btn-secondary" id="btnClear" value="Limpar Form">  -->
+                    <!-- <a href="lista_contatos.html"><input type="button" class="btn btn-warning" id="btnClear"
+                            value="Pesquisar Contatos"></a> -->
+                </div>
+            </div>
+        </form>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <table id="grid-contatos" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Telefone</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">Perfil</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-contatos">
+                        <tr>
+                            <td scope="row">1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+        integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+        crossorigin="anonymous"></script>
+
+    <script src="../home/javascript/login.js"></script>
+
+
+    <script>
+        function init() {
+
+            // Verifica se o usuário já esta logado e se negativo, redireciona para tela de login        
+            if (!usuarioCorrente.login) {
+                window.location.href = LOGIN_URL;
+            }
+
+            // Associa a função de logout ao botão
+            document.getElementById('btn_logout').addEventListener('click', function () {
+                logoutUser()
+            });
+            // Informa o nome do usuário logado
+            document.getElementById('nomeUsuario').innerHTML = usuarioCorrente.nome;
+
+            // Associa ao evento de carga da página a função para verificar se o usuário está logado
+            window.addEventListener('load', init);
+
+            var cep = document.getElementById("inputCEP").value = "30492-015"
+
+            exibeDadosUsuarios();
+            adminEnable();
+            
+            getTypePerfil();
+            getNameUser();
+            getUserEmail();
+
+            //cria barra de navegação
+            CriaNav();
+
+        }
+        function CriaNav() {
+
+            // Remove os elementos da div
+            $("#nav-menu").html("");
+
+            if (usuarioCorrente.perfil == 'admin') {
+
+                $("#nav-menu").append(`
+                <a class="navbar-brand" href="../administrador/index_administrador.html">Home</a>                   
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                         <li class="nav-item active">
+                         <a class="nav-link" href="../administrador/vagas/vagas.html">Vagas<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                         <a class="nav-link" href="../administrador/noticias/noticias.html">Notícias</a>
+                        </li>
+                        <li class="nav-item">
+                         <a class="nav-link" href="../administrador/cursos/cursos.html">Cursos</a>
+                        </li>
+                        <li class="nav-item ">
+                         <a class="nav-link" href="../administrador/banner/banner.html">Banner</a>
+                        </li>
+                    </ul>
+                <form class="form-inline my-2 my-lg-0">
+                     <input class="form-control mr-sm-2" type="search" placeholder="persquisar" aria-label="Search">
+                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+                </form>
+                </div>`);
+            }
+            else {
+                $("#nav-menu").append(` <a class="navbar-brand active" href="../usuarios/index_usuario.html">Home<span class="sr-only">(current)</span></a>        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="../usuarios/curriculo/curriculo.html">Curriculo</a>
+                </li>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Vagas
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="../usuarios/vagas/vagas.html">Buscar vagas</a>
+                        <a class="dropdown-item" href="../usuarios/interesses/interesses.html">Meus Interesses</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../usuarios/noticias/noticias.html">Notícias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../usuarios/cursos/cursos.html">Cursos</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="persquisar" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+            </form>
+        </div>`)
+            }
+        }
+
+        function getTypePerfil() {
+            var perfil = getPerfilUserCurrent()
+            document.getElementById("inputPerfil").value = perfil.toUpperCase();
+        }
+
+        function getNameUser() {
+            var perfil = getNameUserCurrent()
+            document.getElementById("inputNome").value = perfil;
+        }
+
+        function getUserEmail() {
+            var perfil = getUserEmailCurrent()
+            document.getElementById("inputEmail").value = perfil;
+        }
+
+        function adminEnable() {
+            var perfil = getPerfilUserCurrent()
+            if (perfil == "admin") {
+                document.getElementById("inputPerfil").disabled = false;
+            } else {
+                document.getElementById("inputPerfil").disabled = true;
+                document.getElementById(("grid-contatos")).style.visibility="hidden"
+            }
+        }
+
+        (function () {
+            const cep = document.querySelector("input[name=cep]");
+            cep.addEventListener('blur', e => {
+                const value = cep.value.replace(/[^0-9]+/, '');
+                const url = `https://viacep.com.br/ws/${value}/json/`;
+
+                fetch(url)
+                    .then(response => response.json())
+                    .then(json => {
+                        if (json.logradouro) {
+                            document.querySelector('input[name=rua]').value = json.logradouro;
+                            document.querySelector('input[name=bairro]').value = json.bairro;
+                            document.querySelector('input[name=cidade]').value = json.localidade;
+                            document.querySelector('input[name=estado]').value = json.uf;
+                        }
+                    });
+            });
+        })();
+
+
+        function exibeDadosUsuarios() {
+            $("#table-contatos").html("");
+
+            for (i = 0; i < dadosIniciais.usuarios.length; i++) {
+                let user = dadosIniciais.usuarios[i];
+                $("#table-contatos").append(`<tr><td scope="row">${user.nome}</td>
+                                                <td>${user.telefone}</td>
+                                                <td>${user.email}</td>
+                                                <td>${user.perfil}</td>
+                                                <td><a href="#" type="button" onclick = "javascript:editarAtribuicao(${user.id})" title="Editar"><i class="fa-solid fa-pen"></i></a></td>
+                                                <td><a href="#" type="button" onclick = "javascript:excluirAtribuicao(${user.id})" title="Excluir"><i class="fa-solid fa-xmark"></i></a></td>
+                                            </tr>`);
+            }
+        }
+
+    </script>
 </body>
 
 <footer>
