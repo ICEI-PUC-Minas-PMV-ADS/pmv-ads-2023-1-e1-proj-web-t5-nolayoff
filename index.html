@@ -10,20 +10,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- css customizado -->
-    <link rel="stylesheet" href="src/templates/css/stylesheet.css">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <!-- Bootstrap Icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- css customizado -->
+    <link rel="stylesheet" href="src/templates/css/stylesheet.css">
     <!-- icones -->
     <script src="https://kit.fontawesome.com/29a7b29429.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
-    <div class="navigation">
+<body onload="init()">
+    <header class="navigation">
         <div class="row">
             <div class="col-md-1">
                 <div>
@@ -31,17 +31,13 @@
                 </div>
             </div>
             <div class="col-md-11">
-                <a href="#">
-                    <i class="bi bi-person-fill-add"></i>
-                    <span>Cadastro</span>
-                </a>
-                <a href="#">
+                <a href="src/home/login_user.html">
                     <i class="bi bi-person-fill"></i>
                     <span>Login</span>
                 </a>
             </div>
         </div>
-    </div>
+    </header>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">Home</a>
@@ -52,22 +48,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Vagas<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#cards-vagas">Vagas<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="src/usuarios/noticias/noticias.html">Notícias</a>
+                    <a class="nav-link" href="#cards-noticias">Notícias</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Cursos
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Tecnologia</a>
-                        <a class="dropdown-item" href="#">Gestão</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Outros</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="#cards-cursos">Cursos</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -76,96 +63,197 @@
             </form>
         </div>
     </nav>
-
-    <div class="banner">
-        <img src="images/layoff-790x400.png" alt="Imagem 1" />
+    <br>
+    <!-- banner-->
+    <div class="container ">
+        <div class="d-flex justify-content-center">
+            <div id="carouselbanners" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                </ol>
+                <div class="carousel-inner">
+                </div>
+                <button class="carousel-control-prev" type="button" data-target="#carouselbanners"
+                    data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-target="#carouselbanners"
+                    data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </button>
+            </div>
+        </div>       
     </div>
+    <!-- Fim banner-->
 
-    <script src="src/templates/javascript/template_javascript.js" defer></script>
+    <br>
+    <main class="container-fluid">
+        <br>
+        <div id='cards-vagas'></div>
+        <h1><span class="badge badge-secondary">Vagas</span> Disponíveis </h1>
+        <br>
+        <div class="card-deck" id="vagas-cards"></div>
+        <br>
 
-    <div class="padded-boxes">
-        <section>
-            <h3 class="heading">Vagas</h3>
-            <div class="padded">
-                <ul>
-                    <li>
-                        <img src="images/vaga-de-emprego.png" />
-                        <h3>Desenvolvedor junior</h3>
-                        <p>Lorem ipsum dolor sit amet...</p>
-                    </li>
-                    <li>
-                        <img src="images/vaga-de-emprego.png" />
-                        <h3>Analista junior</h3>
-                        <p>Lorem ipsum dolor sit amet...</p>
-                    </li>
-                    <li>
-                        <img src="images/vaga-de-emprego.png" />
-                        <h3>Programandor junior</h3>
-                        <p>Lorem ipsum dolor sit amet...</p>
-                    </li>
-                    <li>
-                        <img src="images/vaga-de-emprego.png" />
-                        <h3>Tester junior</h3>
-                        <p>Lorem ipsum dolor sit amet...</p>
-                    </li>
-                </ul>
+        <div id='cards-noticias'></div>
+        <h1><span class="badge badge-secondary">Notícias</span> de Mercado</h1>
+        <br>
+        <div class="card-deck" id="noticias-cards"></div>
+        <br>
+
+        <div id='cards-cursos'></div>
+        <h1><span class="badge badge-secondary">Cursos</span> de Aperfeiçoamento</h1>
+        <br>
+        <div class="card-deck" id="cursos-cards"></div>
+        <br>
+
+        <div class="card text-center">
+            <div class="card-header font-weight-bold">
+                NOLAYOFF
             </div>
-        </section>
-        <section>
-            <h3 class="heading">Cursos</h3>
-            <div class="padded">
-                <ul>
-                    <li>
-                        <img src="images/curos-de-capacitacao.png" />
-                        <h3>HTML5 como usar</h3>
-                        <p>Lorem ipsum dolor sit amet...</p>
-                    </li>
-                    <li>
-                        <img src="images/curos-de-capacitacao.png" />
-                        <h3>CSS como usar</h3>
-                        <p>Lorem ipsum dolor sit amet...</p>
-                    </li>
-                    <li>
-                        <img src="images/curos-de-capacitacao.png" />
-                        <h3>Javascript como usar</h3>
-                        <p>Lorem ipsum dolor sit amet...</p>
-                    </li>
-                    <li>
-                        <img src="images/curos-de-capacitacao.png" />
-                        <h3>paginas em HTML & CSS</h3>
-                        <p>Lorem ipsum dolor sit amet...</p>
-                    </li>
-                </ul>
+            <div class="card-body">
+                <h5 class="card-title">Vamos ajudar você!</h5>
+                <p>Nosso objetivo é impulsionar a realocação de profissionais no mercado de trabalho na área de
+                    tecnologia,
+                    de forma a facilitar as
+                    conexões e relacionamentos entre empresas e profissionais de TI, afetados de alguma forma pelo
+                    Layoff.
+                </p>
+                <p class="card-text">Cadastre-se ou faça login para ter sugestões personalizadas para seu perfil</p>
+                <a href="#" class="btn btn-outline-success my-2 my-sm-0">Venha com a gente</a>
             </div>
-        </section>
-        <section>
-            <h3 class="heading">Notícias</h3>
-            <div class="padded">
-                <ul>
-                    <li>
-                        <img src="images/noticias.png" />
-                        <h3>Novas empresas vs. layoff</h3>
-                        <p>Lorem ipsum dolor sit amet...</p>
-                    </li>
-                    <li>
-                        <img src="images/noticias.png" />
-                        <h3>Numero de empregos sobe</h3>
-                        <p>Lorem ipsum dolor sit amet...</p>
-                    </li>
-                    <li>
-                        <img src="images/noticias.png" />
-                        <h3>Capacitação é a melhor escolha</h3>
-                        <p>Lorem ipsum dolor sit amet...</p>
-                    </li>
-                    <li>
-                        <img src="images/noticias.png" />
-                        <h3>Mercado de TI em crescimento</h3>
-                        <p>Lorem ipsum dolor sit amet...</p>
-                    </li>
-                </ul>
-            </div>
-        </section>
-    </div>
+
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+        integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+        crossorigin="anonymous"></script>
+
+    <script src="src/administrador/cursos/javascript/crud_cursos.js"></script>
+    <script src="src/administrador/vagas/javascript/crud_vagas.js"></script>
+    <script src="src/administrador/noticias/javascript/crud_noticias.js"></script>
+
+    <script>
+
+        function init() {
+
+            //exibe os cards
+            exibeCards();
+
+            //inicia o carrossel
+            criaCarrossel();
+        }
+
+        function criaCarrossel() {
+
+            
+            var slides = [
+                { src: 'images/banner/banner1.jpg', alt: 'Imagem 1', caption: 'Atualmente no Brasil e no mundo pós pandêmico, as empresas estão adotando uma prática chamada de Layoff, com o objetivo diminuição do seu parque de colaboradores seja através de demissão temporária ou permanente...' },
+                { src: 'images/banner/banner2.jpg', alt: 'Imagem 2', caption: 'Some representative placeholder content for the third slide.' },
+                { src: 'images/layoff-790x400.png', alt: 'Imagem 3', caption: 'Some representative placeholder content for the third slide.' }
+            ];
+
+            // Criar indicadores
+            var indicatorsContainer = document.querySelector('.carousel-indicators');
+            slides.forEach(function (slide, index) {
+                var indicator = document.createElement('li');
+                indicator.setAttribute('data-target', '#carouselbanners');
+                indicator.setAttribute('data-slide-to', index.toString());
+                if (index === 0) {
+                    indicator.classList.add('active');
+                }
+                indicatorsContainer.appendChild(indicator);
+            });
+
+            // Criar slides
+            var slidesContainer = document.querySelector('.carousel-inner');
+            slides.forEach(function (slide, index) {
+                var slideItem = document.createElement('div');
+                slideItem.classList.add('carousel-item');
+                if (index === 0) {
+                    slideItem.classList.add('active');
+                }
+
+                var image = document.createElement('img');
+                image.src = slide.src;
+                image.alt = slide.alt;
+
+                var caption = document.createElement('div');
+                caption.classList.add('carousel-caption');
+                caption.title
+                caption.textContent = slide.caption;
+
+                slideItem.appendChild(image);
+                slideItem.appendChild(caption);
+                slidesContainer.appendChild(slideItem);
+
+            });
+
+            $(document).ready(function () {
+                $('.carousel').carousel();
+            });
+        }
+
+        function exibeCards() {
+
+            // Remove os elementos da div
+            $("#vagas-cards").html("");
+            $("#cursos-cards").html("");
+            $("#noticias-cards").html("");
+
+            // cria cards 
+            for (i = 0; i <= 2; i++) {
+
+                let curso = dbcursos.cursos[i];
+                let vaga = dbvagas.vagas[i];
+                let noticia = dbnoticias.noticias[i];
+
+                $("#vagas-cards").append(
+                    `<div class="card border-dark ">                          
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="bi bi-briefcase-fill"></i> - ${vaga.descricao}</h5>
+                                <br>
+                                <p class="card-text">${vaga.sobreavaga}</p>
+                                <p class="card-text"><small class="text-muted">${vaga.cargo} - ${vaga.nivel}</small></p>
+                                <p class="card-text"><small class="text-muted">Competências : ${vaga.competenciadavaga}</small></p>
+                                <br>
+                                <p class="card-text"><small class="text-muted">Empresa : ${vaga.empresa}</small></p>
+                            </div>
+                    </div>`);
+
+                $("#noticias-cards").append(
+                    `<div class="card border-dark ">                            
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="bi bi-newspaper"></i> - ${noticia.titulo}</h5>
+                                <br>
+                                <p class="card-text">${noticia.sintese}</p>
+                                <p class="card-text"><small class="text-muted">${noticia.publicacao}</small></p>
+                                <p class="card-text"><small class="text-muted">Fonte : ${noticia.fonte}</small></p>
+                            </div>
+                    </div>`);
+
+                $("#cursos-cards").append(
+                    `<div class="card border-dark ">                            
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="bi bi-rocket-takeoff-fill"></i> - ${curso.descricao}</h5>
+                                <p class="card-text">${curso.observacao}</p>
+                                <p class="card-text"><small class="text-muted">${curso.duracao}</small></p>
+                            </div>
+                    </div>`);
+               
+                
+            }
+        }  
+    </script>
+
 </body>
 
 <footer>
@@ -176,10 +264,11 @@
                 <div class="row">
                     <div class="col-6">
                         <ul class="list-unstyled">
-                            <li><a href="../../docs/01-Documentação de Contexto.md">Documentation</a></li>
-                            <li><a href="">Support</a></li>
-                            <li><a href="">Legal Terms</a></li>
-                            <li><a href="../../README.md">About</a></li>
+                            <li><a href="../../docs/01-Documentação de Contexto.md" target="_blank">Documentação</a>
+                            </li>
+                            <li><a href="">Suporte</a></li>
+                            <li><a href="">Termos Legais</a></li>
+                            <li><a href="../../README.md" target="_blank">Sobre</a></li>
                         </ul>
                     </div>
                 </div>

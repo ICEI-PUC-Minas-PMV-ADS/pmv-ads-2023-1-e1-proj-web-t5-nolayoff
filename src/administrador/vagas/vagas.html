@@ -6,6 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Inclua os arquivos CSS do Select2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+
     <!-- Google Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,77 +18,48 @@
     <link rel="stylesheet" href="../../templates/css/cadastros.css">
     <link rel="stylesheet" href="../../templates/css/stylesheet.css">
 
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <!-- Bootstrap Icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
     <!-- icones -->
     <script src="https://kit.fontawesome.com/29a7b29429.js" crossorigin="anonymous"></script>
-
-    <!-- https://icons.getbootstrap.com/?q=person user icones -->
-
     <title>Vagas</title>
 </head>
 
 <body onload="init()">
-    <div class="navigation">
+    <header class="navigation">
         <div class="row">
             <div class="col-md-1">
                 <div>
                     <img src="../../../images/logo.png" class="img" alt="logo" />
                 </div>
             </div>
-            <div class="col-md-11">
-                <a href="#">
-                    <i class="bi bi-person-fill-add"></i>
-                    <span>Cadastro</span>
-                </a>
-                <a href="#">
+            <div class="col-md-9 text-user">
+                <div>
+                    <p>Olá, <span id="nomeUsuario">, seja bem-vindo!</span></p>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <a href="../../home/cadastro_users.html" id="btn_perfil">
                     <i class="bi bi-person-fill"></i>
-                    <span>Login</span>
+                    <span>Perfil</span>
+                </a>
+            </div>
+            <div class="col-md-1">
+                <a href="#" id="btn_logout">
+                    <i class="bi bi-person-fill"></i>
+                    <span>Sair</span>
                 </a>
             </div>
         </div>
-    </div>
+    </header>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="../../index.html">Home</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Vagas<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Notícias</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Cursos
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Tecnologia</a>
-                        <a class="dropdown-item" href="#">Gestão</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Outros</a>
-                    </div>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="persquisar" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-            </form>
-        </div>
-    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-menu"> </nav>
+    <br>
 
-    <div class="container-fluid">
+    <main class="container-fluid">
         <h3 class="form-title">Manutenção no Cadastro de Vagas</h3>
 
         <div class="row">
@@ -110,7 +84,7 @@
                 <div class="col-sm-6">
                     <label for="cargo">Cargo(*)</label>
                     <input type="text" id="cargo" name="cargo" placeholder="Decrição do Cargo" required>
-                </div>               
+                </div>
             </div>
             <div class="form-group row">
                 <div class="col-sm-4">
@@ -127,10 +101,10 @@
                 </div>
                 <div class="col-sm-4">
                     <label for="salario">Remuneração</label>
-                    <input type="text" id="salario" name="salario" placeholder="Sálario a receber" >
+                    <input type="text" id="salario" name="salario" placeholder="Sálario a receber">
                 </div>
             </div>
-           
+
 
             <div class="form-group row">
                 <div class="col-sm-6">
@@ -145,9 +119,9 @@
             <div class="form-group row">
                 <div class="col-sm-12">
                     <label for="competenciadavaga">Competências da vaga(*)</label>
-                    <select id="competenciadavaga" name="competenciadavaga"  multiple required> </select>
+                    <select id="competenciadavaga" name="competenciadavaga" multiple required> </select>
                 </div>
-               
+
             </div>
             <div class="form-group row">
                 <div class="col-sm-4">
@@ -156,13 +130,13 @@
                 </div>
                 <div class="col-sm-4">
                     <label for="website">Site</label>
-                    <input type="text" id="website" name="website" placeholder="Site empresa" >
+                    <input type="text" id="website" name="website" placeholder="Site empresa">
                 </div>
 
                 <div class="col-sm-4">
                     <label for="telefone">Telefone</label>
-                    <input type="text" id="telefone" name="telefone" placeholder="Telefone da Empresa" >
-                </div>               
+                    <input type="text" id="telefone" name="telefone" placeholder="Telefone da Empresa">
+                </div>
             </div>
 
             <div class="form-group row">
@@ -216,24 +190,38 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </main>
 
-    <!-- Optional JavaScript; choose one of the two! -->
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+        integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
+    <!-- Inclua os arquivos JS do jQuery e do Select2 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
     <!-- CRUD -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="javascript/crud_vagas.js"></script>
+    <script src="../../home/javascript/login.js"></script>
     <script>
 
         function init() {
+
+            // Verifica se o usuário já esta logado e se negativo, redireciona para tela de login        
+            if (!usuarioCorrente.login) {
+                window.location.href = LOGIN_URL;
+            }
+            // Associa a função de logout ao botão
+            document.getElementById('btn_logout').addEventListener('click', logoutUser);
+
+
 
             // preenche o select de competências
             AuxCompetencias.data.map(({
@@ -258,8 +246,25 @@
                 }, 5000);
             });
 
-             
+            // Informa o nome do usuário logado
+            document.getElementById('nomeUsuario').innerHTML = usuarioCorrente.nome;
+
+
             exibeVagas();
+
+            //cria nav
+            CriaNav();
+
+            // Associa ao evento de carga da página a função para verificar se o usuário está logado
+            window.addEventListener('load', init);
+
+            // Inicialize o Select2 no campo de seleção múltipla
+            $('#competenciadavaga').select2({
+                placeholder: 'Selecione uma ou mais opções',
+                allowClear: true,
+                width: '100%',
+                theme: 'default custom-select2'
+            });
         }
 
         function exibeVagas() {
@@ -267,8 +272,8 @@
             $("#tbody-vagas").html("");
 
             // Popula a tabela com os registros do banco de dados
-            for (i = 0; i < db.data.length; i++) {
-                let vaga = db.data[i];
+            for (i = 0; i < dbvagas.vagas.length; i++) {
+                let vaga = dbvagas.vagas[i];
                 $("#tbody-vagas").append(`<tr><td scope="row">${vaga.descricao}</td>
                                                 <td>${vaga.empresa}</td>
                                                 <td>${vaga.cargo}</td>
@@ -284,17 +289,17 @@
         // Preenche o formulário quando o usuario clicar no botão editar
         function Editar(id) {
 
-            let position = db.data.map(obj => obj.id).indexOf(id);
-            let vaga = db.data[position];
+            let position = dbvagas.vagas.map(obj => obj.id).indexOf(id);
+            let vaga = dbvagas.vagas[position];
 
             // para preencher o select multiple
             let textcompetencia = vaga.competenciadavaga;
             var Arraycompetencia = textcompetencia.split(";");
             var formatcompetenciadavaga = "";
-            for(var i=0; i<=Arraycompetencia.length; i++){
-                var result = AuxCompetencias.data.find( competencia => competencia.descricao === Arraycompetencia[i] );
-                if(result){
-                    formatcompetenciadavaga += result.id+";"
+            for (var i = 0; i <= Arraycompetencia.length; i++) {
+                var result = AuxCompetencias.data.find(competencia => competencia.descricao === Arraycompetencia[i]);
+                if (result) {
+                    formatcompetenciadavaga += result.id + ";"
                 }
             }
             formatcompetenciadavaga = formatcompetenciadavaga.split(';');
@@ -313,8 +318,12 @@
             $("#telefone").val(vaga.telefone);
             $("#website").val(vaga.website);
 
+            $('#competenciadavaga').prop('disabled', false).trigger('change')
+
+
             // Reexibe os contatos
             exibeVagas();
+            CriaNav();
         }
 
         // Preenche o formulário quando o usuario clicar no botão editar
@@ -326,16 +335,16 @@
                 return;
             }
 
-             // para preencher o select multiple
-             let textcompetencia = $("#competenciadavaga").val();
-             var formatcompetenciadavaga = "";
-            for(var i=0; i<=textcompetencia.length; i++){
-                var result = AuxCompetencias.data.find( competencia => competencia.id === textcompetencia[i] );
-                if(result){
-                    formatcompetenciadavaga += result.descricao +";"
+            // para preencher o select multiple
+            let textcompetencia = $("#competenciadavaga").val();
+            var formatcompetenciadavaga = "";
+            for (var i = 0; i <= textcompetencia.length; i++) {
+                var result = AuxCompetencias.data.find(competencia => competencia.id === textcompetencia[i]);
+                if (result) {
+                    formatcompetenciadavaga += result.descricao + ";"
                 }
             }
-          
+
             ///fim
 
 
@@ -378,12 +387,13 @@
 
             // Limpa o formulario
             $("#form-vagas")[0].reset();
+            $('#competenciadavaga').val(null).trigger('change');
         }
 
         function Excluir(id) {
 
-            let position = db.data.map(obj => obj.id).indexOf(id);
-            let vaga = db.data[position];
+            let position = dbvagas.vagas.map(obj => obj.id).indexOf(id);
+            let vaga = dbvagas.vagas[position];
 
             let campoId = vaga.id;
             if (campoId == "") {
@@ -411,51 +421,37 @@
             }
         }
 
+        function CriaNav() {
+
+            var navabarAdmin = `<a class="navbar-brand" href="../index_administrador.html">Home</a>                                   
+                                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                        <ul class="navbar-nav mr-auto">
+                                            <li class="nav-item active">
+                                                <a class="nav-link" href="vagas.html">Vagas</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="../noticias/noticias.html">Notícias</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="../cursos/cursos.html">Cursos</a>
+                                            </li>
+                                            <li class="nav-item ">
+                                                <a class="nav-link" href="../banner/banner.html">Banner</a>
+                                            </li>
+                                        </ul>
+                                        <form class="form-inline my-2 my-lg-0">
+                                           <input class="form-control mr-sm-2" type="search" placeholder="persquisar" aria-label="Search">
+                                           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+                                        </form>
+                                    </div>`;
+            // Remove os elementos da div
+            $("#nav-menu").html("");
+            if (usuarioCorrente.perfil == 'admin') {
+                $("#nav-menu").append(`${navabarAdmin}`);
+            }
+        }
+
     </script>
-
 </body>
-
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-5">
-                <h5><i class="bi bi-people-fill"></i> NOLAYOFF INC.</h5>
-                <div class="row">
-                    <div class="col-6">
-                        <ul class="list-unstyled">
-                            <li><a href="../../docs/01-Documentação de Contexto.md">Documentation</a></li>
-                            <li><a href="">Support</a></li>
-                            <li><a href="">Legal Terms</a></li>
-                            <li><a href="../../README.md">About</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <ul class="nav">
-                    <li class="nav-item"><a href="" class="nav-link pl-0"><i class="fa fa-facebook fa-lg"></i></a></li>
-                    <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-twitter fa-lg"></i></a></li>
-                    <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-github fa-lg"></i></a></li>
-                    <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-instagram fa-lg"></i></a></li>
-                </ul>
-                <br>
-            </div>
-            <div class="col-md-2">
-                <h5 class="text-md-right">Contate-nos</h5>
-            </div>
-            <div class="col-md-5">
-                <form>
-                    <fieldset class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <textarea class="form-control" id="exampleMessage" placeholder="Message"></textarea>
-                    </fieldset>
-                    <fieldset class="form-group text-xs-right">
-                        <button type="button" class="btn">Enviar</button>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
-    </div>
-</footer>
 
 </html>

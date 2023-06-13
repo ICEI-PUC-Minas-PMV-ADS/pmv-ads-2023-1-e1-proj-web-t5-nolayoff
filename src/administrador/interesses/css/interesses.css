@@ -9,9 +9,8 @@ html {
 
 body {
   padding: 0 0 0 0;
-  /*font-family: 'Alegreya Sans', sans-serif;*/
-  /*margin-bottom: 300px;*/
-  background-color: #f8fafb;
+  font-family: 'Alegreya Sans', sans-serif;
+  margin-bottom: 300px;
 
 }
 
@@ -29,7 +28,7 @@ ul {
 
 li {
   padding: 2px;
-  /*overflow: auto;*/
+  overflow: auto;
   margin: 0;
   width: auto;
 }
@@ -60,7 +59,8 @@ li p {
   border-bottom: 5px solid white;
 }
 
-.img {  
+.img {
+  background-color: #f1f1f1;
   margin: 0 auto;
   width: 100px;
   display: block;
@@ -86,7 +86,7 @@ li p {
   display: block;
   color: black;
   text-align: center;
-  padding: 35px 18px;
+  padding: 16px 18px;
   text-decoration: none;
 }
 
@@ -166,11 +166,6 @@ li p {
   height: 300px;
 }
 
-.text-user {
-  text-align: right!important;
-  margin-top: 34px;
-}
-
 footer {
   padding-top: 30px;
   background-image: linear-gradient(to right, #5b6967, #f1f1f1);
@@ -209,3 +204,38 @@ footer .btn{
     height: 700px;
   }
 }
+
+/*interesses*/
+.card {
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.card p {
+  font-size: 15px;
+  color: #555;
+  line-height: 12px;
+}
+
+.iconeFavorito {
+  color: gray;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.iconeFavorito.favorito {
+  color: red;
+}
+
+.d-none {
+  display: none;
+}  
