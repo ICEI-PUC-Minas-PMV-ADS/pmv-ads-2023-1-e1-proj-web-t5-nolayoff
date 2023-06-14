@@ -3,10 +3,10 @@ const fieldnumber = document.getElementById("removefield");
 const fieldval = fieldnumber.value;
 const previewFind = document.querySelector("preview");
 const removeImageFind = document.querySelector("removeImage");
-let imgdata = JSON.parse(localStorage.getItem('recent-images'));
+let imgdata = JSON.parse(localStorage.getItem('db_banner'));
 
 
-let recent_images_default = [
+let db_banner_inicial = [
   {
     'src': 'images\\robofilosofo.jpg',
   },
@@ -16,8 +16,8 @@ let recent_images_default = [
 ];
 
 if (!imgdata) {
-  imgdata = recent_images_default;
-  localStorage.setItem('recent-images', JSON.stringify(imgdata));
+  imgdata = db_banner_inicial;
+  localStorage.setItem('db_banner', JSON.stringify(imgdata));
 }
 
 function getuploadedImg() {
@@ -33,7 +33,7 @@ function getuploadedImg() {
         'src': reader.result,
       };
       imgdata.push(newImage);
-      localStorage.setItem('recent-images', JSON.stringify(imgdata));
+      localStorage.setItem('db_banner', JSON.stringify(imgdata));
       alert('Imagem inserida com sucesso!');
       console.log(imgdata);
     });
@@ -48,10 +48,10 @@ function filterTest() {
   } else {
     imgdata.splice(fieldval, 1);
     if (imgdata.length === 0) {
-      imgdata = recent_images_default;
-      localStorage.setItem('recent-images', JSON.stringify(imgdata));
+      imgdata = db_banner_inicial;
+      localStorage.setItem('db_banner', JSON.stringify(imgdata));
     }
-    localStorage.setItem('recent-images', JSON.stringify(imgdata));
+    localStorage.setItem('db_banner', JSON.stringify(imgdata));
     console.log(imgdata);
     alert('Imagem removida com sucesso!');
   }

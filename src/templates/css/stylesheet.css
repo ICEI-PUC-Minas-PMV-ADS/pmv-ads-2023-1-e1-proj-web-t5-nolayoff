@@ -66,6 +66,14 @@ li p {
   display: block;
 }
 
+.imgdiv {
+  width: 30em;
+  height: 15em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .header p {
   margin: 0 auto;
   width: 100%;
@@ -106,8 +114,12 @@ li p {
   border-bottom: 5px solid white;
 }
 
-#robo {
-  display: none;
+.borderbox {
+  border: 1px solid #ed81ee;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  width: 100%;
+  height:fit-content;
 }
 
 .btnprev, .btnext {

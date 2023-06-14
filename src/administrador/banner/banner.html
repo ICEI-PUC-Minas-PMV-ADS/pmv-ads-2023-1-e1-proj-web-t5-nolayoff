@@ -71,20 +71,24 @@
 
                 <div class="form-group row">
                     <div class="col-sm-12">
-                        <input type="button" id="btnNovoRegistro" value="Novo Banner">
+                        <input type="button" id="btnNovoRegistro" style="float:left; width:49%; height:100%; background-color: white; color:black; border: 3px solid #b648c7; display:flexbox" value="Novo Banner">
+                        <input type="button" class="buttonClear" id="btnSalvar" style="width:50%; height:100%;" onclick="javascript:Salvar()" value="Salvar">
                     </div>
                 </div><br>
+
+                <div class="col-sm-12" id="container">
+                    <p class="form-title" style="margin-top:-1em;"> Preview de imagem:</p>
+
+                    <img class="imgdiv" style="position: relative; margin:auto;"> <br>
+                    <input type="button" id="nova_imagem" value="Inserir Imagem" style="width:100%; height:fit-content; display: flexbox;" onclick="inputTrigger()">
+                    <input type="text" id="descricao_banner" name="descricao_banner" placeholder="Decrição do Banner" required="" style="width:100%; display:flexbox; margin-top:.8em;">
+
+                    <input type="file" id="imageupload" style="display:none;" accept="image/png, image/gif, image/jpg, image/jpeg">
+                </div>
 
                 <div class="form-group row">
                     <input type="text" id="id" name="id" hidden>                    
                 </div>               
-
-                <div class="form-group row">
-                    <div class="col-sm-12">                       
-                        <input type="button" class="buttonClear" id="btnSalvar" onclick="javascript:Salvar()"
-                            value="Salvar">
-                    </div>
-                </div><br>
 
             </form>
             <hr color="#ed81ee">
@@ -148,9 +152,9 @@
         function init() {
 
             // Verifica se o usuário já esta logado e se negativo, redireciona para tela de login        
-            if (!usuarioCorrente.login) {
-                window.location.href = LOGIN_URL;
-            }
+            // if (!usuarioCorrente.login) {
+            //     window.location.href = LOGIN_URL;
+            // }
              // Associa a função de logout ao botão
              document.getElementById('btn_logout').addEventListener('click', logoutUser);
              // Informa o nome do usuário logado

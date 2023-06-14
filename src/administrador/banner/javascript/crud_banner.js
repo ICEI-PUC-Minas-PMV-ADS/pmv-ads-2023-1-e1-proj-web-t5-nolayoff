@@ -22,11 +22,24 @@ var db_banner_inicial = {
     ]
 }
 
+var getInput = document.getElementById('imageupload');
+var getImg = document.getElementsByClassName('imgdiv');
+
 // Caso os dados já estejam no Local Storage, caso contrário, carrega os dados iniciais
 var dbbanner = JSON.parse(localStorage.getItem('db_banner'));
 if (!dbbanner) {
     dbbanner = db_banner_inicial
 };
+
+// Detecta o click do usuário e o simula no input de arquivos -H
+function inputTrigger() {
+    getInput.click();
+}
+
+// Detecta quando um arquivo é inserido e muda a src da imagem para o demonstrar -H
+getInput.addEventListener('change', () => {
+
+})
 
 // Exibe mensagem em um elemento de ID msg
 function displayMessage(msg) {

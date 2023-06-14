@@ -106,10 +106,6 @@ li p {
   border-bottom: 5px solid white;
 }
 
-#robo {
-  display: none;
-}
-
 .btnprev, .btnext {
   position: static;
   text-align: center;

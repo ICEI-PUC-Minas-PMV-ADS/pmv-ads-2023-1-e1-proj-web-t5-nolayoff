@@ -1,7 +1,7 @@
 const btnPrev = document.querySelector('.btnprev');
 const btnNext = document.querySelector('.btnext');
 const banner = document.querySelector('.banner');
-const imgdata = JSON.parse(localStorage.getItem('recent-images'));
+const imgdata = JSON.parse(localStorage.getItem('db_banner'));
 const imgLength = imgdata.length - 1;
 const srcHolder = document.querySelector('.bannerimg');
 let am = 0;
