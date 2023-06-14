@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <!-- css customizado -->
+    <link rel="stylesheet" href="../templates/css/stylesheet.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!-- Bootstrap Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- icones -->
+    <script src="https://kit.fontawesome.com/29a7b29429.js" crossorigin="anonymous"></script>
+</head>
+
+<body onload="init()">
+    <header class="navigation">
+        <div class="row">
+            <div class="col-md-1">
+                <div>
+                    <img src="../../images/logo.png" class="img" alt="logo" />
+                </div>
+            </div>
+            <div class="col-md-9 text-user">
+                <div>
+                    <p>Olá, <span id="nomeUsuario">, seja bem-vindo!</span></p>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <a href="../home/cadastro_users.html" id="btn_perfil">
+                    <i class="bi bi-person-fill"></i>
+                    <span>Perfil</span>
+                </a>
+            </div>
+            <div class="col-md-1">
+                <a href="#" id="btn_logout">
+                    <i class="bi bi-person-fill"></i>
+                    <span>Sair</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-menu"> </nav>
+    <br>
+
+    <main class="container-fluid">
+        <br>
+        <div id='cards-vagas'></div>
+        <h1><span class="badge badge-secondary">Vagas</span> Cadastradas</h1>
+        <div class="card-deck" id="vagas-cards"></div>
+        <br>
+
+        <div id='cards-noticias'></div>
+        <h1><span class="badge badge-secondary">Notícias</span> Cadastradas</h1>
+        <div class="card-deck" id="noticias-cards"></div>
+        <br>
+
+        <div id='cards-cursos'></div>
+        <h1><span class="badge badge-secondary">Cursos</span> Cadastrados</h1>
+        <div class="card-deck" id="cursos-cards"></div>
+        <br>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+        integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+        crossorigin="anonymous"></script>
+
+    <script src="../../src/administrador/cursos/javascript/crud_cursos.js"></script>
+    <script src="../../src/administrador/vagas/javascript/crud_vagas.js"></script>
+    <script src="../../src/administrador/noticias/javascript/crud_noticias.js"></script>
+    <script src="../home/javascript/login.js"></script>
+
+    <script>
+        function init() {
+
+            // Verifica se o usuário já esta logado e se negativo, redireciona para tela de login        
+            if (!usuarioCorrente.login) {
+                window.location.href = LOGIN_URL;
+            }
+
+            //cria nav
+            CriaNav();
+
+            //exibe os cards
+            exibeCards();
+
+            // Associa a função de logout ao botão
+            document.getElementById('btn_logout').addEventListener('click', function () {
+                logoutUser();
+            });
+            // Informa o nome do usuário logado
+            document.getElementById('nomeUsuario').innerHTML = usuarioCorrente.nome;
+            // Associa ao evento de carga da página a função para verificar se o usuário está logado
+            window.addEventListener('load', init);
+
+        }
+
+        function exibeCards() {
+
+            // Remove os elementos da div
+            $("#vagas-cards").html("");
+            $("#cursos-cards").html("");
+            $("#noticias-cards").html("");
+
+            // cria cards 
+            for (i = 0; i <= 2; i++) {
+
+                let curso = dbcursos.cursos[i];
+                let vaga = dbvagas.vagas[i];
+                let noticia = dbnoticias.noticias[i];
+
+                $("#cursos-cards").append(
+                    `<div class="card border-dark">                            
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="bi bi-rocket-takeoff-fill"></i> ${curso.descricao}</h5>
+                                <p class="card-text">${curso.observacao}</p>
+                                <p class="card-text"><small class="text-muted">${curso.duracao}</small></p>
+                            </div>
+                    </div>`);
+                $("#vagas-cards").append(
+                    `<div class="card border-dark">                           
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="bi bi-briefcase-fill"></i> ${vaga.descricao}</h5>
+                                <p class="card-text">${vaga.sobreavaga}</p>
+                                <p class="card-text"><small class="text-muted">${vaga.cargo}</small></p>
+                                <p class="card-text"><small class="text-muted">Competências : ${vaga.competenciadavaga}</small></p>
+                            </div>
+                    </div>`);
+                $("#noticias-cards").append(
+                    `<div class="card border-dark">                            
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="bi bi-newspaper"></i> ${noticia.titulo}</h5>
+                                <p class="card-text">${noticia.sintese}</p>
+                                <p class="card-text"><small class="text-muted">${noticia.publicacao}</small></p>
+                                <p class="card-text"><small class="text-muted">Fonte : ${noticia.fonte}</small></p>
+                            </div>
+                    </div>`);
+            }
+        }
+
+        function CriaNav() {
+
+            var navabarAdmin = `
+        <a class="navbar-brand" href="index_administrador.html">Home</a>       
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="vagas/vagas.html">Vagas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="noticias/noticias.html">Notícias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cursos/cursos.html">Cursos</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="banner/banner.html">Banner</a>
+                </li>
+            </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="persquisar" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+        </form>
+        </div>`;
+            // Remove os elementos da div
+            $("#nav-menu").html("");
+            if (usuarioCorrente.perfil == 'admin') {
+                $("#nav-menu").append(`${navabarAdmin}`);
+            }
+        }
+        
+    </script>
+
+    
+</body>
+
+</html>

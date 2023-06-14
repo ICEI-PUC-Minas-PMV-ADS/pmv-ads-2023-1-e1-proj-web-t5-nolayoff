@@ -9,9 +9,8 @@ html {
 
 body {
   padding: 0 0 0 0;
-  /*font-family: 'Alegreya Sans', sans-serif;*/
-  /*margin-bottom: 300px;*/
-  background-color: #f8fafb;
+  font-family: 'Alegreya Sans', sans-serif;
+  margin-bottom: 300px;
 
 }
 
@@ -60,7 +59,8 @@ li p {
   border-bottom: 5px solid white;
 }
 
-.img {  
+.img {
+  background-color: #f1f1f1;
   margin: 0 auto;
   width: 100px;
   display: block;
@@ -86,7 +86,7 @@ li p {
   display: block;
   color: black;
   text-align: center;
-  padding: 35px 18px;
+  padding: 16px 18px;
   text-decoration: none;
 }
 
@@ -164,11 +164,6 @@ li p {
   bottom: 0;
   width: 100%;
   height: 300px;
-}
-
-.text-user {
-  text-align: right!important;
-  margin-top: 34px;
 }
 
 footer {

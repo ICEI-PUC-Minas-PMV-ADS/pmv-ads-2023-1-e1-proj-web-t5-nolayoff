@@ -1,10 +1,4 @@
 
-.header {
-    background-color: #f1f1f1;
-    padding: 20px;
-    text-align: center;
-  }
-
 textarea {
     width: 100%;
     padding: 12px 20px;
@@ -68,10 +62,6 @@ select :focus {
 label {
     font-weight: bolder;
 }
-i{
-    padding-right: 9px;
-}
-
 
 /*Tabelas*/
 
@@ -86,7 +76,7 @@ table{
   }
  
 
-  #grid-cursos tbody {
+ #grid-cursos tbody {
     cursor: pointer;
  }
 
@@ -118,6 +108,7 @@ table{
 body {    
     padding-top: 60px;
 }
+
 .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
     color: #b648c7;
 }
@@ -161,5 +152,47 @@ body {
 .footer > .container {
     padding-right: 15px;
     padding-left: 15px;
+}
+
+
+
+ /* Personalize o estilo do campo de seleção múltipla */
+ .select2-container--default .select2-selection--multiple {
+    border: 1px solid #f5a6f0;
+    border-radius: 0.25rem;
+    padding: 0.375rem 0.75rem;
+    min-height: 38px;
+    background-color: #fff;
+    color: #495057;
+  }
+  
+  .select2-container--default .select2-selection--multiple:focus {
+    border-color: #f288e4;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(234, 0, 255, 0.25);
+  }
+
+  .select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #b648c740;
+    border: 1px solid #b648c7;
+    border-radius: 4px;
+    cursor: default;
+    float: left;
+    margin-right: 5px;
+    margin-top: 5px;
+    padding: 0 5px;
+}
+
+.select2-container--default .select2-search--inline .select2-search__field {
+    background: #c956d91c;
+    border: none;
+    outline: 0;
+    box-shadow: none;
+    -webkit-appearance: textfield;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+    border: solid #b648c7 2px;
+    outline: 0;
 }
 
