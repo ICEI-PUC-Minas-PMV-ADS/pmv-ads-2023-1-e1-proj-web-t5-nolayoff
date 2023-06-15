@@ -6,7 +6,9 @@
 
 **Teste da funcão:** Login do usuário
 
-**Cenário de teste:** Nome de usuário e senha informados o login deve ter o comportamento de susesso ou erro. No caso de erro exibir uma mensagem para o usuário.
+**Cenário de teste 1:** Nome de usuário e senha informados o login deve ter o comportamento de susesso ou erro. No caso de erro exibir uma mensagem para o usuário.
+
+**Cenário de teste 2:** O usuário deve conseguir deslogar de sua conta ao clicar no botão "sair".
 
 **Comportamento do sistema no caso de sucesso:** Entrar na página de inico destinada ao tipo de usuário.
 
