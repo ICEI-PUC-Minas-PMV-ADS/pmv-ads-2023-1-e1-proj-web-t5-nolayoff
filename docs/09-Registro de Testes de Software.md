@@ -168,11 +168,30 @@ Sem correções a serem feitas.
 
 ## Resultado dos teste - <TESTER>
 
+**Teste:**
+Sucesso parcial.
+
 **Descrição:**
+Cenário 1: Usuários não logados conseguem vizualizar banners, usuários logados não tem vizualização de banners. 
+
+Cenário 2: O CRUD não tem aplicabilidade para o administrador, não é possivel efetuar cadastros de banners e nem deleta-los.
 
 **Evidência:**
+Cenário 1:
+
+Usuário sem estar logado -
+![Alt text](image-1.png)
+
+Usuário logado-
+![Alt text](image-2.png)
+
+Cenário 2:
+
+CRUD (Área do adminitrador) - 
+![Alt text](image.png)
 
 **Correção:**
+Cenário 2: O código que possibilita o administrador cadastrar e deletar banners precisa ser todo revisado e corrigido, possibilitando que tais funcionalidades possam ser executadas. Os botões não tem ações ao serem clicados
 
 ---
 
