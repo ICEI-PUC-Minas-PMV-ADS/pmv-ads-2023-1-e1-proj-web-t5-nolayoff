@@ -140,11 +140,27 @@ Sem correções a serem feitas.
 
 ## Resultado dos teste - <TESTER>
 
+**Teste:**
+Sucesso parcial.
+
 **Descrição:**
+Cenário de teste 1: As vagas disponíveis não estão visíveis para o usuário comum.
+
+Cenário de teste 2: O usuário administrador consegue cadastrar e editar vagas, porém não consegue excluir as vagas ja cadastradas. Ao clicar no botão de excluir aparece a mensagem "vaga removida com sucesso", mas ela continua visível no painel.
 
 **Evidência:**
+Cenário de teste 1:
+![Alt text](image-1.png)
+
+Cenário de teste 2:
+![Alt text](image-2.png)
+
 
 **Correção:**
+Cenário 1: As vagas cadastradas no usuário administrador devem estar expostas no perfil do usuário comum.
+
+Cenário 2: No usuário administrador o botão excluir deve ser verificado, o mesmo não está efetuando a ação de excluir vagas.
+
 
 ---
 
