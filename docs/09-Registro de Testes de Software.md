@@ -262,3 +262,86 @@ Cenário 2: O código que possibilita o administrador cadastrar e deletar banner
 **Evidência:**
 
 **Correção:**
+
+---
+
+## Caso de Testes 9
+
+**Objetivo:** Teste CRUD de Imagem de Perfil do usuário.
+
+**Teste da funcão:** Cadastrar imagem de perfil, atualizar, exibir e deletar.
+
+**Cenário de teste 1:** Usuário logados no sitema podem visualizar a imagem de perfil cadastrada.
+
+**Comportamento do sistema no caso de sucesso:** Exibir a imagem de perfil cadastrada.
+
+**Mensagem de susesso:** 
+
+**Comportamento do sistema no caso de sucesso:** Deve deixar deletar atualizar a  imagem de perfil cadastrada.
+
+**Mensagem de sucesso:** 
+
+## Resultado dos teste - <TESTER>
+
+**Descrição:**
+
+**Evidência:**
+
+**Correção:**
+
+---
+
+## Caso de Testes 10
+
+**Objetivo:** Teste CRUD de cadastro de Perfil e tipo.
+
+**Teste da funcão:** Cadastrar de perfil e tipo de acesso, atualizar, exibir.
+
+**Cenário de teste 1:** Usuário com perfil COMUM no acesso não administrativo não devem poder modificar o tipo de perfil, mas podem ver, os demais dados de perfil podem atualizar.
+
+**Cenário de teste 2:** Usuário com perfil ADMINISTRADOR no acesso administrativo devem poder modificar o tipo de perfil dos usuários e os demais dados de perfil podem atualizar.
+
+**Comportamento do sistema no caso de sucesso:** Exibir em lista de usuários cadastradas no sistema.
+
+**Mensagem de susesso:** 
+
+**Comportamento do sistema no caso de sucesso:** Deve deixar deletar ou editar os dados de um usário cadastrado.
+
+**Mensagem de sucesso:** 
+
+## Resultado dos teste - <TESTER>
+
+**Descrição:**
+
+**Evidência:**
+
+**Correção:**
+---
+
+## Caso de Testes 11
+
+**Objetivo:** Teste de navegabilidade do sistema.
+
+**Teste da funcão:** Exibição e navegação no sistema.
+
+**Cenário de teste 1:** Usuário com perfil COMUM no acesso ...
+
+**Cenário de teste 2:** Usuário com perfil ADMINISTRADOR ...
+
+**Cenário de teste 3:** Usuário com perfil não logados ...
+
+**Comportamento do sistema no caso de sucesso:** Exibir em lista de usuários cadastradas no sistema.
+
+**Mensagem de susesso:** 
+
+**Comportamento do sistema no caso de sucesso:** Deve deixar deletar ou editar os dados de um usário cadastrado.
+
+**Mensagem de sucesso:** 
+
+## Resultado dos teste - <TESTER>
+
+**Descrição:**
+
+**Evidência:**
+
+**Correção:**
