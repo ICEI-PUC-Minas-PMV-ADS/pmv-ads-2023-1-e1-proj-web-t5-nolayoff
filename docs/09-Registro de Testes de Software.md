@@ -118,11 +118,25 @@ Cenário de teste 2: O botão "sair", ao ser clicado, deve direcionar o usuário
 
 ## Resultado dos teste - <TESTER>
 
+**Teste:**
+Sucesso parcial.
+
 **Descrição:**
+
+Cenário de teste 1: Os cursos disponíveis não estão visíveis para o usuário comum.
+
+Cenário de teste 2: O usuário administrador consegue inserir, atualizar e deletar cursos.
 
 **Evidência:**
 
+Cenário de teste 1:
+![Alt text](image-1.png)
+
+Cenário de teste 2:
+![Alt text](image.png)
+
 **Correção:**
+Cenário 1: Os cursos cadastrados no usuário administrador devem estar expostos no perfil do usuário comum.
 
 ---
 
