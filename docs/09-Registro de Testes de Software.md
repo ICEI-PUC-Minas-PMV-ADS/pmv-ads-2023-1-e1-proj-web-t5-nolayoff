@@ -6,7 +6,9 @@
 
 **Teste da funcão:** Login do usuário
 
-**Cenário de teste:** Nome de usuário e senha informados o login deve ter o comportamento de susesso ou erro. No caso de erro exibir uma mensagem para o usuário.
+**Cenário de teste 1:** Nome de usuário e senha informados o login deve ter o comportamento de susesso ou erro. No caso de erro exibir uma mensagem para o usuário.
+
+**Cenário de teste 2:** O usuário deve conseguir deslogar de sua conta ao clicar no botão "sair".
 
 **Comportamento do sistema no caso de sucesso:** Entrar na página de inico destinada ao tipo de usuário.
 
@@ -19,20 +21,24 @@
 ## Resultado dos teste
 
 **Teste:**
-Sucesso.
+Sucesso parcial.
 
 **Descrição:**
 Ao acessar com login e senha corretos, o usuário é direcionado para a pagina principal.
 Caso o usuario ou a senha sejam digitados incorretamente, uma mensagem de alerta aparecerá.
+Ao deslogar o usuário é direcionado para uma página aleatória que não faz parte do projeto em questão.
 
-**Evidência:**
+**Evidência:** Cenário de teste 1:
 
-![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/assets/127157223/39221b7e-4c86-43be-b3b0-521f780e9709)![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/assets/127157223/96bfd815-6d9b-4581-8d42-31f593e793b8)
+![Alt text](image.png) ![Alt text](image-2.png)
 
-![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/assets/127157223/6bda3e75-0da1-4769-9de3-8f3838ed4913)
+![Alt text](image-1.png) 
+
+Cenário de teste 2:
+![Alt text](image-3.png)
 
 **Correção:**
-Sem correções a serem feitas.
+Cenário de teste 2: O botão "sair", ao ser clicado, deve direcionar o usuário para a pagina inicial.
 
 ---
 
