@@ -331,11 +331,26 @@ Cenário 2: O código que possibilita o administrador cadastrar e deletar banner
 
 ## Resultado dos teste - <TESTER>
 
+**Teste:**
+Sucesso parcial.
+
 **Descrição:**
+Cenário 1: O perfil COMUM não consegue modificar o tipo de perfil. Porém não consegue atualizar campos de endereço.
+
+Cenário 2: O perfil ADMINISTRADOR consegue modificar o tipo de perfil. Porém não consegue atualizar campos de endereço.
 
 **Evidência:**
+Cenário 1:
+![Alt text](image-4.png)
+
+Cenário 2: 
+![Alt text](image-5.png)
 
 **Correção:**
+Cenário 1: Os campos de endereço precisam ser editáveis. No campo "CEP" consta uma informação estática que deve ser retirada, fazendo com que o usuário COMUM peencha com o seu próprio CEP.
+
+Cenário 2: Os campos de endereço precisam ser editáveis. No campo "CEP" consta uma informação estática que deve ser retirada, fazendo com que o usuário ADMINISTRADOR peencha com o seu próprio CEP.
+
 ---
 
 ## Caso de Testes 11
