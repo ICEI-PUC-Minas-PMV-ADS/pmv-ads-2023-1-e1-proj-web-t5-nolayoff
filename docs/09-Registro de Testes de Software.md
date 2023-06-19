@@ -70,9 +70,9 @@ O usuário com perfil comum é colocado na tela inicial e tem acesso apenas às 
 
 **Evidência:**
 Cenário de teste 1:
-![image](imagens-registro-de-teste\image-4.jpg)
+![image](imagens-registro-de-teste/image-4.jpg)
 Cenário de teste 2:
-![image](imagens-registro-de-teste\image-5.jpg)
+![image](imagens-registro-de-teste/image-5.jpg)
 
 **Correção:**
 Sem correções a serem feitas.
@@ -105,9 +105,9 @@ Sucesso parcial.
 
 **Evidência:**
 Caso de Teste 1:
-![image](imagens-registro-de-teste\image-6.jpg)
+![image](imagens-registro-de-teste/image-6.jpg)
 Caso de Teste 2:
-![image](imagens-registro-de-teste\image-7.jpg)
+![image](imagens-registro-de-teste/image-7.jpg)
 
 **Correção:**
 Corrigir o endereço para qual o usuário é enviado.
@@ -271,7 +271,7 @@ Cenário 2: O código que possibilita o administrador cadastrar e deletar banner
 **Descrição:** O usuário é enviado para uma tela onde apenas o título da página—"Meus Interesses"— é visível.
 
 **Evidência:**
-![image](imagens-registro-de-teste\image-8.jpg)
+![image](imagens-registro-de-teste/image-8.jpg)
 
 **Correção:**
 O código para os interesses precisa ser finalisado.
@@ -299,36 +299,11 @@ O código para os interesses precisa ser finalisado.
 **Descrição:** O sistema é funcional, mas não demonstra os itens depois de serem registrados.
 
 **Evidência:**
-![image](imagens-registro-de-teste\image-9.jpg)
-![image](imagens-registro-de-teste\image-10.jpg)
+![image](imagens-registro-de-teste/image-9.jpg)
+![image](imagens-registro-de-teste/image-10.jpg)
 
 **Correção:**
 O código para exibição das notícias precisa ser corrigido.
----
-
-## Caso de Testes 9
-
-**Objetivo:** Teste CRUD de Imagem de Perfil do usuário.
-
-**Teste da funcão:** Cadastrar imagem de perfil, atualizar, exibir e deletar.
-
-**Cenário de teste 1:** Usuário logados no sitema podem visualizar a imagem de perfil cadastrada.
-
-**Comportamento do sistema no caso de sucesso:** Exibir a imagem de perfil cadastrada.
-
-**Mensagem de susesso:** 
-
-
-**Mensagem de sucesso:** 
-
-## Resultado dos teste - <TESTER>
-
-**Descrição:**
-
-**Evidência:**
-
-**Correção:**
-
 ---
 
 ## Caso de Testes 9
@@ -410,7 +385,7 @@ Sucesso parcial.
 Quando o usuário comum tenta acessar uma página quando não está na tela principal do sistema, ele é levado para uma página em branco devido ao endereço estar incorreto. Não é o caso com o admnistrador.
 
 **Evidência:**
-![image](imagens-registro-de-teste\evidencia1)
+![image](imagens-registro-de-teste/evidencia1)
 
 **Correção:**
 Corrigir o endereço para qual o usuário é levado para por trocar o caminho invés de adicionar para ele.
