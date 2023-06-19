@@ -303,11 +303,17 @@ Cenário 2: O código que possibilita o administrador cadastrar e deletar banner
 
 ## Resultado dos teste - <TESTER>
 
+**Teste:**
+Sem sucesso.
+
 **Descrição:**
+Não é possivel cadastrar, atualizar e deletar imagem para o perfil do usuário. Logo o usuário não tem a vizualização da mesma.
 
 **Evidência:**
+![Alt text](image-4.png)
 
 **Correção:**
+O codigo para o CRUD de imagem do perfil do usuário precisa ser desenvolvido.
 
 ---
 
