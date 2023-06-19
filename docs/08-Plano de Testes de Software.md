@@ -6,11 +6,11 @@
 
 **Teste da funcão:** Login do usuário
 
-**Cenário de teste:** Nome de usuário e senha informados o login deve ter o comportamento de susesso ou erro. No caso de erro exibir uma mensagem para o usuário.
+**Cenário de teste:** Nome de usuário e senha informados o login deve ter o comportamento de sucesso ou erro. No caso de erro exibir uma mensagem para o usuário.
 
 **Comportamento do sistema no caso de sucesso:** Entrar na página de inico destinada ao tipo de usuário.
 
-**Mensagem de susesso:** 
+**Mensagem de sucesso:** 
 
 **Comportamento do sistema no caso de erro:** Não deixar entrar na página de inico destinada ao tipo de usuário.
 
@@ -30,7 +30,7 @@
 
 **Comportamento do sistema no caso de sucesso:** Entrar na página de inico destinada ao tipo de usuário.
 
-**Mensagem de susesso:** 
+**Mensagem de sucesso:** 
 
 **Comportamento do sistema no caso de erro:** Não deixar entrar na página de inico destinada ao tipo de usuário.
 
@@ -50,7 +50,7 @@
 
 **Comportamento do sistema no caso de sucesso:** Exibir em lista as notícias cadastradas ou atualizadas.
 
-**Mensagem de susesso:** 
+**Mensagem de sucesso:** 
 
 **Comportamento do sistema no caso de sucesso:** Deve deixar deletar uma ou mais de uma notícia cadastrada.
 
@@ -70,7 +70,7 @@
 
 **Comportamento do sistema no caso de sucesso:** Exibir em lista as cursos cadastradas ou atualizadas.
 
-**Mensagem de susesso:** 
+**Mensagem de sucesso:** 
 
 **Comportamento do sistema no caso de sucesso:** Deve deixar deletar uma ou mais de um cursos cadastrada.
 
@@ -90,7 +90,7 @@
 
 **Comportamento do sistema no caso de sucesso:** Exibir em lista as vagas cadastradas ou atualizadas.
 
-**Mensagem de susesso:** 
+**Mensagem de sucesso:** 
 
 **Comportamento do sistema no caso de sucesso:** Deve deixar deletar uma ou mais de uma vagas cadastrada.
 
@@ -110,7 +110,7 @@
 
 **Comportamento do sistema no caso de sucesso:** Exibir em lista as banner cadastradas ou atualizadas.
 
-**Mensagem de susesso:** 
+**Mensagem de sucesso:** 
 
 **Comportamento do sistema no caso de sucesso:** Deve deixar deletar uma ou mais de um banner cadastrada.
 
@@ -130,7 +130,7 @@
 
 **Comportamento do sistema no caso de sucesso:** Exibir em lista de interesses cadastradas ou atualizadas.
 
-**Mensagem de susesso:** 
+**Mensagem de sucesso:** 
 
 **Comportamento do sistema no caso de erro:**
 
@@ -148,7 +148,7 @@
 
 **Comportamento do sistema no caso de sucesso:** Exibir o curriculo cadastrado ou atualizar.
 
-**Mensagem de susesso:** 
+**Mensagem de sucesso:** 
 
 **Comportamento do sistema no caso de sucesso:** Deve deixar deletar o curriculo cadastrado.
 
