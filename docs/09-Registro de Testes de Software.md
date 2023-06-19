@@ -385,7 +385,7 @@ Sucesso parcial.
 Quando o usuário comum tenta acessar uma página quando não está na tela principal do sistema, ele é levado para uma página em branco devido ao endereço estar incorreto. Não é o caso com o admnistrador.
 
 **Evidência:**
-![image](imagens-registro-de-teste/evidencia1)
+![image](imagens-registro-de-teste/evidencia1.jpg)
 
 **Correção:**
 Corrigir o endereço para qual o usuário é levado para por trocar o caminho invés de adicionar para ele.
