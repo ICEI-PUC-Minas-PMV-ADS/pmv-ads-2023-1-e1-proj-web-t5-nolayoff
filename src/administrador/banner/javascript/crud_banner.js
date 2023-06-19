@@ -29,7 +29,7 @@ var descElement = document.getElementById('descricao_banner');
 var descValue = descElement.value;
 var insertedImg = getInput.files[0];
 
-const source = URL.createObjectURL(insertedImg);
+//const source = URL.createObjectURL(insertedImg);
 
 // Caso os dados já estejam no Local Storage, caso contrário, carrega os dados iniciais
 var dbbanner = JSON.parse(localStorage.getItem('db_banner'));
@@ -53,35 +53,35 @@ function inputTrigger() {
 }
 
 // Detecta quando um arquivo é inserido e muda a src da imagem para o demonstrar -H
-function imgPreview() {
-    const source = URL.createObjectURL(insertedImg);
-
-    window.open(source);
-}
+//function imgPreview() {
+//    const source = URL.createObjectURL(insertedImg);
+//
+//    window.open(source);
+//}
 
 // Exibe mensagem em um elemento de ID msg
 function displayMessage(msg) {
     $('#msg').html('<div class="alert alert-warning">' + msg + '</div>');
 }
 
-function insertBanner() {
-    // Calcula novo Id a partir do último código existente no array (PODE GERAR ERRO SE A BASE ESTIVER VAZIA)
-    let novoId = 1;
-    if (dbbanner.banner.length != 0) 
-      novoId = dbbanner.banner[dbbanner.banner.length - 1].id + 1;
-    let novoBanner = {
-        "id": novoId,
-        "descricao": descElement.value,
-        "caminho" : source,
-        "ativo": true,
-    }; //"ATIVO": TRUE É UM PLACEHOLDER, TROCAR DEPOIS
+ function insertBanner(banner) {
+     // Calcula novo Id a partir do último código existente no array (PODE GERAR ERRO SE A BASE ESTIVER VAZIA)
+     let novoId = 1;
+     if (dbbanner.banner.length != 0) 
+       novoId = dbbanner.banner[dbbanner.banner.length - 1].id + 1;
+     let novoBanner = {
+         "id": novoId,
+         "descricao": banner.descricao,
+         "caminho" : banner.caminho,
+         "ativo": banner.ativo,
+    };
 
-    // Insere o novo objeto no array
-    dbbanner.banner.push(novoBanner);
-    displayMessage("Banner inserido com sucesso");
+     // Insere o novo objeto no array
+     dbbanner.banner.push(novoBanner);
+     displayMessage("Banner inserido com sucesso");
 
-    // Atualiza os dados no Local Storage
-    localStorage.setItem('db_banner', JSON.stringify(dbbanner));
+     // Atualiza os dados no Local Storage
+     localStorage.setItem('db_banner', JSON.stringify(dbbanner));
 }
 
 // CÓDIGO ORIGINAL:
