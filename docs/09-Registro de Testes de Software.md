@@ -6,7 +6,9 @@
 
 **Teste da funcão:** Login do usuário
 
-**Cenário de teste:** Nome de usuário e senha informados o login deve ter o comportamento de sucesso ou erro. No caso de erro exibir uma mensagem para o usuário.
+**Cenário de teste 1:** Nome de usuário e senha informados o login deve ter o comportamento de susesso ou erro. No caso de erro exibir uma mensagem para o usuário.
+
+**Cenário de teste 2:** O usuário deve conseguir deslogar de sua conta ao clicar no botão "sair".
 
 **Comportamento do sistema no caso de sucesso:** Entrar na página de inico destinada ao tipo de usuário.
 
@@ -19,20 +21,24 @@
 ## Resultado dos teste
 
 **Teste:**
-Sucesso.
+Sucesso parcial.
 
 **Descrição:**
 Ao acessar com login e senha corretos, o usuário é direcionado para a pagina principal.
 Caso o usuario ou a senha sejam digitados incorretamente, uma mensagem de alerta aparecerá.
+Ao deslogar o usuário é direcionado para uma página aleatória que não faz parte do projeto em questão.
 
-**Evidência:**
+**Evidência:** Cenário de teste 1:
 
-![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/assets/127157223/39221b7e-4c86-43be-b3b0-521f780e9709)![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/assets/127157223/96bfd815-6d9b-4581-8d42-31f593e793b8)
+![Alt text](image.png) ![Alt text](image-2.png)
 
-![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/assets/127157223/6bda3e75-0da1-4769-9de3-8f3838ed4913)
+![Alt text](image-1.png) 
+
+Cenário de teste 2:
+![Alt text](image-3.png)
 
 **Correção:**
-Sem correções a serem feitas.
+Cenário de teste 2: O botão "sair", ao ser clicado, deve direcionar o usuário para a pagina inicial.
 
 ---
 
@@ -128,11 +134,25 @@ Corrigir o endereço para qual o usuário é enviado.
 
 ## Resultado dos teste - <TESTER>
 
+**Teste:**
+Sucesso parcial.
+
 **Descrição:**
+
+Cenário de teste 1: Os cursos disponíveis não estão visíveis para o usuário comum.
+
+Cenário de teste 2: O usuário administrador consegue inserir, atualizar e deletar cursos.
 
 **Evidência:**
 
+Cenário de teste 1:
+![Alt text](image-1.png)
+
+Cenário de teste 2:
+![Alt text](image.png)
+
 **Correção:**
+Cenário 1: Os cursos cadastrados no usuário administrador devem estar expostos no perfil do usuário comum.
 
 ---
 
@@ -156,11 +176,27 @@ Corrigir o endereço para qual o usuário é enviado.
 
 ## Resultado dos teste - <TESTER>
 
+**Teste:**
+Sucesso parcial.
+
 **Descrição:**
+Cenário de teste 1: As vagas disponíveis não estão visíveis para o usuário comum.
+
+Cenário de teste 2: O usuário administrador consegue cadastrar e editar vagas, porém não consegue excluir as vagas ja cadastradas. Ao clicar no botão de excluir aparece a mensagem "vaga removida com sucesso", mas ela continua visível no painel.
 
 **Evidência:**
+Cenário de teste 1:
+![Alt text](image-1.png)
+
+Cenário de teste 2:
+![Alt text](image-2.png)
+
 
 **Correção:**
+Cenário 1: As vagas cadastradas no usuário administrador devem estar expostas no perfil do usuário comum.
+
+Cenário 2: No usuário administrador o botão excluir deve ser verificado, o mesmo não está efetuando a ação de excluir vagas.
+
 
 ---
 
@@ -184,11 +220,30 @@ Corrigir o endereço para qual o usuário é enviado.
 
 ## Resultado dos teste - <TESTER>
 
+**Teste:**
+Sucesso parcial.
+
 **Descrição:**
+Cenário 1: Usuários não logados conseguem vizualizar banners, usuários logados não tem vizualização de banners. 
+
+Cenário 2: O CRUD não tem aplicabilidade para o administrador, não é possivel efetuar cadastros de banners e nem deleta-los.
 
 **Evidência:**
+Cenário 1:
+
+Usuário sem estar logado -
+![Alt text](image-1.png)
+
+Usuário logado-
+![Alt text](image-2.png)
+
+Cenário 2:
+
+CRUD (Área do adminitrador) - 
+![Alt text](image.png)
 
 **Correção:**
+Cenário 2: O código que possibilita o administrador cadastrar e deletar banners precisa ser todo revisado e corrigido, possibilitando que tais funcionalidades possam ser executadas. Os botões não tem ações ao serem clicados
 
 ---
 
@@ -263,6 +318,31 @@ O código para exibição das notícias precisa ser corrigido.
 
 **Mensagem de susesso:** 
 
+
+**Mensagem de sucesso:** 
+
+## Resultado dos teste - <TESTER>
+
+**Descrição:**
+
+**Evidência:**
+
+**Correção:**
+
+---
+
+## Caso de Testes 9
+
+**Objetivo:** Teste CRUD de Imagem de Perfil do usuário.
+
+**Teste da funcão:** Cadastrar imagem de perfil, atualizar, exibir e deletar.
+
+**Cenário de teste 1:** Usuário logados no sitema podem visualizar a imagem de perfil cadastrada.
+
+**Comportamento do sistema no caso de sucesso:** Exibir a imagem de perfil cadastrada.
+
+**Mensagem de susesso:** 
+
 **Comportamento do sistema no caso de sucesso:** Deve deixar deletar atualizar a  imagem de perfil cadastrada.
 
 **Mensagem de sucesso:** 
@@ -303,11 +383,9 @@ O codigo para o CRUD de imagem do perfil do usuário precisa ser desenvolvido.
 
 ## Resultado dos teste - <TESTER>
 
-**Descrição:**
+**Teste:**
+Sucesso parcial.
 
-**Evidência:**
-
-**Correção:**
 ---
 
 ## Caso de Testes 11
