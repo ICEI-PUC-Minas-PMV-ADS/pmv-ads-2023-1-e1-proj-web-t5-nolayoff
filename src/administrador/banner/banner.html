@@ -55,7 +55,7 @@
         </div>
     </header>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" id ="nav-menu">       
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-menu">
     </nav>
 
     <div class="container-fluid">
@@ -71,20 +71,32 @@
 
                 <div class="form-group row">
                     <div class="col-sm-12">
-                        <input type="button" id="btnNovoRegistro" value="Novo Banner">
+                        <input type="button" onclick="showorhide()" id="btnNovoRegistro"
+                            style="float:left; width:49%; height:100%; background-color: white; color:black; border: 3px solid #b648c7; display:flexbox"
+                            value="Novo Banner">
+                        <input type="button" class="buttonClear" id="btnSalvar" style="width:50%; height:100%;"
+                            onclick="javascript:Salvar();" value="Salvar">
                     </div>
                 </div><br>
 
-                <div class="form-group row">
-                    <input type="text" id="id" name="id" hidden>                    
-                </div>               
+                <div class="col-sm-12" id="container" style="display: none;">
+                    <p class="form-title" style="margin-top:-1em;"> Preview de imagem:</p>
+
+                    <input type="button" id="nova_imagem" value="Inserir Imagem"
+                        style="width:100%; height:fit-content; display: flexbox;" onclick="inputTrigger()">
+                    <input type="button"
+                        style="background-color:white; color:black; border: 3px solid #b648c7; width:25%; height:4em; float:left;"
+                        value="Visualizar Imagem" onclick="imgPreview()">
+                    <input type="text" id="descricao_banner" name="descricao_banner" placeholder="Decrição do Banner"
+                        required="" style="width:100%; display:flexbox; margin-top:.8em;">
+
+                    <input type="file" id="imageupload" style="display:none;"
+                        accept="image/png, image/gif, image/jpg, image/jpeg">
+                </div>
 
                 <div class="form-group row">
-                    <div class="col-sm-12">                       
-                        <input type="button" class="buttonClear" id="btnSalvar" onclick="javascript:Salvar()"
-                            value="Salvar">
-                    </div>
-                </div><br>
+                    <input type="text" id="id" name="id" hidden>
+                </div>
 
             </form>
             <hr color="#ed81ee">
@@ -130,17 +142,23 @@
         </div>
     </div>
 
-    <!-- Optional JavaScript; choose one of the two! -->
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
-        crossorigin="anonymous"></script>
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+    integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+    crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+<!-- Inclua os arquivos JS do jQuery e do Select2 -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
     <!-- CRUD -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>       
+   
     <script src="../../home/javascript/login.js"></script>
     <script src="javascript/crud_banner.js"></script>
     <script>
@@ -149,11 +167,12 @@
 
             // Verifica se o usuário já esta logado e se negativo, redireciona para tela de login        
             if (!usuarioCorrente.login) {
-                window.location.href = LOGIN_URL;
+                 window.location.href = LOGIN_URL;
             }
-             // Associa a função de logout ao botão
-             document.getElementById('btn_logout').addEventListener('click', logoutUser);
-             // Informa o nome do usuário logado
+            
+            // Associa a função de logout ao botão
+            document.getElementById('btn_logout').addEventListener('click', logoutUser);
+            // Informa o nome do usuário logado
             document.getElementById('nomeUsuario').innerHTML = usuarioCorrente.nome;
 
             // Associa ao evento de carga da página a função para verificar se o usuário está logado
@@ -163,7 +182,7 @@
             $("#search").keyup(pesquisaTabela());
 
             // Intercepta o click do botão Listar Contatos
-            $("#btnNovoRegistro").click(function () {
+            $("#btnPLACEHOLDER").click(function () { //TROQUEI O NOME DESSE EVENT, VOLTAR PARA O NORMAL DEPOIS
                 $("#form-cursos")[0].reset();
             });
             // Oculta a mensagem de aviso após alguns segundos
@@ -175,27 +194,33 @@
                 }, 5000);
             });
             exibeBanner();
-
-            
             //cria nav
             CriaNav();
         }
 
         function exibeBanner() {
-            
+            // Remove todas as linhas do corpo da tabela
+            $("#table-banner").html("");
+            // Popula a tabela com os registros do banco de dados
+            for ( var i = 0; i < dbbanner.banner.length; i++) {
+                let banner = dbbanner.banner[i];
+                $("#table-banner").append(`<tr><td scope="row">${banner.descricao}</td>
+                                    <td>${banner.caminho}</td>
+                                    <td><a href="#" type="button" onclick = "javascript:Editar(${banner.id})" title="Editar"><i class="fa-solid fa-pen"></i></a></td>
+                                    <td><a href="#" type="button" onclick = "javascript:Excluir(${banner.id})" title="Excluir"><i class="fa-solid fa-xmark"></i></a></td>
+                                </tr>`);
+            }
         }
         // Preenche o formulário quando o usuario clicar no botão editar
         function Editar(id) {
 
             let position = dbbanner.banner.map(obj => obj.id).indexOf(id);
             let banner = dbbanner.banner[position];
-
-            $("#id").val(banner.id);
-            $("#descricao").val(banner.descricao);
-            $("#caminho").val(banner.empresa);
-
+            //$("#id").val(banner.id);
+            $("#descricao_banner").val(banner.descricao);
+            $("#imageupload").val(banner.empresa);
             // Reexibe os contatos
-            exibeBanner();
+           exibeBanner();
         }
 
         // Preenche o formulário quando o usuario clicar no botão editar
@@ -209,18 +234,18 @@
 
             // Obtem os valores dos campos do formulário
             let campoId = $("#id").val();
-            let campoDescricao = $("#descricao").val();
-            let campoCaminho = $("#caminho").val();
+            let campoDescricao = $("#descricao_banner").val();
+            let campoCaminho = $("#imageupload").val();
             let bannerForm = {
                 descricao: campoDescricao,
                 caminho: campoCaminho,
             };
 
             if (campoId != "") {
-                updateCurso(parseInt(campoId), bannerForm);
+                updateBanner(parseInt(campoId), bannerForm);
             }
             else {
-                insertCurso(bannerForm);
+                insertBanner(bannerForm);
             }
 
             // Reexibe os contatos
@@ -259,9 +284,10 @@
                 }
             }
         }
+       
         function CriaNav() {
 
-var navabarAdmin = `<a class="navbar-brand" href="../index_administrador.html">Home</a>                                   
+            var navabarAdmin = `<a class="navbar-brand" href="../index_administrador.html">Home</a>                                   
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item ">
@@ -282,12 +308,13 @@ var navabarAdmin = `<a class="navbar-brand" href="../index_administrador.html">H
                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
                             </form>
                         </div>`;
-// Remove os elementos da div
-$("#nav-menu").html("");
-if (usuarioCorrente.perfil == 'admin') {
-    $("#nav-menu").append(`${navabarAdmin}`);
-}
-}
+            // Remove os elementos da div
+            $("#nav-menu").html("");
+            if (usuarioCorrente.perfil == 'admin') {
+                $("#nav-menu").append(`${navabarAdmin}`);
+            }
+        }
     </script>
 </body>
+
 </html>
