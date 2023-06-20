@@ -1,0 +1,125 @@
+.espaco {
+    height: 30em;
+    background-color: #f1f1f1;
+    border-top: 5px solid white;
+    border-bottom: 5px solid white;
+  }
+  
+  .banner {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    background-color: #f1f1f1;
+    align-self: center;
+    align-items: center;
+  }
+  
+  .bannerimg {
+    top: -28em;
+    border-radius:3%;
+    position: absolute;
+  }
+  
+  .bigbox {
+    width: 50em;
+    height: 80%;
+    background-color: #f1f1f1;
+    margin: auto;
+    overflow: hidden;
+    margin-top: 2em;
+    border: #929292 3px solid;
+    border-radius: 1%;
+    text-align: center;
+    position:relative;
+  }
+  
+  .insertimage {
+    width: 75%;
+    height: 20%;
+    background-color: #eaeaea;
+    margin: auto;
+    overflow: hidden;
+    margin-top: 2em;
+    border: #929292 3px dotted;
+    border-radius: 1%;
+    text-align: center;
+    color:#717171;
+    font-family: Arial, sans-serif;
+    padding-top: 10em;
+  }
+  
+  .imagepreview {
+    padding-top: 4em;
+    height: 5em;
+    width: 16em;
+    background-color: white;
+    border:#717171 2px solid;
+    border-radius:3%;
+    left:80%;
+    top: 50em;
+    position: absolute;
+  }
+  
+  .preview {
+    min-width: 30%;
+    max-width: 30%;
+    left: 30em;
+    top: 50em;
+    position:absolute;
+    border:#717171 8px solid;
+  }
+  
+  .criarImagem {
+    background-color: white;
+  }
+  
+  .titlebanner {
+    margin: auto;
+    font-size: 4em;
+    align-self: center;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .bodytext {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.5em;
+    text-align: left;
+    padding-left: 1em;
+  }
+  
+  .btnprev, .btnext {
+    user-select: none;
+    position: absolute;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    z-index: 1;
+    cursor: pointer;
+    background-color: #fff;
+    font-size: 2em;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  .btnprev {
+    top: -8em;
+    left: 34%;
+  }
+  
+  .btnext {
+    top: -8em;
+    left: 64%;
+  }
+  
+  .circle0identifier {
+    border-radius:50%;
+    border: rgb(158, 158, 158) 3px solid;
+    width:10px;
+    height:10px;
+    position:relative;
+    top: -90px;
+    z-index: 2;
+    margin-right: 10px;
+  }
