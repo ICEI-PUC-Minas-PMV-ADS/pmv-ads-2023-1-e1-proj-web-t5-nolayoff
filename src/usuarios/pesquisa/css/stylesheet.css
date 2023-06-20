@@ -9,9 +9,8 @@ html {
 
 body {
   padding: 0 0 0 0;
-  /*font-family: 'Alegreya Sans', sans-serif;*/
-  /*margin-bottom: 300px;*/
-  background-color: #f8fafb;
+  font-family: 'Alegreya Sans', sans-serif;
+  margin-bottom: 300px;
 
 }
 
@@ -29,7 +28,7 @@ ul {
 
 li {
   padding: 2px;
-  /*overflow: auto;*/
+  overflow: auto;
   margin: 0;
   width: auto;
 }
@@ -60,22 +59,11 @@ li p {
   border-bottom: 5px solid white;
 }
 
-.img {  
+.img {
+  background-color: #f1f1f1;
   margin: 0 auto;
   width: 100px;
   display: block;
-}
-
-.imgdiv {
-  width: 30em;
-  height: 15em;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#container {
-  display:none;
 }
 
 .header p {
@@ -98,7 +86,7 @@ li p {
   display: block;
   color: black;
   text-align: center;
-  padding: 35px 18px;
+  padding: 16px 18px;
   text-decoration: none;
 }
 
@@ -116,14 +104,6 @@ li p {
   margin-right: auto;
   text-align: center;
   border-bottom: 5px solid white;
-}
-
-.borderbox {
-  border: 1px solid #ed81ee;
-  padding-top: 1em;
-  padding-bottom: 1em;
-  width: 100%;
-  height:fit-content;
 }
 
 .btnprev, .btnext {
@@ -148,6 +128,22 @@ li p {
 .btnext {
   top: -8em;
   left: 64%;
+}
+
+.searchResultCourse, .searchResultNews, .searchResultVacancy {
+  width: 75%;
+  height: 15em;
+  background-color: #d2d2d2;
+  margin: auto;
+  margin-bottom: 10px;
+  box-shadow: 0px 6px 2px rgba(0, 0, 0, .1);
+  padding-top: 2em;
+}
+
+.title {
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 3em;
+  padding-left: 1em;
 }
 
 .padded-boxes {
@@ -180,11 +176,6 @@ li p {
   bottom: 0;
   width: 100%;
   height: 300px;
-}
-
-.text-user {
-  text-align: right!important;
-  margin-top: 34px;
 }
 
 footer {
