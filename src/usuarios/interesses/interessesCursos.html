@@ -57,14 +57,14 @@
 
     <main class="container-fluid">
         <br>
-        <div id='cards-vagas'></div>
-        <h1><span class="badge badge-secondary">Vagas</span> Meus interesses</h1>
-        <div id="pagination-container-vagas">
-            <div id="card-list-vaga" class="row">
+        <div id='cards-cursos'></div>
+        <h1><span class="badge badge-secondary">Cursos</span> Meus interesses</h1>
+        <div id="pagination-container-cursos">
+            <div id="card-list-cursos" class="row">
                 <!-- Cards serão adicionados aqui dinamicamente -->
             </div>
             <nav>
-                <ul id="pagination-vagas" class="pagination">
+                <ul id="pagination-cursos" class="pagination">
                     <!-- Paginação será adicionada aqui dinamicamente -->
                 </ul>
             </nav>
@@ -82,7 +82,7 @@
         integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
         crossorigin="anonymous"></script>
 
-    <script src="/src/administrador/vagas/javascript/crud_vagas.js"></script>
+    <script src="/src/administrador/cursos/javascript/crud_cursos.js"></script>
     <script src="javascript/interesses.js"></script>
     <script src="../../home/javascript/login.js"></script>
 
@@ -98,8 +98,8 @@
             //exibeInteresses();
 
             // Inicialização cards vagas, notícias e Cursos
-            showCardsVagas(1);
-            createPaginationVagasLinks();
+            showCardsCursos(1);
+            createPaginationCursosLinks();
 
             CriaNav();
 
@@ -113,30 +113,30 @@
         }
 
         // Função para exibir os cards em uma página específica
-        function showCardsVagas(pageNumber) {
+        function showCardsCursos(pageNumber) {
 
             // Constantes
             var cardsPerPage = 5;
 
             var startIndex = (pageNumber - 1) * cardsPerPage;
             var endIndex = startIndex + cardsPerPage;
-            var paginatedData = dbinteresses.interessesvagas.slice(startIndex, endIndex);
+            var paginatedData = dbinteresses.interessescursos.slice(startIndex, endIndex);
 
-            var cardList = document.getElementById("card-list-vaga");
+            var cardList = document.getElementById("card-list-cursos");
             cardList.innerHTML = "";
 
             paginatedData.forEach(function (card) {
                 if(card.idusuario == usuarioCorrente.codigo){
 
-                    let vaga = getVaga(card.codigovaga);
+                let curso = getCurso(card.codigocurso);
 
                 var cardItem = document.createElement("div");
                 cardItem.className = "col-md-4 mb-4";
                 var cardHtml = `<div class="card">
                                             <div class="card-body">
-                                                <h5 class="card-title">${vaga.descricao}</h5>
-                                                <h6 class="card-subtitle mb-2 text-muted">${vaga.competenciadavaga}</h6>
-                                                <p class="card-text">${vaga.sobreavaga}</p>
+                                                <h5 class="card-title">${curso.descricao} - ${curso.empresa} </h5>
+                                                <h6 class="card-subtitle mb-2 text-muted">${curso.duracao}</h6>
+                                                <p class="card-text">${curso.observacao}</p>
                                                 <button class="btn btn-outline-nolayoff my-2 my-sm-0 btn-lilas btn-interesse" data-id="${card.id}">Excluir interesse</button>
                                             </div>
                                 </div>`;
@@ -148,12 +148,12 @@
         }
 
         // Função para criar os links de paginação
-        function createPaginationVagasLinks() {
+        function createPaginationCursosLinks() {
             var cardsPerPage = 5;
-            var pagination = document.getElementById("pagination-vagas");
+            var pagination = document.getElementById("pagination-cursos");
             pagination.innerHTML = "";
 
-            var pageCount = Math.ceil(dbinteresses.interessesvagas.length / cardsPerPage);
+            var pageCount = Math.ceil(dbinteresses.interessescursos.length / cardsPerPage);
 
             for (var i = 1; i <= pageCount; i++) {
                 var listItem = document.createElement("li");
@@ -161,13 +161,13 @@
 
                 var link = document.createElement("a");
                 link.className = "page-link";
-                link.href = "#cards-vagas";
+                link.href = "#cards-cursos";
                 link.textContent = i;
 
                 link.addEventListener("click", function () {
                     var pageNumber = parseInt(this.textContent);
                     listItem.className = "page-item";
-                    showCardsVagas(pageNumber);
+                    showCardsCursos(pageNumber);
                 });
 
                 listItem.appendChild(link);
@@ -183,25 +183,25 @@
                 <li class="nav-item  ">
                     <a class="nav-link" href="../curriculo/curriculo.html">Curriculo</a>
                 </li>                
-                <li class="nav-item active dropdown">
+                <li class="nav-item  dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdowvaga" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Vagas</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="../vagas/vagas.html">Buscar vagas</a>
-                        <a class="dropdown-item active" href="../interesses/interesses.html">Meus Interesses</a>
+                        <a class="dropdown-item " href="../interesses/interesses.html">Meus Interesses</a>
                     </div>
                 </li>                
-                <li class="nav-item dropdown">
+                <li class="nav-item  dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Notícias</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="../noticias/noticias.html">Buscar Notícias</a>
-                        <a class="dropdown-item" href="../interesses/interessesNoticias.html">Meus Interesses</a>
+                        <a class="dropdown-item " href="interessesNoticias.html">Meus Interesses</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item active dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdowncurso" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cursos</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="../cursos/cursos.html">Buscar Cursos</a>
-                        <a class="dropdown-item" href="../interesses/interessesCursos.html">Meus Interesses</a>
+                        <a class="dropdown-item active" href="../interesses/interessesCursos.html">Meus Interesses</a>
                     </div>
                 </li>
                 

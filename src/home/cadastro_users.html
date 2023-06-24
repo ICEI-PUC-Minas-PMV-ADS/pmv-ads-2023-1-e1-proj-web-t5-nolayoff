@@ -226,41 +226,43 @@
                          <a class="nav-link" href="../administrador/banner/banner.html">Banner</a>
                         </li>
                     </ul>
-                <form class="form-inline my-2 my-lg-0">
-                     <input class="form-control mr-sm-2" type="search" placeholder="persquisar" aria-label="Search">
-                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-                </form>
+                
                 </div>`);
             }
             else{
-                $("#nav-menu").append(` <a class="navbar-brand active" href="../usuarios/index_usuario.html">Home<span class="sr-only">(current)</span></a>        
+                $("#nav-menu").append(
+        
+        
+        ` <a class="navbar-brand" href="../usuarios/index_usuario.html">Home</a>        
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item ">
+                <li class="nav-item  ">
                     <a class="nav-link" href="../usuarios/curriculo/curriculo.html">Curriculo</a>
-                </li>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Vagas
-                    </a>
+                </li>                
+                <li class="nav-item  dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdowvaga" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Vagas</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="../usuarios/vagas/vagas.html">Buscar vagas</a>
-                        <a class="dropdown-item" href="../usuarios/interesses/interesses.html">Meus Interesses</a>
+                        <a class="dropdown-item " href="../usuarios/interesses/interesses.html">Meus Interesses</a>
+                    </div>
+                </li>                
+                <li class="nav-item  dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Notícias</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="../usuarios/noticias/noticias.html">Buscar Notícias</a>
+                        <a class="dropdown-item " href="../usuarios/interesses/interessesNoticias.html">Meus Interesses</a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../usuarios/noticias/noticias.html">Notícias</a>
+                <li class="nav-item  dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdowncurso" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cursos</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="../usuarios/cursos/cursos.html">Buscar Cursos</a>
+                        <a class="dropdown-item " href="../usuarios/interesses/interessesCursos.html">Meus Interesses</a>
+                    </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../usuarios/cursos/cursos.html">Cursos</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="persquisar" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-            </form>
+                
+                
+            </ul>           
         </div>`)
             }
         }

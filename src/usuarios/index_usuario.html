@@ -9,15 +9,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
-    <!-- css customizado -->
-    <link rel="stylesheet" href="../templates/css/stylesheet.css">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <!-- css customizado -->
+    <link rel="stylesheet" href="../templates/css/stylesheet.css">
     <!-- Bootstrap Icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <!-- icones -->
     <script src="https://kit.fontawesome.com/29a7b29429.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body onload="init()">
@@ -47,25 +50,58 @@
             </div>
         </div>
     </header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-menu"></nav>    
+
+    <div id="completa-perfil"></div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-menu"></nav>
     <br>
 
     <main class="container-fluid">
-        <br>
         <div id='cards-vagas'></div>
         <h1><span class="badge badge-secondary">Vagas</span> para você</h1>
-        <div class="card-deck" id="vagas-cards"></div>
         <br>
-
+        <div id="pagination-container-vagas">
+            <div id="card-list-vaga" class="row">
+                <!-- Cards serão adicionados aqui dinamicamente -->
+            </div>
+            <nav>
+                <ul id="pagination-vagas" class="pagination">
+                    <!-- Paginação será adicionada aqui dinamicamente -->
+                </ul>
+            </nav>
+        </div>
+        <br>
+        <!--div class="card-deck" id="vagas-cards"></div-->
         <div id='cards-noticias'></div>
         <h1><span class="badge badge-secondary">Notícias</span> de Mercado</h1>
-        <div class="card-deck" id="noticias-cards"></div>
+        <div id="pagination-container-noticias">
+            <div id="card-list-noticias" class="row">
+                <!-- Cards serão adicionados aqui dinamicamente -->
+            </div>
+            <nav>
+                <ul id="pagination-noticias" class="pagination">
+                    <!-- Paginação será adicionada aqui dinamicamente -->
+                </ul>
+            </nav>
+        </div>
         <br>
-
+        <!--div class="card-deck" id="noticias-cards"></div>
+        <br-->
         <div id='cards-cursos'></div>
         <h1><span class="badge badge-secondary">Cursos</span> de Aperfeiçoamento</h1>
-        <div class="card-deck" id="cursos-cards"></div>
+        <div id="pagination-container-cursos">
+            <div id="card-list-cursos" class="row">
+                <!-- Cards serão adicionados aqui dinamicamente -->
+            </div>
+            <nav>
+                <ul id="pagination-cursos" class="pagination">
+                    <!-- Paginação será adicionada aqui dinamicamente -->
+                </ul>
+            </nav>
+        </div>
         <br>
+        <!--div class="card-deck" id="cursos-cards"></div>
+        <br-->
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
@@ -81,6 +117,9 @@
     <script src="../../src/administrador/cursos/javascript/crud_cursos.js"></script>
     <script src="../../src/administrador/vagas/javascript/crud_vagas.js"></script>
     <script src="../../src/administrador/noticias/javascript/crud_noticias.js"></script>
+    <script src="../../src/usuarios/curriculo/javascript/cadastro_curricular.js"></script>
+    <script src="../../src/usuarios/interesses/javascript/interesses.js"></script>
+
     <script src="../home/javascript/login.js"></script>
 
     <script>
@@ -92,7 +131,16 @@
                 window.location.href = LOGIN_URL;
             }
 
-            exibeCards();
+            // Inicialização cards vagas, notícias e Cursos
+            showCardsVagas(1);
+            createPaginationVagasLinks();
+
+            showCardsNoticias(1);
+            createPaginationNoticiasLinks();
+
+            showCardsCursos(1);
+            createPaginationCursosLinks();
+
 
             // Associa a função de logout ao botão
             document.getElementById('btn_logout').addEventListener('click', function () {
@@ -106,51 +154,22 @@
 
             CriaNav();
 
+            mensagemclompletaPerfil();
+
+
+
+            //paginaçao cards
+            $(document).ready(function () {
+                // Seleciona a página ativa
+                $('.pagination .page-item').on('click', function () {
+                    $(this).addClass('active').siblings().removeClass('active');
+                });
+            });
+
+
         }
 
-        function exibeCards() {
-
-            // Remove os elementos da div
-            $("#vagas-cards").html("");
-            $("#cursos-cards").html("");
-            $("#noticias-cards").html("");
-
-            // cria cards 
-            for (i = 0; i <= 2; i++) {
-
-                let curso = dbcursos.cursos[i];
-                let vaga = dbvagas.vagas[i];
-                let noticia = dbnoticias.noticias[i];
-
-                $("#cursos-cards").append(
-                    `<div class="card border-dark">
-                        <div class="card-body">
-                                <h5 class="card-title"><i class="bi bi-rocket-takeoff-fill"></i> ${curso.descricao}</h5>
-                                <p class="card-text">${curso.observacao}</p>
-                                <p class="card-text"><small class="text-muted">${curso.duracao}</small></p>
-                            </div>
-                    </div>`);
-                $("#vagas-cards").append(
-                    `<div class="card border-dark">
-                        <div class="card-body">
-                                <h5 class="card-title"><i class="bi bi-briefcase-fill"></i> ${vaga.descricao}</h5>
-                                <p class="card-text">${vaga.sobreavaga}</p>
-                                <p class="card-text"><small class="text-muted">${vaga.cargo}</small></p>
-                                <p class="card-text"><small class="text-muted">Competências : ${vaga.competenciadavaga}</small></p>
-                            </div>
-                    </div>`);
-                $("#noticias-cards").append(
-                    `<div class="card border-dark">
-                        <div class="card-body">
-                                <h5 class="card-title"><i class="bi bi-newspaper"></i> ${noticia.titulo}</h5>
-                                <p class="card-text">${noticia.sintese}</p>
-                                <p class="card-text"><small class="text-muted">${noticia.publicacao}</small></p>
-                                <p class="card-text"><small class="text-muted">Fonte : ${noticia.fonte}</small></p>
-                        </div>
-                    </div>`);
-            }
-        }
-
+        
         function CriaNav() {
 
             var navabarAdmin = ` <a class="navbar-brand active" href="index_usuario.html">Home<span class="sr-only">(current)</span></a>        
@@ -158,10 +177,9 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ">
                     <a class="nav-link" href="curriculo/curriculo.html">Curriculo</a>
-                </li>
-                </li>
+                </li>                
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdowvaga" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         Vagas
                     </a>
@@ -170,17 +188,26 @@
                         <a class="dropdown-item" href="interesses/interesses.html">Meus Interesses</a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="noticias/noticias.html">Notícias</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="cursos/cursos.html">Cursos</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="persquisar" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-            </form>
+                <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                        Notícias
+                     </a>
+                    <div class="dropdown-menu">
+                          <a class="dropdown-item" href="noticias/noticias.html">Buscar Notícias</a>
+                          <a class="dropdown-item" href="interesses/interessesNoticias.html">Meus Interesses</a>
+                    </div>
+                </li>               
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdowncurso" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Cursos
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="cursos/cursos.html">Buscar Cursos</a>
+                        <a class="dropdown-item" href="interesses/interessesCursos.html">Meus Interesses</a>
+                    </div>
+                </li>                
+            </ul>           
         </div>`;
             // Remove os elementos da div
             $("#nav-menu").html("");
@@ -189,7 +216,258 @@
             }
         }
 
+        function mensagemclompletaPerfil() {
+            // Remove os elementos da div
+            $("#completa-perfil").html("");
+            let position = db_curriculo.habilidades.map(obj => obj.codusuario).indexOf(usuarioCorrente.codigo);
+            let habilidade = db_curriculo.habilidades[position];
+            if (!habilidade) {
+                $("#completa-perfil").append(
+                    `<div class="alert alert-primary" role="alert">
+                        <p>Olá, <span id="nomeUsuarioMensagem">${usuarioCorrente.nome}</span>!</p>
+                        <p>Para uma melhor interação com a ferramenta e receber sugestões de vagas, cursos e notíocias alinhados a seu perfil, complete o seu <a href="curriculo/curriculo.html" class="alert-link">Curriculo!</a> 
+                    </div>`);
+            }
+        }
 
+        // Função para exibir os cards em uma página específica
+        function showCardsVagas(pageNumber) {
+
+            // Constantes
+            var cardsPerPage = 3;
+
+            var startIndex = (pageNumber - 1) * cardsPerPage;
+            var endIndex = startIndex + cardsPerPage;
+            var paginatedData = dbvagas.vagas.slice(startIndex, endIndex);
+
+            var cardList = document.getElementById("card-list-vaga");
+            cardList.innerHTML = "";
+
+            paginatedData.forEach(function (card) {
+                var cardItem = document.createElement("div");
+                cardItem.className = "col-md-4 mb-4";
+
+                // array com as competencias que o usuário possui com relação a vaga
+                let CompVagaXCompUser = getCompentenciasVagaUser(card.id);
+                // array com as competencias que o usuário NÃO possui com relação a vaga
+                let FaltamCompVagaXCompUser = getPendenciasCompVagaUser(card.id);
+
+                let returnmensagem = Preparamensagem(CompVagaXCompUser, FaltamCompVagaXCompUser, card.id);
+                let mensagem = returnmensagem[0];
+                let vagaaprovada = returnmensagem['todas'];
+
+
+                let classcarddiv = "card border-dark";
+                let classcardbody = "card-body";
+                if (vagaaprovada === 1) {
+                    classcarddiv = "card";
+                    classcardbody = "card-body";
+                }
+
+                var cardHtml = `<div class="${classcarddiv}">
+                        <div class="${classcardbody}">
+                                <h5 class="card-title"><i class="bi bi-briefcase-fill"></i> ${card.descricao}<br><b> ${card.empresa}</b></h5>
+                                <p class="card-text"><b>Sobre a Vaga :</b>${card.sobreavaga}</p>
+                                <p class="card-text"><small class="text-muted"><b>Cargo :</b>${card.cargo}</small></p>                               
+                                <p class="card-text"><small class="text-muted"><b>Competências da Vaga :</b> ${card.competenciadavaga}</small></p>
+                                ${Preparamensagem(CompVagaXCompUser, FaltamCompVagaXCompUser, card.id)}
+                                <button class="btn btn-outline-nolayoff" onclick = "javascript:Tenhointeressevaga(${card.id})">Tenho interesse</button>
+                        </div>
+                        
+                    </div>`;
+
+                cardItem.innerHTML = cardHtml;
+                cardList.appendChild(cardItem);
+            });
+
+        }
+
+        // Função para criar os links de paginação
+        function createPaginationVagasLinks() {
+            var cardsPerPage = 3;
+            var pagination = document.getElementById("pagination-vagas");
+            pagination.innerHTML = "";
+
+            var pageCount = Math.ceil(dbvagas.vagas.length / cardsPerPage);
+
+            for (var i = 1; i <= pageCount; i++) {
+                var listItem = document.createElement("li");
+                listItem.className = "page-item";
+
+                var link = document.createElement("a");
+                link.className = "page-link";
+                link.href = "#cards-vagas";
+                link.textContent = i;
+
+                link.addEventListener("click", function () {
+                    var pageNumber = parseInt(this.textContent);
+                    listItem.className = "page-item";
+                    showCardsVagas(pageNumber);
+                });
+
+                listItem.appendChild(link);
+                pagination.appendChild(listItem);
+            }
+        }
+
+        // Função para exibir os cards em uma página específica
+        function showCardsNoticias(pageNumber) {
+
+            // Constantes
+            var cardsPerPage = 3;
+
+            var startIndex = (pageNumber - 1) * cardsPerPage;
+            var endIndex = startIndex + cardsPerPage;
+            var paginatedData = dbnoticias.noticias.slice(startIndex, endIndex);
+
+            var cardList = document.getElementById("card-list-noticias");
+            cardList.innerHTML = "";
+
+            paginatedData.forEach(function (card) {
+                var cardItem = document.createElement("div");
+                cardItem.className = "col-md-4 mb-4";
+
+                var cardHtml = `<div class="card border-dark">
+                        <div class="card-body">
+                                <h5 class="card-title"><i class="bi bi-newspaper"></i> ${card.titulo}</h5>
+                                <p class="card-text">${card.sintese}</p>
+                                <p class="card-text"><small class="text-muted">${card.publicacao}</small></p>
+                                <p class="card-text"><small class="text-muted">Fonte : ${card.fonte}</small></p>
+                                <button class="btn btn-outline-nolayoff my-2 my-sm-0 btn-lilas btn-interesse" data-id="${card.id}">Tenho interesse</button>
+                        </div>
+                    </div>`;
+
+                cardItem.innerHTML = cardHtml;
+                cardList.appendChild(cardItem);
+            });
+
+        }
+
+        // Função para criar os links de paginação
+        function createPaginationNoticiasLinks() {
+            var cardsPerPage = 3;
+            var pagination = document.getElementById("pagination-noticias");
+            pagination.innerHTML = "";
+
+            var pageCount = Math.ceil(dbnoticias.noticias.length / cardsPerPage);
+
+            for (var i = 1; i <= pageCount; i++) {
+                var listItem = document.createElement("li");
+                listItem.className = "page-item";
+
+                var link = document.createElement("a");
+                link.className = "page-link";
+                link.href = "#cards-noticias";
+                link.textContent = i;
+
+                link.addEventListener("click", function () {
+                    var pageNumber = parseInt(this.textContent);
+                    listItem.className = "page-item";
+                    showCardsNoticias(pageNumber);
+                });
+
+                listItem.appendChild(link);
+                pagination.appendChild(listItem);
+            }
+
+        }
+
+        // Função para exibir os cards de Cursos
+        function showCardsCursos(pageNumber) {
+
+            var cardsPerPage = 3;
+
+            var startIndex = (pageNumber - 1) * cardsPerPage;
+            var endIndex = startIndex + cardsPerPage;
+            var paginatedData = dbcursos.cursos.slice(startIndex, endIndex);
+            var cardList = document.getElementById("card-list-cursos");
+            cardList.innerHTML = "";
+
+            paginatedData.forEach(function (card) {
+                var cardItem = document.createElement("div");
+                cardItem.className = "col-md-4 mb-4";
+
+                var cardHtml = `<div class="card border-dark">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="bi bi-rocket-takeoff-fill"></i> ${card.descricao}</h5>
+                            <p class="card-text">${card.observacao}</p>
+                            <p class="card-text"><small class="text-muted">${card.duracao}</small></p>                                
+                            <button class="btn btn-outline-nolayoff my-2 my-sm-0 btn-lilas btn-interesse" data-id="${card.id}">Tenho interesse</button>
+                        </div>
+                </div>`;
+
+                cardItem.innerHTML = cardHtml;
+                cardList.appendChild(cardItem);
+            });
+        }
+
+        // Função para criar os links de paginação
+        function createPaginationCursosLinks() {
+            var cardsPerPage = 3;
+            var pagination = document.getElementById("pagination-cursos");
+            pagination.innerHTML = "";
+
+            var pageCount = Math.ceil(dbcursos.cursos.length / cardsPerPage);
+
+            for (var i = 1; i <= pageCount; i++) {
+                var listItem = document.createElement("li");
+                listItem.className = "page-item";
+
+                var link = document.createElement("a");
+                link.className = "page-link";
+                link.href = "#cards-cursos";
+                link.textContent = i;
+
+                link.addEventListener("click", function () {
+                    var pageNumber = parseInt(this.textContent);
+                    listItem.className = "page-item";
+                    showCardsCursos(pageNumber);
+                });
+
+                listItem.appendChild(link);
+                pagination.appendChild(listItem);
+            }
+
+        }
+
+        function Preparamensagem(CompVagaXCompUser, FaltamCompVagaXCompUser, idvaga) {
+
+            let numerocompetenciavaga = getCompentenciasVaga(idvaga);
+            numerocompetenciavaga = numerocompetenciavaga.length;
+            let numerocompetenciauser = CompVagaXCompUser.length;
+            let numerocompetenciauserfaltam = FaltamCompVagaXCompUser;
+            numerocompetenciauserfaltam = numerocompetenciauserfaltam.length;
+
+
+            let stringfaltam = FaltamCompVagaXCompUser.join(';');
+            let media = numerocompetenciavaga / 2;
+            var mensagem = ``;
+            var returnmensagem = new Array();
+
+            if (numerocompetenciauserfaltam > 1) {
+                if (numerocompetenciauserfaltam > media) {
+                    mensagem = ` <p class="card-text"><small class="text-muted"><b> Análise:</b> Estão faltando ${numerocompetenciauserfaltam} competencias para você : ${stringfaltam}</small>. Não parece uma boa oportunidade!</p>`;
+                    returnmensagem[0] = mensagem;
+                    returnmensagem['todas'] = 0;
+                }
+                else {
+                    mensagem = ` <p class="card-text"><small class="text-muted"><b> Análise:</b> Estão faltando ${numerocompetenciauserfaltam} competencias para você : ${stringfaltam} . Faltam poucas Competências para ter maior oportunidade!</small>. </p>`;
+                    returnmensagem[0] = mensagem;
+                    returnmensagem['todas'] = 0;
+                }
+            }
+            else {
+                mensagem = ` <p class="text-success font-weight-bolder"><small class="text-monospace"><b> Analise:</b> Você possui todas as competências, parece uma boa oportunidade</small>!</p>`;
+                returnmensagem[0] = mensagem;
+                returnmensagem['todas'] = 1;
+            }
+            return returnmensagem;
+        }
+        
+        function Tenhointeressevaga(idvaga) {
+            insertInteresses(idvaga);
+            showCardsVagas(2);
+        }
     </script>
 </body>
 

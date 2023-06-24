@@ -53,6 +53,264 @@ li p {
 }
 
 /* Class style */
+
+/* ALTERAÇÃO BOOTSTRAP*/
+
+.bg-light {
+  background-color: #fff!important;
+}
+
+.badge-secondary {
+  color: #fff;
+  background-color: #8c2097;
+}
+.card {
+  border: 3px solid #e29fe9;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.card-title {
+  color: #6c757d;
+}
+
+.card-columns .card {
+  margin-bottom: 1.5rem;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #e29fe9;
+  color: #fff;
+}
+
+.pagination .page-item .page-link:hover {
+  background-color: #fff;
+  color: #e29fe9;
+}
+
+
+.nav-tabs {
+  border-bottom: none;
+  background-color: #f8f9fa;
+}
+
+.nav-tabs .nav-item .nav-link {
+  color: #6c757d;
+  border: none;
+  border-radius: 0;
+}
+
+/* Estilos para a tab ativa */
+.nav-tabs .nav-item .nav-link.active {
+  background-color: #e29fe9;
+  color: #fff;
+}
+
+/* Estilos para o hover na tab */
+.nav-tabs .nav-item .nav-link:hover {
+  background-color: #e29fe9;
+  color: #fff;
+}
+
+
+
+
+.btn-outline-nolayoff {
+  color: #fff;
+  border-color: #e29fe9;
+  background-color: #e29fe9;
+}
+
+.btn-outline-nolayoff:hover {
+  background-color: #fff;
+  border-color: #e29fe9;
+  color: #e29fe9;
+}
+.btn-outline-nolayoff:active {
+  /* Estilos para quando o botão for clicado */
+  background-color: #e29fe9;
+  color: #fff;
+}
+
+
+.alert-primary {
+  color: #fff;
+  background-color: #e29fe9;
+  border-color: #fff;
+}
+.alert-primary .alert-link {
+  color: #8c008a;
+}
+
+
+
+.timeline {
+  position: relative;
+}
+
+.timeline:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #6c757d;
+  left: 50%;
+  margin-left: -1px;
+}
+
+.timeline-item {
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline-item:before,
+.timeline-item:after {
+  content: '';
+  display: table;
+}
+
+.timeline-item:after {
+  clear: both;
+}
+
+.timeline-item .timeline-content {
+  position: relative;
+  width: 30%;
+  float: right;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #e29fe9;
+  margin-right: 18%;
+}
+
+.timeline-item .timeline-date {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.timeline-item .timeline-company {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.timeline-item .timeline-description {
+  font-size: 14px;
+  color: #fff;
+}
+
+.timeline-item-left .timeline-content {
+  float: left;
+  width: 30%;
+  margin-left: 18%;
+}
+
+.timeline-item-left .timeline-content:before {
+  right: auto;
+  left: -16px;
+  border-right-width: 16px;
+  border-left-width: 0;
+}
+
+.timeline-item-left .timeline-content:after {
+  right: auto;
+  left: 0;
+  border-right-width: 15px;
+  border-left-width: 0;
+}
+
+.border-dark {
+  border-color: #e9ecef!important;
+}
+
+
+#carouselbanners {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.carousel-item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.carousel-item img {
+  width: 100%; /* Para garantir que a imagem não exceda a largura do slide */
+  height: auto; /* Para manter a proporção correta da imagem */
+}
+
+
+
+
+
+.carousel-caption-left {
+  position: absolute;
+  right: 50%;
+  bottom: 200px;
+  left: 5%;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+  font-size: larger;
+}
+.carousel-caption-bottom {
+  position: absolute;
+  right: 15%;
+  bottom: 20px;
+  left: 15%;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+  font-size: x-large;
+}
+.carousel-caption-right {
+  position: absolute;
+    right: 1%;
+    bottom: 400px;
+    left: 50%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+    font-size: larger;
+}
+
+
+
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+  color: #b648c7;
+}
+
+
+.dropdown-item.active, .dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: #e29fe9;
+}
+
+
+.badge-primary {
+  color: #fff;
+  background-color: #e29fe9;
+}
+
+
+
+
+
+
+/*fim*/
+
 .header {
   background-color: #f1f1f1;
   padding: 20px;
@@ -197,6 +455,11 @@ footer .form-control {
     padding: 0.7em 1em;
 }
 
+.table-hover tbody tr:hover {
+  background-color: #faf3f9; /* Defina a cor de fundo desejada ao passar o mouse */
+}
+
+
 footer .btn{
   color: white;
 }
@@ -209,3 +472,4 @@ footer .btn{
     height: 700px;
   }
 }
+

@@ -42,8 +42,8 @@ function generateUUID() { // Public Domain/MIT
 // Dados de usuários para serem utilizados como carga inicial
 const dadosIniciais = {
     usuarios: [
-        { "id": generateUUID(), "login": "admin", "senha": "123", "nome": "Administrador do Sistema", "email": "admin@abc.com", "perfil": "admin" },
-        { "id": generateUUID(), "login": "user", "senha": "123", "nome": "Jonh", "email": "user@abc.com", "perfil": "comum" },
+        { "codigo" : 1, "id": generateUUID(), "login": "admin", "senha": "123", "nome": "Administrador do Sistema", "email": "admin@abc.com", "perfil": "admin" },
+        { "codigo" : 2, "id": generateUUID(), "login": "user", "senha": "123", "nome": "Jonh", "email": "user@abc.com", "perfil": "comum" },
     ]
 };
 
@@ -88,6 +88,7 @@ function loginUser(loginOuEmail, senha) {
         var usuario = db_usuarios.usuarios[i];
         if(loginOuEmail == usuario.email){
             if(senha == usuario.senha){
+                usuarioCorrente.codigo = usuario.codigo;
                 usuarioCorrente.id = usuario.id;
                 usuarioCorrente.login = usuario.login;
                 usuarioCorrente.email = usuario.email;
@@ -101,7 +102,8 @@ function loginUser(loginOuEmail, senha) {
         }
         else if(loginOuEmail == usuario.login){
             if(senha == usuario.senha){
-                usuarioCorrente.id = usuario.id;
+                usuarioCorrente.codigo = usuario.codigo;
+                usuarioCorrente.id = usuario.id;               
                 usuarioCorrente.login = usuario.login;
                 usuarioCorrente.email = usuario.email;
                 usuarioCorrente.nome = usuario.nome;
@@ -120,7 +122,7 @@ function loginUser(loginOuEmail, senha) {
 }
 
 // Apaga os dados do usuário corrente no sessionStorage
-function logoutUser(uriIndex) {
+function logoutUser() {
     usuarioCorrente = {};
     sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuarioCorrente));
     window.location = index;
@@ -130,7 +132,16 @@ function addUser(nome, login, senha, email) {
 
     // Cria um objeto de usuario para o novo usuario 
     let newId = generateUUID();
-    let usuario = { "id": newId, "login": login, "senha": senha, "nome": nome, "email": email, "perfil": "comum" };
+    
+
+    // Calcula novo codigo a partir do último código existente no array de usuários
+    let novoCod = 1 ;
+    if (db_usuarios.usuarios.length != 0){
+        novoCod = db_usuarios.usuarios[db_usuarios.usuarios.length - 1].codigo + 1;
+    } 
+
+
+    let usuario = {"codigo": novoCod, "id": newId, "login": login, "senha": senha, "nome": nome, "email": email, "perfil": "comum" };
 
     // Inclui o novo usuario no banco de dados baseado em JSON
     db_usuarios.usuarios.push(usuario);
