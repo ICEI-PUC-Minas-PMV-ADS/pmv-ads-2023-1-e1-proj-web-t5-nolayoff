@@ -144,9 +144,23 @@ function insertInteressesCursos(idcurso) {
 }
 
 
-function deleteInteresse(id) {
+function deleteInteresse(id) {       
     // Filtra o array removendo o elemento com o id passado
-    dbinteresses.interesses = dbinteresses.interesses.filter(function (element) { return element.id != id });
+    dbinteresses.interessesvagas = dbinteresses.interessesvagas.filter(function (element) { return element.id != id });
+    // Atualiza os dados no Local Storage
+    localStorage.setItem('db_interesses', JSON.stringify(dbinteresses));
+}
+
+function deleteInteressenoticias(id) {       
+    // Filtra o array removendo o elemento com o id passado
+    dbinteresses.interessesnoticias = dbinteresses.interessesnoticias.filter(function (element) { return element.id != id });
+    // Atualiza os dados no Local Storage
+    localStorage.setItem('db_interesses', JSON.stringify(dbinteresses));
+}
+
+function deleteInteressecursos(id) {       
+    // Filtra o array removendo o elemento com o id passado
+    dbinteresses.interessescursos = dbinteresses.interessescursos.filter(function (element) { return element.id != id });
     // Atualiza os dados no Local Storage
     localStorage.setItem('db_interesses', JSON.stringify(dbinteresses));
 }
