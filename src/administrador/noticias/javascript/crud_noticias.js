@@ -101,3 +101,9 @@ function deleteNoticia(id) {
     // Atualiza os dados no Local Storage
     localStorage.setItem('db_noticias', JSON.stringify(dbnoticias));
 }
+
+function getNoticia(Idnoticia) {
+    let index = dbnoticias.noticias.map(obj => obj.id).indexOf(Idnoticia);
+    let noticia = dbnoticias.noticias[index];
+    return noticia;
+}

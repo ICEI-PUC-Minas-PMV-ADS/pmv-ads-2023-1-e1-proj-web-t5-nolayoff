@@ -178,3 +178,8 @@ function deleteCurso(id) {
     // Atualiza os dados no Local Storage
     localStorage.setItem('db_cursos', JSON.stringify(dbcursos));
 }
+function getCurso(idcurso) {
+    let index = dbcursos.cursos.map(obj => obj.id).indexOf(idcurso);
+    let curso = dbcursos.cursos[index];
+    return curso;
+}

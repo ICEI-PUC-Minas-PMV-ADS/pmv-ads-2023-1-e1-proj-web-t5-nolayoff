@@ -56,17 +56,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#cards-cursos">Cursos</a>
                 </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="persquisar" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-            </form>
+            </ul>           
         </div>
     </nav>
     <br>
     <!-- banner-->
-    <div class="container ">
-        <div class="d-flex justify-content-center">
+    <div class="container justify-content-center ">
+       
             <div id="carouselbanners" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                 </ol>
@@ -83,7 +79,7 @@
                     <span class="sr-only">Next</span>
                 </button>
             </div>
-        </div>       
+             
     </div>
     <!-- Fim banner-->
 
@@ -121,7 +117,7 @@
                     Layoff.
                 </p>
                 <p class="card-text">Cadastre-se ou faça login para ter sugestões personalizadas para seu perfil</p>
-                <a href="#" class="btn btn-outline-success my-2 my-sm-0">Venha com a gente</a>
+                <a href="/src/home/login_user.html" id="myButton" class="btn btn-outline-nolayoff my-2 my-sm-0">Venha com a gente</a>
             </div>
 
         </div>
@@ -150,15 +146,20 @@
 
             //inicia o carrossel
             criaCarrossel();
+
+            var button = document.getElementById('myButton');
+            button.addEventListener('click', function() {
+                button.classList.add('clicked');
+            });
         }
 
         function criaCarrossel() {
 
             
             var slides = [
-                { src: 'images/banner/banner1.jpg', alt: 'Imagem 1', caption: 'Atualmente no Brasil e no mundo pós pandêmico, as empresas estão adotando uma prática chamada de Layoff, com o objetivo diminuição do seu parque de colaboradores seja através de demissão temporária ou permanente...' },
-                { src: 'images/banner/banner2.jpg', alt: 'Imagem 2', caption: 'Some representative placeholder content for the third slide.' },
-                { src: 'images/layoff-790x400.png', alt: 'Imagem 3', caption: 'Some representative placeholder content for the third slide.' }
+                { src: '/images/banner/demissaoemmassa.png', alt: 'Imagem 1', caption: 'Atualmente no Brasil e no mundo pós pandêmico, as empresas estão adotando uma prática chamada de Layoff, com o objetivo diminuição do seu parque de colaboradores seja através de demissão temporária ou permanente...' },
+                { src: '/images/banner/teste-site.jpg', alt: 'Imagem 2', caption: 'O layoff não é uma prática nova no meio corporativo, mas ganhou destaque no período pós pandêmicos, impactando todos os mercados e principalmente os setores de tecnologia no mundo.' },
+                { src: '/images//banner/teste-site2.jpg', alt: 'Imagem 3', caption: 'Mesmo com essa alta demanda no setor , alguns profissionais encontram  dificuldades na recolocação no  mercado de trabalho por uma série de fatores como a nomenclatura do último cargo que atuou, atribuições, qualificações e dentre outros' }
             ];
 
             // Criar indicadores
@@ -187,7 +188,17 @@
                 image.alt = slide.alt;
 
                 var caption = document.createElement('div');
-                caption.classList.add('carousel-caption');
+                
+                if (index === 0) {
+                    caption.classList.add('carousel-caption-left');
+                }
+                else if(index === 1){
+                    caption.classList.add('carousel-caption-right');
+                }
+                else{
+                    caption.classList.add('carousel-caption-bottom');
+                }
+                
                 caption.title
                 caption.textContent = slide.caption;
 
