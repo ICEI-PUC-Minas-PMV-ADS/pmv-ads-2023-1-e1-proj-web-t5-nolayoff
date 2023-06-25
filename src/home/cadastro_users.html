@@ -37,8 +37,8 @@
                 <div>
                     <p>Olá, <span id="nomeUsuario">, seja bem-vindo!</span></p>
                 </div>
-            </div>            
-            <div class="col-md-1">                
+            </div>
+            <div class="col-md-1">
                 <a href="cadastro_users.html" id="btn_perfil">
                     <i class="bi bi-person-fill"></i>
                     <span>Perfil</span>
@@ -49,7 +49,7 @@
                     <i class="bi bi-person-fill"></i>
                     <span>Sair</span>
                 </a>
-            </div>           
+            </div>
         </div>
     </header>
 
@@ -74,13 +74,13 @@
         <form id="form-contato">
             <div class="form-group row">
                 <div class="col-sm-6">
-                    <label for="inputNome">Nome (*)</label>
+                    <label for="inputNome">Nome Completo(*)</label>
                     <input type="text" class="form-control" id="inputNome" required
                         placeholder="Informe o nome do contato">
                 </div>
                 <div class="col-sm-6">
                     <label for="inputCategoria">Tipo do perfil</label>
-                    <input type="text" class="form-control" id="inputPerfil" disabled>
+                    <input type="text" class="form-control" id="inputPerfil">
                 </div>
             </div>
             <div class="form-group row">
@@ -90,7 +90,8 @@
                 </div>
                 <div class="col-sm-7">
                     <label for="inputEmail">E-mail (*)</label>
-                    <input type="email" class="form-control" id="inputEmail" required placeholder="Informe o e-mail">
+                    <input type="email" class="form-control" id="inputEmail" required placeholder="Informe o e-mail"
+                        disabled>
                 </div>
             </div>
             <div class="form-group row">
@@ -109,8 +110,8 @@
                     <input type="text" class="form-control" id="inputcidade" disabled>
                 </div>
                 <div class="col-sm-3">
-                    <label for="inputId">CEP</label>
-                    <input type="text" class="form-control" id="inputId" placeholder="30.591-000">
+                    <label for="inputCEP">CEP</label>
+                    <input type="text" class="form-control" id="inputCEP" name="cep" placeholder="30591-000">
                 </div>
             </div>
             <!-- <div class="form-group row">
@@ -126,8 +127,8 @@
             </div>
             <div class="form-group row">
                 <div class="col-sm-12">
-                    <input type="button" class="btn btn-success" id="btnInsert" value="Inserir">
-                    <input type="button" class="btn btn-warning" id="btnUpdate" value="Alterar">
+                    <!-- <input type="button" class="btn btn-success" id="btnInsert" value="Inserir"> -->
+                    <input type="button" class="btn btn-warning" id="btnUpdate" value="Atualizar">
                     <!-- <input type="button" class="btn btn-success" id="btnCurriculo" value="Curriculo"> -->
                     <!-- <input type="button" class="btn btn-secondary" id="btnClear" value="Limpar Form">  -->
                     <!-- <a href="lista_contatos.html"><input type="button" class="btn btn-warning" id="btnClear"
@@ -136,18 +137,17 @@
             </div>
         </form>
 
-        <!-- <div class="row">
+        <div class="row">
             <div class="col-sm-12">
                 <table id="grid-contatos" class="table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
                             <th scope="col">Nome</th>
                             <th scope="col">Telefone</th>
                             <th scope="col">E-mail</th>
-                            <th scope="col">Cidade</th>
                             <th scope="col">Perfil</th>
-                            <th scope="col">Site</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody id="table-contatos">
@@ -159,11 +159,12 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </div> -->
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
@@ -197,8 +198,16 @@
             // Associa ao evento de carga da página a função para verificar se o usuário está logado
             window.addEventListener('load', init);
 
-            //cria barra de navegação
+            var cep = document.getElementById("inputCEP").value = "30492-015"
 
+            exibeDadosUsuarios();
+            adminEnable();
+            
+            getTypePerfil();
+            getNameUser();
+            getUserEmail();
+
+            //cria barra de navegação
             CriaNav();
 
             //popula o form
@@ -239,7 +248,7 @@
                 
                 </div>`);
             }
-            else{
+            else {
                 $("#nav-menu").append(
         
         
@@ -276,6 +285,67 @@
         </div>`)
             }
         }
+
+        function getTypePerfil() {
+            var perfil = getPerfilUserCurrent()
+            document.getElementById("inputPerfil").value = perfil.toUpperCase();
+        }
+
+        function getNameUser() {
+            var perfil = getNameUserCurrent()
+            document.getElementById("inputNome").value = perfil;
+        }
+
+        function getUserEmail() {
+            var perfil = getUserEmailCurrent()
+            document.getElementById("inputEmail").value = perfil;
+        }
+
+        function adminEnable() {
+            var perfil = getPerfilUserCurrent()
+            if (perfil == "admin") {
+                document.getElementById("inputPerfil").disabled = false;
+            } else {
+                document.getElementById("inputPerfil").disabled = true;
+                document.getElementById(("grid-contatos")).style.visibility="hidden"
+            }
+        }
+
+        (function () {
+            const cep = document.querySelector("input[name=cep]");
+            cep.addEventListener('blur', e => {
+                const value = cep.value.replace(/[^0-9]+/, '');
+                const url = `https://viacep.com.br/ws/${value}/json/`;
+
+                fetch(url)
+                    .then(response => response.json())
+                    .then(json => {
+                        if (json.logradouro) {
+                            document.querySelector('input[name=rua]').value = json.logradouro;
+                            document.querySelector('input[name=bairro]').value = json.bairro;
+                            document.querySelector('input[name=cidade]').value = json.localidade;
+                            document.querySelector('input[name=estado]').value = json.uf;
+                        }
+                    });
+            });
+        })();
+
+
+        function exibeDadosUsuarios() {
+            $("#table-contatos").html("");
+
+            for (i = 0; i < dadosIniciais.usuarios.length; i++) {
+                let user = dadosIniciais.usuarios[i];
+                $("#table-contatos").append(`<tr><td scope="row">${user.nome}</td>
+                                                <td>${user.telefone}</td>
+                                                <td>${user.email}</td>
+                                                <td>${user.perfil}</td>
+                                                <td><a href="#" type="button" onclick = "javascript:editarAtribuicao(${user.id})" title="Editar"><i class="fa-solid fa-pen"></i></a></td>
+                                                <td><a href="#" type="button" onclick = "javascript:excluirAtribuicao(${user.id})" title="Excluir"><i class="fa-solid fa-xmark"></i></a></td>
+                                            </tr>`);
+            }
+        }
+
     </script>
 </body>
 </html>

@@ -6,11 +6,13 @@
 
 **Teste da funcão:** Login do usuário
 
-**Cenário de teste:** Nome de usuário e senha informados o login deve ter o comportamento de susesso ou erro. No caso de erro exibir uma mensagem para o usuário.
+**Cenário de teste 1:** Nome de usuário e senha informados o login deve ter o comportamento de susesso ou erro. No caso de erro exibir uma mensagem para o usuário.
+
+**Cenário de teste 2:** O usuário deve conseguir deslogar de sua conta ao clicar no botão "sair".
 
 **Comportamento do sistema no caso de sucesso:** Entrar na página de inico destinada ao tipo de usuário.
 
-**Mensagem de susesso:** 
+**Mensagem de sucesso:** 
 
 **Comportamento do sistema no caso de erro:** Não deixar entrar na página de inico destinada ao tipo de usuário.
 
@@ -30,7 +32,7 @@
 
 **Comportamento do sistema no caso de sucesso:** Entrar na página de inico destinada ao tipo de usuário.
 
-**Mensagem de susesso:** 
+**Mensagem de sucesso:** 
 
 **Comportamento do sistema no caso de erro:** Não deixar entrar na página de inico destinada ao tipo de usuário.
 
@@ -50,7 +52,7 @@
 
 **Comportamento do sistema no caso de sucesso:** Exibir em lista as notícias cadastradas ou atualizadas.
 
-**Mensagem de susesso:** 
+**Mensagem de sucesso:** 
 
 **Comportamento do sistema no caso de sucesso:** Deve deixar deletar uma ou mais de uma notícia cadastrada.
 
@@ -70,7 +72,7 @@
 
 **Comportamento do sistema no caso de sucesso:** Exibir em lista as cursos cadastradas ou atualizadas.
 
-**Mensagem de susesso:** 
+**Mensagem de sucesso:** 
 
 **Comportamento do sistema no caso de sucesso:** Deve deixar deletar uma ou mais de um cursos cadastrada.
 
@@ -90,7 +92,7 @@
 
 **Comportamento do sistema no caso de sucesso:** Exibir em lista as vagas cadastradas ou atualizadas.
 
-**Mensagem de susesso:** 
+**Mensagem de sucesso:** 
 
 **Comportamento do sistema no caso de sucesso:** Deve deixar deletar uma ou mais de uma vagas cadastrada.
 
@@ -110,7 +112,7 @@
 
 **Comportamento do sistema no caso de sucesso:** Exibir em lista as banner cadastradas ou atualizadas.
 
-**Mensagem de susesso:** 
+**Mensagem de sucesso:** 
 
 **Comportamento do sistema no caso de sucesso:** Deve deixar deletar uma ou mais de um banner cadastrada.
 
@@ -130,7 +132,7 @@
 
 **Comportamento do sistema no caso de sucesso:** Exibir em lista de interesses cadastradas ou atualizadas.
 
-**Mensagem de susesso:** 
+**Mensagem de sucesso:** 
 
 **Comportamento do sistema no caso de erro:**
 
@@ -148,8 +150,69 @@
 
 **Comportamento do sistema no caso de sucesso:** Exibir o curriculo cadastrado ou atualizar.
 
-**Mensagem de susesso:** 
+**Mensagem de sucesso:** 
 
 **Comportamento do sistema no caso de sucesso:** Deve deixar deletar o curriculo cadastrado.
+
+**Mensagem de sucesso:** 
+
+---
+
+## Caso de Testes 9
+
+**Objetivo:** Teste CRUD de Imagem de Perfil do usuário.
+
+**Teste da funcão:** Cadastrar imagem de perfil, atualizar, exibir e deletar.
+
+**Cenário de teste 1:** Usuário logados no sitema podem visualizar a imagem de perfil cadastrada.
+
+**Comportamento do sistema no caso de sucesso:** Exibir a imagem de perfil cadastrada.
+
+**Mensagem de susesso:** 
+
+**Comportamento do sistema no caso de sucesso:** Deve deixar deletar atualizar a  imagem de perfil cadastrada.
+
+**Mensagem de sucesso:** 
+
+---
+
+## Caso de Testes 10
+
+**Objetivo:** Teste CRUD de cadastro de Perfil e tipo.
+
+**Teste da funcão:** Cadastrar de perfil e tipo de acesso, atualizar, exibir.
+
+**Cenário de teste 1:** Usuário com perfil COMUM no acesso não administrativo não devem poder modificar o tipo de perfil, mas podem ver, os demais dados de perfil podem atualizar.
+
+**Cenário de teste 2:** Usuário com perfil ADMINISTRADOR no acesso administrativo devem poder modificar o tipo de perfil dos usuários e os demais dados de perfil podem atualizar.
+
+**Comportamento do sistema no caso de sucesso:** Exibir em lista de usuários cadastradas no sistema.
+
+**Mensagem de susesso:** 
+
+**Comportamento do sistema no caso de sucesso:** Deve deixar deletar ou editar os dados de um usário cadastrado.
+
+**Mensagem de sucesso:** 
+
+
+---
+
+## Caso de Testes 11
+
+**Objetivo:** Teste de navegabilidade do sistema.
+
+**Teste da funcão:** Exibição e navegação no sistema.
+
+**Cenário de teste 1:** Usuário com perfil COMUM no acesso ...
+
+**Cenário de teste 2:** Usuário com perfil ADMINISTRADOR ...
+
+**Cenário de teste 3:** Usuário com perfil não logados ...
+
+**Comportamento do sistema no caso de sucesso:** Exibir em lista de usuários cadastradas no sistema.
+
+**Mensagem de susesso:** 
+
+**Comportamento do sistema no caso de sucesso:** Deve deixar deletar ou editar os dados de um usário cadastrado.
 
 **Mensagem de sucesso:** 

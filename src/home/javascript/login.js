@@ -93,28 +93,28 @@ function loginUser(loginOuEmail, senha) {
                 usuarioCorrente.login = usuario.login;
                 usuarioCorrente.email = usuario.email;
                 usuarioCorrente.nome = usuario.nome;
-                usuarioCorrente.perfil = usuario.perfil;    
+                usuarioCorrente.perfil = usuario.perfil;
                 // Salva os dados do usuário corrente no Session Storage, mas antes converte para string
                 sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuarioCorrente));
                 // Retorna true para usuário encontrado
                 return true;
             }
         }
-        else if(loginOuEmail == usuario.login){
-            if(senha == usuario.senha){
+        else if (loginOuEmail == usuario.login) {
+            if (senha == usuario.senha) {
                 usuarioCorrente.codigo = usuario.codigo;
                 usuarioCorrente.id = usuario.id;               
                 usuarioCorrente.login = usuario.login;
                 usuarioCorrente.email = usuario.email;
                 usuarioCorrente.nome = usuario.nome;
-                usuarioCorrente.perfil = usuario.perfil;    
+                usuarioCorrente.perfil = usuario.perfil;
                 // Salva os dados do usuário corrente no Session Storage, mas antes converte para string
                 sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuarioCorrente));
                 // Retorna true para usuário encontrado
                 return true;
             }
         }
-        
+
     }
 
     // Se chegou até aqui é por que não encontrou o usuário e retorna falso
@@ -154,12 +154,16 @@ function setUserPass() {
 
 }
 
-function getNameUserCurrent(){
+function getNameUserCurrent() {
     return usuarioCorrente.nome;
 }
 
-function getPerfilUserCurrent(){
+function getPerfilUserCurrent() {
     return usuarioCorrente.perfil;
+}
+
+function getUserEmailCurrent() {
+    return usuarioCorrente.email;
 }
 
 // Inicializa as estruturas utilizadas pelo LoginApp
