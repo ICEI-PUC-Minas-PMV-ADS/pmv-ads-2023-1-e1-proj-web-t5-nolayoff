@@ -1,10 +1,366 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 
 <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <title>NOLAYOFF - VAGAS</title>
-    <link rel="stylesheet" href="css/style_global.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../templates/css/cadastros.css">
+    <link rel="stylesheet" href="../../templates/css/stylesheet.css">
+
+    <!-- Bootstrap Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- icones -->
+    <script src="https://kit.fontawesome.com/29a7b29429.js" crossorigin="anonymous"></script>
+
+    <title>Busca por Vagas</title>
 </head>
+
+<body onload="init()">
+    <header class="navigation">
+        <div class="row">
+            <div class="col-md-1">
+                <div>
+                    <img src="../../../images/logo.png" class="img" alt="logo" />
+                </div>
+            </div>
+            <div class="col-md-9 text-user">
+                <div>
+                    <p>Olá,<span id="nomeUsuario"></span></p>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <a href="../../home/cadastro_users.html" id="btn_perfil">
+                    <i class="bi bi-person-fill"></i>
+                    <span>Perfil</span>
+                </a>
+            </div>
+            <div class="col-md-1">
+                <a href="#" id="btn_logout">
+                    <i class="bi bi-person-fill"></i>
+                    <span>Sair</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-menu"></nav>
+
+    <div class="container-fluid">
+
+
+        <div class="col-sm-12">
+            <!-- Actual search box -->
+            <div class="form-group has-search">
+                <span class="fa fa-search form-control-feedback"></span>
+                <input type="text" id="search" class="form-control" placeholder="Buscar">
+            </div>
+        </div>
+        <div class="table-responsive-sm">
+
+            <h2 class="form-title">Vagas Cadastradas</h2>
+
+            <table id="grid-vagas" class="table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Empresa</th>
+                        <th scope="col">Cargo</th>
+                        <th scope="col">Competência das Vagas</th>
+                        <th scope="col">Salário</th>
+                        <th scope="col">Site</th>
+                        <th scope="col">email</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="tbody-vagas">
+                    <tr>
+                        <td scope="row">1</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modal de Edição -->
+        <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editarModalLabel"><span id="descricaovaga"></span></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="row">
+                        <div id="msg" class="col-sm-12">
+                        </div>
+                    </div>
+                    <div class="modal-body" id="body-modal">
+
+                    </div>
+                    <div class="modal-footer" id="botao-rodape">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+        integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+    <!-- CRUD-->
+    <script src="../../administrador/vagas/javascript/crud_vagas.js"></script>
+    <script src="../../usuarios/interesses/javascript/interesses.js"></script>
+    <script src="../../usuarios/curriculo/javascript/cadastro_curricular.js"></script>
+    <script src="../../home/javascript/login.js"></script>
+
+    <script>
+        function init() {
+
+            // Verifica se o usuário já esta logado e se negativo, redireciona para tela de login        
+            if (!usuarioCorrente.login) {
+                window.location.href = LOGIN_URL;
+            }
+
+            // Associa ao evento de carga da página a função para verificar se o usuário está logado
+            window.addEventListener('load', init);
+
+            // Associa a função de logout ao botão
+            document.getElementById('btn_logout').addEventListener('click', logoutUser);
+
+            //cria barra de navegação
+            CriaNav();
+
+            //cria table
+            exibeVagas();
+
+            //barra de busca            
+            $("#search").keyup(pesquisaTabela());
+
+            //Exibe mensagens de retorno dos formulários
+            $('#msg').bind("DOMSubtreeModified", function () {
+                window.setTimeout(function () {
+                    $(".alert").fadeTo(500, 0).slideUp(500, function () {
+                        $(this).remove();
+                    });
+                }, 50000);
+            });
+
+            // Informa o nome do usuário logado
+            document.getElementById('nomeUsuario').innerHTML = usuarioCorrente.nome;
+
+        }
+
+        function exibeVagas() {
+            // Remove todas as linhas do corpo da tabela
+            $("#tbody-vagas").html("");
+
+            // Popula a tabela com os registros do banco de dados
+            for (i = 0; i < dbvagas.vagas.length; i++) {
+                let vaga = dbvagas.vagas[i];
+                $("#tbody-vagas").append(`<tr><td scope="row">${vaga.descricao}</td>
+                                                <td>${vaga.empresa}</td>
+                                                <td>${vaga.cargo}</td>
+                                                <td>${vaga.competenciadavaga}</td>
+                                                <td>${vaga.salario}</td>
+                                                <td>${vaga.website}</td>                                                
+                                                <td>${vaga.email}</td>
+                                                <td><a href="#" type="button" onclick = "javascript:preencherModalEdicao(${vaga.id})" title="visualizar" data-toggle="modal" data-target="#editarModal"><i class="bi bi-eye"></i></a></td>
+                                            </tr>`);
+            }
+        }
+
+        function CriaNav() {
+
+           
+
+            var navabar = ` <a class="navbar-brand" href="../index_usuario.html">Home<span class="sr-only">(current)</span></a>        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="../curriculo/curriculo.html">Curriculo</a>
+                </li>                
+                <li class="nav-item active dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdowvaga" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Vagas
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item active" href="vagas.html">Buscar vagas</a>
+                        <a class="dropdown-item" href="../interesses/interesses.html">Meus Interesses</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                        Notícias
+                     </a>
+                    <div class="dropdown-menu">
+                          <a class="dropdown-item" href="../noticias/noticias.html">Buscar Notícias</a>
+                          <a class="dropdown-item" href="../interesses/interessesNoticias.html">Meus Interesses</a>
+                    </div>
+                </li>               
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdowncurso" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Cursos
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="../cursos/cursos.html">Buscar Cursos</a>
+                        <a class="dropdown-item" href="../interesses/interessesCursos.html">Meus Interesses</a>
+                    </div>
+                </li>                
+            </ul>           
+        </div>`;
+
+            
+
+            
+            // Remove os elementos da div
+            $("#nav-menu").html("");
+            if (usuarioCorrente.perfil == 'comum') {
+                $("#nav-menu").append(`${navabar}`);
+            }
+        }
+
+        function pesquisaTabela() {
+            var filter, table, tr, td, i;
+            table = document.getElementById("grid-vagas");
+            return function () {
+                tr = table.querySelectorAll("tbody tr");
+                filter = this.value.toUpperCase();
+                for (i = 0; i < tr.length; i++) {
+                    var match = tr[i].innerHTML.toUpperCase().indexOf(filter) > -1;
+                    tr[i].style.display = match ? "table-row" : "none";
+                }
+            }
+        }
+
+
+        // Função para preencher o modal de edição com os dados do registro
+        function preencherModalEdicao(registroId) {
+            var registro = getVaga(registroId);
+
+            if (registro) {
+                // Informa o nome do usuário logado
+                document.getElementById('descricaovaga').innerHTML = registro.empresa + ' - ' + registro.descricao;
+                // Remove todas as linhas do corpo da tabela
+                $("#body-modal").html("");
+                $("#msg").html("");
+                // Criar um elemento de botão
+                var botao = document.createElement("button");
+                botao.textContent = "Tenho Interesse";
+                botao.className = "btn btn-outline-nolayoff";
+
+                // Associar o evento onclick ao botão
+                botao.onclick = function () {
+                    Tenhointeressevaga(registro.id); // Chamar a função desejada passando o parâmetro
+                };
+
+                // Adicionar o botão ao modal
+                $("#botao-rodape").html("");
+                var modalBody = document.querySelector("#botao-rodape");
+                modalBody.appendChild(botao);
+
+                // array com as competencias que o usuário possui com relação a vaga
+                let CompVagaXCompUser = getCompentenciasVagaUser(registro.id);
+                // array com as competencias que o usuário NÃO possui com relação a vaga
+                let FaltamCompVagaXCompUser = getPendenciasCompVagaUser(registro.id);
+
+                $("#body-modal").append(`<p class="card-text"><b>Sobre a Vaga: </b>${registro.sobreavaga}</p>
+                                <p class="card-text"><small class="text-muted"><b>Cargo: </b>${registro.cargo}</small></p>                               
+                                <p class="card-text"><small class="text-muted"><b>Competências da Vaga :</b> ${registro.competenciadavaga}</p>
+                                    ${Preparamensagem(CompVagaXCompUser, FaltamCompVagaXCompUser, registro.id)}`);
+
+
+
+
+            }
+
+
+        }
+
+        function Tenhointeressevaga(idvaga) {
+            insertInteresses(idvaga);
+            exibeVagas();
+            //fecharModal();
+        }
+
+        // Função para fechar o modal
+        function fecharModal() {
+            var modal = document.querySelector("#editarModal");
+            modal.classList.remove("show");
+            modal.style.display = "none";
+            document.body.classList.remove("modal-open");
+            var modalBackdrop = document.querySelector(".modal-backdrop");
+            modalBackdrop.parentNode.removeChild(modalBackdrop);
+        }
+
+        function Preparamensagem(CompVagaXCompUser, FaltamCompVagaXCompUser, idvaga) {
+
+            let numerocompetenciavaga = getCompentenciasVaga(idvaga);
+            numerocompetenciavaga = numerocompetenciavaga.length;
+            let numerocompetenciauser = CompVagaXCompUser.length;
+            let numerocompetenciauserfaltam = FaltamCompVagaXCompUser;
+            numerocompetenciauserfaltam = numerocompetenciauserfaltam.length;
+
+
+            let stringfaltam = FaltamCompVagaXCompUser.join(';');
+            let media = numerocompetenciavaga / 2;
+            var mensagem = ``;
+            var returnmensagem = new Array();
+
+            if (numerocompetenciauserfaltam > 1) {
+                if (numerocompetenciauserfaltam > media) {
+                    mensagem = ` <p class="card-text"><small class="text-muted"><b> Análise:</b> Estão faltando ${numerocompetenciauserfaltam} competencias para você : ${stringfaltam}</small>. Não parece uma boa oportunidade!</p>`;
+                    returnmensagem[0] = mensagem;
+                    returnmensagem['todas'] = 0;
+                }
+                else {
+                    mensagem = ` <p class="card-text"><small class="text-muted"><b> Análise:</b> Estão faltando ${numerocompetenciauserfaltam} competencias para você : ${stringfaltam} . Faltam poucas Competências para ter maior oportunidade!</small>. </p>`;
+                    returnmensagem[0] = mensagem;
+                    returnmensagem['todas'] = 0;
+                }
+            }
+            else {
+                mensagem = ` <p class="text-success font-weight-bolder"><small class="text-monospace"><b> Analise:</b> Você possui todas as competências, parece uma boa oportunidade</small>!</p>`;
+                returnmensagem[0] = mensagem;
+                returnmensagem['todas'] = 1;
+            }
+            return returnmensagem;
+        }
+
+    </script>
+</body>
 
 </html>

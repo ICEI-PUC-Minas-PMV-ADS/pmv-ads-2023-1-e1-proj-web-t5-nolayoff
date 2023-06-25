@@ -1,10 +1,291 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 
 <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <title>NOLAYOFF - NOTÍCIAS</title>
-    <link rel="stylesheet" href="css/style_global.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../templates/css/cadastros.css">
+    <link rel="stylesheet" href="../../templates/css/stylesheet.css">
+
+    <!-- Bootstrap Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- icones -->
+    <script src="https://kit.fontawesome.com/29a7b29429.js" crossorigin="anonymous"></script>
+
+    <title>Busca por Notícias</title>
 </head>
+
+<body onload="init()">
+    <header class="navigation">
+        <div class="row">
+            <div class="col-md-1">
+                <div>
+                    <img src="../../../images/logo.png" class="img" alt="logo" />
+                </div>
+            </div>
+            <div class="col-md-9 text-user">
+                <div>
+                    <p>Olá,<span id="nomeUsuario"></span></p>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <a href="../../home/cadastro_users.html" id="btn_perfil">
+                    <i class="bi bi-person-fill"></i>
+                    <span>Perfil</span>
+                </a>
+            </div>
+            <div class="col-md-1">
+                <a href="#" id="btn_logout">
+                    <i class="bi bi-person-fill"></i>
+                    <span>Sair</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-menu"></nav>
+
+    <div class="container-fluid">
+
+        <div class="col-sm-12">
+            <!-- Actual search box -->
+            <div class="form-group has-search">
+                <span class="fa fa-search form-control-feedback"></span>
+                <input type="text" id="search" class="form-control" placeholder="Buscar">
+            </div>
+        </div>
+
+        <div class="table-responsive-sm">
+
+            <h2 class="form-title">Notícias Cadastradas</h2>
+
+            <table id="grid-noticias" class="table-noticias">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Título</th>
+                        <th scope="col">Sintese</th>
+                        <th scope="col">Link</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody id="table-noticias">
+                    <tr>
+                        <td scope="row">1</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modal de Edição -->
+        <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editarModalLabel"><span id="descricaonoticia"></span></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="row">
+                        <div id="msg" class="col-sm-12">
+                        </div>
+                    </div>
+                    <div class="modal-body" id="body-modal">
+
+                    </div>
+                    <div class="modal-footer" id="botao-rodape">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+        integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+    <!-- CRUD-->
+    <script src="../../administrador/noticias/javascript/crud_noticias.js"></script>
+    <script src="../../usuarios/interesses/javascript/interesses.js"></script>
+    <script src="../../home/javascript/login.js"></script>
+
+    <script>
+        function init() {
+
+            // Verifica se o usuário já esta logado e se negativo, redireciona para tela de login        
+            if (!usuarioCorrente.login) {
+                window.location.href = LOGIN_URL;
+            }
+
+            // Associa ao evento de carga da página a função para verificar se o usuário está logado
+            window.addEventListener('load', init);
+
+            // Associa a função de logout ao botão
+            document.getElementById('btn_logout').addEventListener('click', logoutUser);
+
+            //cria barra de navegação
+            CriaNav();
+
+            //cria table
+            exibeNoticias();
+
+            //barra de busca            
+            $("#search").keyup(pesquisaTabela());
+
+            //Exibe mensagens de retorno dos formulários
+            $('#msg').bind("DOMSubtreeModified", function () {
+                window.setTimeout(function () {
+                    $(".alert").fadeTo(500, 0).slideUp(500, function () {
+                        $(this).remove();
+                    });
+                }, 50000);
+            });
+
+            // Informa o nome do usuário logado
+            document.getElementById('nomeUsuario').innerHTML = usuarioCorrente.nome;
+
+        }
+
+        function exibeNoticias() {
+            // Remove todas as linhas do corpo da tabela
+            $("#table-noticias").html("");
+
+            // Popula a tabela com os registros do banco de dados
+            for (i = 0; i < dbnoticias.noticias.length; i++) {
+                let noticia = dbnoticias.noticias[i];
+                $("#table-noticias").append(`<tr><td scope="row">${noticia.id}</td>
+                                        <td>${noticia.publicacao}</td>
+                                        <td>${noticia.titulo}</td>
+                                        <td>${noticia.sintese}</td>
+                                        <td>${noticia.link}</td>
+                                        <td><a href="#" type="button" onclick = "javascript:preencherModalEdicao(${noticia.id})" title="visualizar" data-toggle="modal" data-target="#editarModal"><i class="bi bi-eye"></i></a></td>
+                                    </tr>`);
+            }
+        }
+
+        function CriaNav() {
+
+            var navabar = ` <a class="navbar-brand" href="../index_usuario.html">Home</a>        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item  ">
+                    <a class="nav-link" href="../curriculo/curriculo.html">Curriculo</a>
+                </li>                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdowvaga" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Vagas</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="../vagas/vagas.html">Buscar vagas</a>
+                        <a class="dropdown-item" href="../interesses/interesses.html">Meus Interesses</a>
+                    </div>
+                </li>                
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Notícias</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item active" href="noticias.html">Buscar Notícias</a>
+                        <a class="dropdown-item" href="../interesses/interessesNoticias.html">Meus Interesses</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdowncurso" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cursos</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="../cursos/cursos.html">Buscar Cursos</a>
+                        <a class="dropdown-item" href="../interesses/interessesCursos.html">Meus Interesses</a>
+                    </div>
+                </li>
+                
+            </ul>           
+        </div>`;
+            // Remove os elementos da div
+            $("#nav-menu").html("");
+            if (usuarioCorrente.perfil == 'comum') {
+                $("#nav-menu").append(`${navabar}`);
+            }
+        }
+
+        function pesquisaTabela() {
+            var filter, table, tr, td, i;
+            table = document.getElementById("grid-noticias");
+            return function () {
+                tr = table.querySelectorAll("tbody tr");
+                filter = this.value.toUpperCase();
+                for (i = 0; i < tr.length; i++) {
+                    var match = tr[i].innerHTML.toUpperCase().indexOf(filter) > -1;
+                    tr[i].style.display = match ? "table-row" : "none";
+                }
+            }
+        }
+
+
+        // Função para preencher o modal de edição com os dados do registro
+        function preencherModalEdicao(registroId) {
+
+            var registro = getNoticia(registroId);
+
+            if (registro) {
+                
+                document.getElementById('descricaonoticia').innerHTML = registro.titulo + ' - ' + registro.publicacao;
+                // Remove todas as linhas do corpo da tabela
+                $("#body-modal").html("");
+                $("#msg").html("");
+                // Criar um elemento de botão
+                var botao = document.createElement("button");
+                botao.textContent = "Tenho Interesse";
+                botao.className = "btn btn-outline-nolayoff";
+
+                // Associar o evento onclick ao botão
+                botao.onclick = function () {
+                    TenhointeresseNoticia(registro.id); // Chamar a função desejada passando o parâmetro
+                };
+
+                // Adicionar o botão ao modal
+                $("#botao-rodape").html("");
+                var modalBody = document.querySelector("#botao-rodape");
+                modalBody.appendChild(botao);
+
+                $("#body-modal").append(`<p class="card-text"><b>sintese :</b> ${registro.sintese}</p>`);
+            }
+        }
+
+        function TenhointeresseNoticia(idnoticia) {
+            insertInteressesNoticia(idnoticia);
+            exibeNoticias();
+            //fecharModal();
+        }
+       
+
+    </script>
+</body>
 
 </html>

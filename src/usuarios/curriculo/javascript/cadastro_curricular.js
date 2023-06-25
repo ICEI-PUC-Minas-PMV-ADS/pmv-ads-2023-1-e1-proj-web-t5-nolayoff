@@ -1,114 +1,167 @@
-var data_atribuicao = {
-    "data": [
+var data_curriculo = {
+    "atribuicao": [
         {
             "id": 1,
+            "codusuario": 2,
             "empresa": "Lorem Ipsum",
-            "cargo": "Teste de Ipsum",
+            "cargo": "Desenvolvedor Full-Stack",
             "periodo": "2 anos",
-            "descricao": "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a "
+            "descricao": "Participação no desenvolvimento de um aplicativo de gerenciamento de tarefas usando React no front-end e Node.js no back-end. - Colaboração com uma equipe multidisciplinar para planejar e implementar recursos e melhorias no sistema. - Integração de APIs externas e implementação de testes concluídos para garantir a qualidade do software."
+        },
+        {
+            "id": 2,
+            "codusuario": 2,
+            "empresa": "Lorem Ipsum",
+            "cargo": "Desenvolvedor Full-Stack 2",
+            "periodo": "2 anos",
+            "descricao": "Participação no desenvolvimento de um aplicativo de gerenciamento de tarefas usando React no front-end e Node.js no back-end. - Colaboração com uma equipe multidisciplinar para planejar e implementar recursos e melhorias no sistema. - Integração de APIs externas e implementação de testes concluídos para garantir a qualidade do software."
         }
-    ]
-}
-
-var data_formacao = {
-    "data": [
+    ],
+    "formacao": [
         {
             "id": 1,
-            "escolaridade": "Cusando Superior",
+            "codusuario": 2,
+            "escolaridade": 2,
             "curso": "Teste de Lorem",
             "formado": "2016",
             "descricao": "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a "
         }
+    ],
+    "habilidades": [
+        {
+            "codusuario": 2,
+            "cargo": "Desenvolvedor Web",
+            "sobreusuario": "Full-Stack altamente motivado e apaixonado por criar soluções de software eficientes e escaláveis. Possuo experiência comprovada no desenvolvimento de aplicativos web e habilidades tanto no front-end quanto no back-end. Sou dedicado, autodidata e sempre em busca de aprimoramento contínuo.",
+            "competenciasuser": "Go;CSS;PHP;",
+        }
+
     ]
 }
 
-var db_atribuicao = JSON.parse(localStorage.getItem('db_curriculo_atribuicao'));
-if (!db_atribuicao) {
-    db_atribuicao = data_atribuicao
+//atualiza base de dados
+var db_curriculo = JSON.parse(localStorage.getItem('db_curriculo'));
+if (!db_curriculo) {
+    db_curriculo = data_curriculo
 };
 
-function insertAtributo(dados) {
-    let id = 1;
-    if (db_atribuicao.data.length != 0)
-        novoId = db.data[db.data.length - 1].id + 1;
+//mensagens 
+function displayMessageSucesso(msg) {
+    $('#msg').html('<div class="alert alert-success">' + msg + '</div>');
+}
+function displayMessageErro(msg) {
+    $('#msg').html('<div class="alert alert-danger">' + msg + '</div>');
+}
+
+
+function saveHabilidades(data) {
+
+    //pega o indice do registro na base de dados
+    let index = db_curriculo.habilidades.map(obj => obj.codusuario).indexOf(usuarioCorrente.codigo);
+   
+    //se existir o registro 
+    if(index >= 0){
+        db_curriculo.habilidades[index].sobreusuario = data.sobreuser;
+        db_curriculo.habilidades[index].cargo = data.cargo;
+        db_curriculo.habilidades[index].competenciasuser = data.competenciasuser;    
+        displayMessageSucesso("Habilidade Alterada com sucesso");
+        localStorage.setItem('db_curriculo', JSON.stringify(db_curriculo));
+    }else{//insere o registro
+        let habilidades = {        
+            "codusuario": usuarioCorrente.codigo,
+            "sobreusuario": data.sobreuser,
+            "cargo": data.cargo,
+            "competenciasuser": data.competenciasuser,        
+        };    
+        db_curriculo.habilidades.push(habilidades);
+        displayMessageSucesso("Habilidade Inserida com sucesso");    
+        localStorage.setItem('db_curriculo', JSON.stringify(db_curriculo));       
+    }  
+}
+
+
+function insertAtributos(dados) {   
+    
+    // Calcula novo Id a partir do último código existente no array (PODE GERAR ERRO SE A BASE ESTIVER VAZIA)
+    let novoId = 1;
+    if (db_curriculo.atribuicao.length != 0){
+        novoId = db_curriculo.atribuicao[db_curriculo.atribuicao.length - 1].id + 1;
+    } 
+     
     let novaAtribuicao = {
         "id": novoId,
+        "codusuario": usuarioCorrente.codigo,
         "empresa": dados.empresa,
         "cargo": dados.cargo,
         "periodo": dados.periodo,
         "descricao": dados.descricao
     };
-
-    db_atribuicao.data.push(novaAtribuicao);
-    displayMessage("Inserida com sucesso");
-
-    localStorage.setItem('db_curriculo_atribuicao', JSON.stringify(db_atribuicao));
+    db_curriculo.atribuicao.push(novaAtribuicao);
+    displayMessageSucesso(" Atribuição Inserida com sucesso");
+    localStorage.setItem('db_curriculo', JSON.stringify(db_curriculo));
 }
 
 function updateAtributo(id, data) {
-    let index = db_atribuicao.data.map(obj => obj.id).indexOf(id);
 
-    db_atribuicao.data[index].empresa = data.empresa,
-    db_atribuicao.data[index].cargo = data.cargo,
-    db_atribuicao.data[index].periodo = data.periodo,
-    db_atribuicao.data[index].descricao = data.descricao
+     // Localiza o indice do objeto a ser alterado no array a partir do seu ID
+     let index = dbvagas.vagas.map(obj => obj.id).indexOf(id);  
 
-    displayMessage("Alterada com sucesso");
+    db_curriculo.atribuicao[index].codusuario = usuarioCorrente.codigo,
+    db_curriculo.atribuicao[index].empresa = data.empresa,
+    db_curriculo.atribuicao[index].cargo = data.cargo,
+    db_curriculo.atribuicao[index].periodo = data.periodo,
+    db_curriculo.atribuicao[index].descricao = data.descricao
 
-    localStorage.setItem('db_curriculo_atribuicao', JSON.stringify(db_atribuicao));
+    displayMessageSucesso("Alterada com sucesso");
+
+    localStorage.setItem('db_curriculo', JSON.stringify(db_curriculo));
 }
 
 function deleteAtributo(id) {
-    db_atribuicao.data = db_atribuicao.data.filter(function (element) { return element.id != id });
+    db_curriculo.atribuicao = db_curriculo.atribuicao.filter(function (element) { return element.id != id });
 
-    displayMessage("Deletado com sucesso");
+    displayMessageSucesso("Deletado com sucesso");
 
-    localStorage.setItem('db_curriculo_atribuicao', JSON.stringify(db_atribuicao));
+    localStorage.setItem('db_curriculo', JSON.stringify(db_curriculo));
 }
 
-var db_formacao = JSON.parse(localStorage.getItem('db_curriculo_formacao'));
-if (!db_formacao) {
-    db_formacao = data_formacao
-};
+// FORMAÇÃO
 
 function insertFormacao(dados) {
     let id = 1;
-    if (db_formacao.data.length != 0)
-        novoId = db_formacao.data[db_formacao.data.length - 1].id + 1;
+    if (db_curriculo.formacao.length != 0)
+        novoId = db_curriculo.formacao[db_curriculo.formacao.length - 1].id + 1;
+
     let formacao = {
         "id": novoId,
-        "escolaridade": dados.Escolaridade,
+        "codusuario": usuarioCorrente.codigo,
+        "escolaridade": dados.escolaridade,
         "curso": dados.curso,
         "formado": dados.formado,
         "descricao": dados.descricao
     };
 
-    db_formacao.data.push(formacao);
-    displayMessage("Inserida com sucesso");
+    db_curriculo.formacao.push(formacao);
+    displayMessageSucesso("Formação Inserida com sucesso");
 
-    localStorage.setItem('db_curriculo_formacao', JSON.stringify(db_formacao));
+    localStorage.setItem('db_curriculo', JSON.stringify(db_curriculo));
 }
 
 function updateFormacao(id, data) {
-    let index = db_formacao.data.map(obj => obj.id).indexOf(id);
+    let index = db_curriculo.formacao.map(obj => obj.id).indexOf(id);
 
-    db_formacao.data[index].escolaridade = data.escolaridade,
-    db_formacao.data[index].curso = data.curso,
-    db_formacao.data[index].formado = data.formado,
-    db_formacao.data[index].descricao = data.descricao
+    db_curriculo.formacao[index].escolaridade = data.escolaridade,
+        db_curriculo.formacao[index].curso = data.curso,
+        db_curriculo.formacao[index].formado = data.formado,
+        db_curriculo.formacao[index].descricao = data.descricao
 
-    displayMessage("Alterada com sucesso");
-    localStorage.setItem('db_curriculo_formacao', JSON.stringify(db_formacao));
+    displayMessageSucesso("Alterada com sucesso");
+    localStorage.setItem('db_curriculo', JSON.stringify(db_curriculo));
 }
 
 function deleteFormacao(id) {
-    db_formacao.data = db_formacao.data.filter(function (element) { return element.id != id });
-    displayMessage("Deletado com sucesso");
-    localStorage.setItem('db_curriculo_formacao', JSON.stringify(db_formacao));
-}
-
-function displayMessage(msg) {
-    $('#msg').html('<div class="alert alert-warning">' + msg + '</div>');
+    db_curriculo.formacao = db_curriculo.formacao.filter(function (element) { return element.id != id });
+    displayMessageSucesso("Formação Deletada com sucesso");
+    localStorage.setItem('db_curriculo', JSON.stringify(db_curriculo));
 }
 
 var TipoEscolaridade = {
@@ -131,3 +184,63 @@ var TipoEscolaridade = {
         },
     ]
 }
+
+
+
+// Função para obter um valor com base no código de usuário e código de atribuição
+function getAtribuicaoUser(codigoAtribuicao) {
+    for (var i = 0; i < db_curriculo.atribuicao.length; i++) {
+        var atribuicao = db_curriculo.atribuicao[i];
+        if (atribuicao.codusuario === usuarioCorrente.codigo) {
+            if (atribuicao.id === codigoAtribuicao) {
+                return atribuicao; // Retorna o valor desejado
+            }
+            else {
+                continue;
+            }
+        }
+        else {
+            continue;
+        }
+    }
+}
+// Função para obter vários valores com base no código de usuário e código de atribuição
+function getAtribuicoesUsuario() {
+    var registrosUsuario = [];
+    for (var i = 0; i < db_curriculo.atribuicao.length; i++) {
+        var registro = db_curriculo.atribuicao[i];
+        if (registro.codusuario === usuarioCorrente.codigo) {
+            registrosUsuario.push(registro);
+        }
+    }
+    return registrosUsuario;
+}
+
+function obterFormacoesUsuario(usuario) {
+    var registrosUsuario = [];
+    for (var i = 0; i < db_curriculo.formacao.length; i++) {
+        var registro = db_curriculo.formacao[i];
+        if (registro.codusuario === usuario) {
+            registrosUsuario.push(registro);
+        }
+    }
+    return registrosUsuario;
+}
+
+function getFormacaoUser(codigoFormacao) {
+    for (var i = 0; i < db_curriculo.formacao.length; i++) {
+        var formacao = db_curriculo.formacao[i];
+        if (formacao.codusuario === usuarioCorrente.codigo) {
+            if (formacao.id === codigoFormacao) {
+                return formacao; // Retorna o valor desejado
+            }
+            else {
+                continue;
+            }
+        }
+        else {
+            continue;
+        }
+    }
+}
+
