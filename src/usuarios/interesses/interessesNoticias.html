@@ -127,13 +127,10 @@
 
             paginatedData.forEach(function (card) {
                 if(card.idusuario == usuarioCorrente.codigo){
-                    console.log(card);
-
                     let noticia = getNoticia(card.codigonoticia);
-
-                var cardItem = document.createElement("div");
-                cardItem.className = "col-md-4 mb-4";
-                var cardHtml = `<div class="card">
+                    var cardItem = document.createElement("div");
+                        cardItem.className = "col-md-4 mb-4";
+                    var cardHtml = `<div class="card">
                                             <div class="card-body">
                                                 <h5 class="card-title">${noticia.titulo}</h5>
                                                 <h6 class="card-subtitle mb-2 text-muted">${noticia.publicacao}</h6>
