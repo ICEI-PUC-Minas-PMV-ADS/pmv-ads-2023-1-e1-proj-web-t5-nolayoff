@@ -55,7 +55,7 @@ Por outro lado, conforme publicado no site G1 do grupo Globo, sobram-se vagas no
 
 # Armazenamento do Código-Fonte
 
-* <a href="src/README.md">Código Fonte</a>
+* <a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t5-nolayoff/tree/main/src">Código Fonte</a>
 
 # Armazenamento da Apresentação
 
