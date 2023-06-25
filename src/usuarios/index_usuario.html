@@ -333,7 +333,7 @@
                                 <p class="card-text">${card.sintese}</p>
                                 <p class="card-text"><small class="text-muted">${card.publicacao}</small></p>
                                 <p class="card-text"><small class="text-muted">Fonte : ${card.fonte}</small></p>
-                                <button class="btn btn-outline-nolayoff my-2 my-sm-0 btn-lilas btn-interesse" data-id="${card.id}">Tenho interesse</button>
+                                <button class="btn btn-outline-nolayoff " onclick = "javascript:Tenhointeressenoticias(${card.id})" data-id="${card.id}">Tenho interesse</button>
                         </div>
                     </div>`;
 
@@ -392,7 +392,7 @@
                             <h5 class="card-title"><i class="bi bi-rocket-takeoff-fill"></i> ${card.descricao}</h5>
                             <p class="card-text">${card.observacao}</p>
                             <p class="card-text"><small class="text-muted">${card.duracao}</small></p>                                
-                            <button class="btn btn-outline-nolayoff my-2 my-sm-0 btn-lilas btn-interesse" data-id="${card.id}">Tenho interesse</button>
+                            <button class="btn btn-outline-nolayoff " onclick = "javascript:Tenhointeressecurso(${card.id})" data-id="${card.id}">Tenho interesse</button>
                         </div>
                 </div>`;
 

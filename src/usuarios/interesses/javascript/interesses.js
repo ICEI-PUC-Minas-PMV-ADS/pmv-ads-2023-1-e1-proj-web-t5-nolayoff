@@ -192,7 +192,7 @@ function getNoticiaInteresseUser(codigoNoticia) {
 
 function getCursoInteresseUser(codigoCurso) {
     for (var i = 0; i < dbinteresses.interessescursos.length; i++) {
-        var iteressecurso = dbinteresses.interessesnoticias[i];
+        var iteressecurso = dbinteresses.interessescursos[i];
         if (iteressecurso.idusuario === usuarioCorrente.codigo) {
             if (iteressecurso.codigocurso === codigoCurso) {
                 return iteressecurso; // Retorna o valor desejado

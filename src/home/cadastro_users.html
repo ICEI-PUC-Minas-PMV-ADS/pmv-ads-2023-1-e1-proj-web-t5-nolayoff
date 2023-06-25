@@ -96,17 +96,17 @@
             <div class="form-group row">
                 <div class="col-sm-6">
                     <label for="inputCidade">Logradouro/Nome</label>
-                    <input type="text" class="form-control" id="inputCidade" disabled>
+                    <input type="text" class="form-control" id="inputrua" disabled>
                 </div>
                 <div class="col-sm-6">
                     <label for="inputCidade">Bairro/Distrito</label>
-                    <input type="text" class="form-control" id="inputCidade" disabled>
+                    <input type="text" class="form-control" id="bairro" disabled>
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-sm-6">
                     <label for="inputCidade">Localidade/UF</label>
-                    <input type="text" class="form-control" id="inputCidade" disabled>
+                    <input type="text" class="form-control" id="inputcidade" disabled>
                 </div>
                 <div class="col-sm-3">
                     <label for="inputId">CEP</label>
@@ -201,6 +201,16 @@
 
             CriaNav();
 
+            //popula o form
+            $("#inputNome").val(usuarioCorrente.nome);
+            $("#inputPerfil").val(usuarioCorrente.perfil);
+            $("#inputTelefone").val('98858-8558');
+            $("#inputEmail").val(usuarioCorrente.email);
+            $("#inputrua").val('rua teste');
+            $("#bairro").val('Bairro teste');
+            $("#inputcidade").val('cidade teste');
+            $("#inputId").val('teste');
+
         }
         function CriaNav() {
 
@@ -268,9 +278,4 @@
         }
     </script>
 </body>
-
-<footer>
-
-</footer>
-
 </html>
