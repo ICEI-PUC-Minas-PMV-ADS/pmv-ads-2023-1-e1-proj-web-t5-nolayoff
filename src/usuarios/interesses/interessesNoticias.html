@@ -82,7 +82,7 @@
         integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
         crossorigin="anonymous"></script>
 
-    <script src="/src/administrador/noticias/javascript/crud_noticias.js"></script>
+    <script src="../../administrador/cursos/javascript/crud_cursos.js"></script>
     <script src="javascript/interesses.js"></script>
     <script src="../../home/javascript/login.js"></script>
 
@@ -127,12 +127,10 @@
 
             paginatedData.forEach(function (card) {
                 if(card.idusuario == usuarioCorrente.codigo){
-
                     let noticia = getNoticia(card.codigonoticia);
-
-                var cardItem = document.createElement("div");
-                cardItem.className = "col-md-4 mb-4";
-                var cardHtml = `<div class="card">
+                    var cardItem = document.createElement("div");
+                        cardItem.className = "col-md-4 mb-4";
+                    var cardHtml = `<div class="card">
                                             <div class="card-body">
                                                 <h5 class="card-title">${noticia.titulo}</h5>
                                                 <h6 class="card-subtitle mb-2 text-muted">${noticia.publicacao}</h6>
