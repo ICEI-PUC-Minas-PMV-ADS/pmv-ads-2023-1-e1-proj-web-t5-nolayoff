@@ -25,7 +25,7 @@ var db_vagas_inicial = {
             "tempo": "Integral",
             "cargo": "Desenvolvedor Full stack",
             "nivel": "Pleno",
-            "competenciadavaga": "LIMS;JSF (JavaServer Faces);Hibernate;Engenharia de controle e automação;Desenvolvimento de soluções;Desenvolvimento de sistemas;Controle de produção;Banco de dados Oracle;Aplicações industriais;",
+            "competenciadavaga": "LIMS;JSF (JavaServer Faces);Hibernate;Engenharia de controle e automação;Desenvolvimento de soluções;Desenvolvimento de sistemas;Controle de produção;Banco de dados Oracle;Aplicações industriais",
             "salario": "7500,00",
             "email": "siemens@siemens.email.com",
             "telefone": "31-322-736-8031",
@@ -85,7 +85,7 @@ var db_vagas_inicial = {
             "tempo": "Integral",
             "cargo": "Analista de Sistemas",
             "nivel": "Pleno",
-            "competenciadavaga": "Experiência em análise de requisitos; Modelagem de dados;linguagens de programação",
+            "competenciadavaga": "Experiência em Análise de requisitos;Modelagem de dados;Linguagens de programação",
             "salario": "R$ 7.000,00",
             "email": "contato@empresaB.com",
             "telefone": "(11) 9876-5432",
@@ -100,7 +100,7 @@ var db_vagas_inicial = {
             "tempo": "Integral",
             "cargo": "Programador Frontend",
             "nivel": "Pleno",
-            "competenciadavaga": "HTML;CSS;JavaScript;frameworks de frontend",
+            "competenciadavaga": "HTML;CSS;JavaScript;Frameworks de frontend",
             "salario": "R$ 6.000,00",
             "email": "contato@empresaC.com",
             "telefone": "(11) 2345-6789",
@@ -115,7 +115,7 @@ var db_vagas_inicial = {
             "tempo": "Integral",
             "cargo": "Analista de Dados",
             "nivel": "Sênior",
-            "competenciadavaga": "Experiência em análise de dados;estatística;",
+            "competenciadavaga": "Experiência em Análise de dados;estatística",
             "salario": "R$ 8.000,00",
             "email": "contato@empresaD.com",
             "telefone": "(11) 8765-4321",
@@ -130,7 +130,7 @@ var db_vagas_inicial = {
             "tempo": "Integral",
             "cargo": "Desenvolvedor Mobile",
             "nivel": "Júnior",
-            "competenciadavaga": "desenvolvimento de aplicativos móveis;react;Node.js",
+            "competenciadavaga": "Desenvolvimento de aplicativos móveis;React;Node.js",
             "salario": "R$ 4.500,00",
             "email": "contato@empresaE.com",
             "telefone": "(11) 5432-1098",
@@ -145,7 +145,7 @@ var db_vagas_inicial = {
             "tempo": "Integral",
             "cargo": "Engenheiro de Software",
             "nivel": "Pleno",
-            "competenciadavaga": "desenvolvimento de sistemas;PHP;Javascript;",
+            "competenciadavaga": "Desenvolvimento de sistemas;PHP;Javascript",
             "salario": "R$ 7.500,00",
             "email": "contato@empresaF.com",
             "telefone": "(11) 6789-5432",
@@ -160,7 +160,7 @@ var db_vagas_inicial = {
             "tempo": "Integral",
             "cargo": "Desenvolvedor PHP",
             "nivel": "Pleno",
-            "competenciadavaga": "PHP;frameworks MVC;bancos de dados",
+            "competenciadavaga": "PHP;Frameworks MVC;Bancos de dados",
             "salario": "R$ 6.000,00",
             "email": "contato@empresaG.com",
             "telefone": "(11) 2345-9876",
@@ -175,7 +175,7 @@ var db_vagas_inicial = {
             "tempo": "Integral",
             "cargo": "Analista de Segurança da Informação",
             "nivel": "Sênior",
-            "competenciadavaga": "Testes de invasão;Avaliação de riscos;",
+            "competenciadavaga": "Testes de invasão;Avaliação de riscos",
             "salario": "R$ 9.000,00",
             "email": "contato@empresaH.com",
             "telefone": "(11) 7654-3210",
@@ -190,7 +190,7 @@ var db_vagas_inicial = {
             "tempo": "Integral",
             "cargo": "Programador Java",
             "nivel": "Pleno",
-            "competenciadavaga": "Java;Spring;bancos de dados;SQL.",
+            "competenciadavaga": "Java;Spring;Bancos de dados;SQL",
             "salario": "R$ 6.500,00",
             "email": "contato@empresaI.com",
             "telefone": "(11) 5432-1098",
@@ -205,7 +205,7 @@ var db_vagas_inicial = {
             "tempo": "Integral",
             "cargo": "Designer UX/UI",
             "nivel": "Júnior",
-            "competenciadavaga": "design de interfaces;ferramentas de prototipagem;usabilidade.",
+            "competenciadavaga": "Conhecimento em design de interfaces;Ferramentas de prototipagem;Usabilidade",
             "salario": "R$ 4.500,00",
             "email": "contato@empresaJ.com",
             "telefone": "(11) 9876-5432",
@@ -254,7 +254,7 @@ var AuxCompetencias = {
         },
         {
             "id": "10",
-            "descricao": "html",
+            "descricao": "HTML",
         },
         {
             "id": "11",
@@ -391,11 +391,7 @@ var AuxCompetencias = {
         {
             "id": "45",
             "descricao": "JSF (JavaServer Faces)",
-        },
-        {
-            "id": "46",
-            "descricao": "Hibernate",
-        },
+        },       
         {
             "id": "47",
             "descricao": "Engenharia de controle e automação",
@@ -442,7 +438,7 @@ var AuxCompetencias = {
         },
         {
             "id": 58,
-            "descricao": "Estatística"
+            "descricao": "estatística"
         },
         {
             "id": 59,
@@ -485,6 +481,14 @@ var AuxCompetencias = {
         {
             "id": 68,
             "descricao": "Usabilidade"
+        },
+        {
+            "id": 69,
+            "descricao": "Experiência em análise de dados"
+        },
+        {
+            "id": 70,
+            "descricao": "Bancos de dados"
         }
 
     ]
